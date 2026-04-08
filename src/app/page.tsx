@@ -7,9 +7,11 @@ import { PRODUCTS } from '@/data/products';
 import { formatCurrency } from '@/lib/utils';
 import { staggerContainer, fadeInUp, scaleIn } from '@/lib/utils';
 import { ArrowRight, Code, Globe, Zap, Shield, Users, Star } from 'lucide-react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
+  const router = useRouter();
+  
   const categories = [
     { id: 'landing-page', name: 'Landing Pages', icon: Globe, description: 'Convert visitors into customers' },
     { id: 'saas-tool', name: 'SaaS Tools', icon: Zap, description: 'Full-featured applications' },
@@ -20,8 +22,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10" />
-      <div className="absolute top-0 left-0 w-full h-full">
+      <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-green-500/20 rounded-full blur-xl animate-pulse" />
         <div className="absolute bottom-20 right-20 w-48 h-48 bg-purple-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '4s' }} />
@@ -181,12 +183,13 @@ export default function HomePage() {
                 </CardContent>
                 
                 <CardFooter>
-                  <Link href={`/product/${product.id}`} className="w-full">
-                    <Button className="w-full group-hover:glow-primary">
-                      Customize & Order
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
+                  <Button 
+                    className="w-full group-hover:glow-primary cursor-pointer" 
+                    onClick={() => router.push(`/product/${product.id}`)}
+                  >
+                    Customize & Order
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
                 </CardFooter>
               </Card>
             </motion.div>

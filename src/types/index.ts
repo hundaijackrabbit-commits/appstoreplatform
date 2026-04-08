@@ -6,31 +6,22 @@ export interface Product {
   category: ProductCategory;
   buildTime: BuildTime;
   features: string[];
-  customizationOptions: CustomizationGroup[];
+  addons: Addon[];
   previewImage: string;
   techStack: string[];
 }
 
-export interface CustomizationGroup {
+export interface Addon {
   id: string;
   name: string;
   description?: string;
-  options: CustomizationOption[];
-  required: boolean;
-  multiple?: boolean;
-}
-
-export interface CustomizationOption {
-  id: string;
-  name: string;
-  description?: string;
-  priceModifier: number; // Can be positive or negative
+  price: number;
   icon?: string;
 }
 
 export interface ProductConfiguration {
   productId: string;
-  customizations: Record<string, string | string[]>;
+  selectedAddons: string[];
   totalPrice: number;
 }
 
@@ -63,11 +54,12 @@ export type BuildTime = {
 };
 
 export type OrderStatus = 
-  | 'queued'
+  | 'pending'
+  | 'reviewing'
+  | 'approved_to_build'
   | 'building'
-  | 'optimizing'
   | 'finalizing'
-  | 'ready'
+  | 'ready_for_delivery'
   | 'delivered';
 
 export const BUILD_TIMES: Record<ProductCategory, BuildTime> = {
