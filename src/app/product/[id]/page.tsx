@@ -6,18 +6,17 @@ import { useParams, useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { getProductById, calculatePrice } from '@/data/products';
-import { createOrder, saveOrder, startOrderSimulation } from '@/lib/orders';
+import { createOrder, saveOrder } from '@/lib/orders';
 import { formatCurrency } from '@/lib/utils';
 import { fadeInUp, scaleIn } from '@/lib/utils';
-import { ArrowLeft, Clock, Code, Check, ShoppingCart, Zap } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowLeft, Clock, Code, Check, ShoppingCart, Zap, Plus } from 'lucide-react';
 import type { Product, ProductConfiguration } from '@/types';
 
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
   const [product, setProduct] = useState<Product | null>(null);
-  const [customizations, setCustomizations] = useState<Record<string, string | string[]>>({});
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isOrdering, setIsOrdering] = useState(false);
 
@@ -26,42 +25,23 @@ export default function ProductDetailPage() {
       const foundProduct = getProductById(params.id as string);
       if (foundProduct) {
         setProduct(foundProduct);
-        
-        // Initialize with required options
-        const initialCustomizations: Record<string, string | string[]> = {};
-        foundProduct.customizationOptions.forEach(group => {
-          if (group.required && group.options.length > 0) {
-            if (group.multiple) {
-              initialCustomizations[group.id] = [group.options[0].id];
-            } else {
-              initialCustomizations[group.id] = group.options[0].id;
-            }
-          }
-        });
-        setCustomizations(initialCustomizations);
-        setTotalPrice(calculatePrice(foundProduct, initialCustomizations));
+        setTotalPrice(foundProduct.basePrice);
       }
     }
   }, [params.id]);
 
   useEffect(() => {
     if (product) {
-      setTotalPrice(calculatePrice(product, customizations));
+      setTotalPrice(calculatePrice(product, selectedAddons));
     }
-  }, [product, customizations]);
+  }, [product, selectedAddons]);
 
-  const handleCustomizationChange = (groupId: string, optionId: string, isMultiple: boolean) => {
-    setCustomizations(prev => {
-      if (isMultiple) {
-        const currentValues = Array.isArray(prev[groupId]) ? prev[groupId] as string[] : [];
-        const newValues = currentValues.includes(optionId)
-          ? currentValues.filter(id => id !== optionId)
-          : [...currentValues, optionId];
-        return { ...prev, [groupId]: newValues };
-      } else {
-        return { ...prev, [groupId]: optionId };
-      }
-    });
+  const handleAddonToggle = (addonId: string) => {
+    setSelectedAddons(prev => 
+      prev.includes(addonId)
+        ? prev.filter(id => id !== addonId)
+        : [...prev, addonId]
+    );
   };
 
   const handleOrder = async () => {
@@ -71,34 +51,30 @@ export default function ProductDetailPage() {
     
     const productConfiguration: ProductConfiguration = {
       productId: product.id,
-      customizations,
+      selectedAddons,
       totalPrice
     };
 
     const order = createOrder(productConfiguration);
     saveOrder(order);
     
-    // Start build simulation
-    startOrderSimulation(order.id);
-    
-    // Simulate order processing
+    // Simulate order processing delay
     setTimeout(() => {
       setIsOrdering(false);
       router.push(`/order-status/${order.id}`);
-    }, 2000);
+    }, 1500);
   };
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
+      <div className="min-h-screen flex items-center justify-center relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10 pointer-events-none" />
+        <div className="relative z-10 text-center">
           <h1 className="text-2xl font-bold text-white mb-4">Product Not Found</h1>
-          <Link href="/">
-            <Button variant="outline">
-              <ArrowLeft className="mr-2 w-4 h-4" />
-              Back to Home
-            </Button>
-          </Link>
+          <Button variant="outline" onClick={() => router.push('/')}>
+            <ArrowLeft className="mr-2 w-4 h-4" />
+            Back to Home
+          </Button>
         </div>
       </div>
     );
@@ -107,17 +83,15 @@ export default function ProductDetailPage() {
   return (
     <div className="min-h-screen relative">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10 pointer-events-none" />
 
       {/* Navigation */}
       <nav className="relative z-10 p-6">
         <div className="max-w-7xl mx-auto">
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 w-4 h-4" />
-              Back to Products
-            </Button>
-          </Link>
+          <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
+            <ArrowLeft className="mr-2 w-4 h-4" />
+            Back to Products
+          </Button>
         </div>
       </nav>
 
@@ -170,14 +144,14 @@ export default function ProductDetailPage() {
                 <h3 className="text-lg font-semibold text-white">Your Build Process</h3>
               </div>
               <p className="text-gray-300 text-sm">
-                Once you place your order, your project enters our build queue. 
-                Our developers will craft your application using the customizations you select below. 
-                You'll receive updates throughout the process and can track progress in real-time.
+                Once you place your order, it enters our review queue. 
+                We'll evaluate your requirements and provide updates on the build timeline. 
+                You can safely leave this page - we'll keep track of your order status.
               </p>
             </motion.div>
           </motion.div>
 
-          {/* Customization Panel */}
+          {/* Pricing Panel */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -189,103 +163,128 @@ export default function ProductDetailPage() {
                   Customize Your {product.name}
                 </CardTitle>
                 <CardDescription className="text-center">
-                  Choose your preferences below to build your perfect application
+                  Start with the base product and add optional features
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="space-y-6">
-                {product.customizationOptions.map((group) => (
-                  <motion.div
-                    key={group.id}
-                    variants={fadeInUp}
-                    className="space-y-3"
-                  >
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-white">
-                        {group.name}
-                        {group.required && <span className="text-red-400 ml-1">*</span>}
-                      </h4>
-                      {group.description && (
-                        <span className="text-xs text-gray-400">{group.description}</span>
-                      )}
+                {/* Base Price */}
+                <div className="border-b border-gray-600 pb-4">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="font-semibold text-white">Base Product</h4>
+                      <p className="text-sm text-gray-400">All core features included</p>
                     </div>
+                    <span className="text-green-400 font-bold text-lg">
+                      {formatCurrency(product.basePrice)}
+                    </span>
+                  </div>
+                </div>
 
-                    <div className="space-y-2">
-                      {group.options.map((option) => {
-                        const isSelected = group.multiple
-                          ? (customizations[group.id] as string[])?.includes(option.id)
-                          : customizations[group.id] === option.id;
-
-                        return (
-                          <motion.div
-                            key={option.id}
-                            whileHover={{ scale: 1.02 }}
-                            className={`
-                              p-3 rounded-lg border cursor-pointer transition-all duration-200
-                              ${isSelected 
-                                ? 'border-green-400 bg-green-500/10 glow-primary' 
-                                : 'border-gray-600 bg-gray-800/50 hover:border-gray-500'
-                              }
-                            `}
-                            onClick={() => handleCustomizationChange(group.id, option.id, group.multiple || false)}
-                          >
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <div className="flex items-center space-x-2">
-                                  <span className={`font-medium ${isSelected ? 'text-green-400' : 'text-white'}`}>
-                                    {option.name}
-                                  </span>
-                                  {option.priceModifier !== 0 && (
-                                    <span className={`text-sm ${option.priceModifier > 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                      {option.priceModifier > 0 ? '+' : ''}{formatCurrency(option.priceModifier)}
-                                    </span>
-                                  )}
-                                </div>
-                                {option.description && (
-                                  <p className="text-xs text-gray-400 mt-1">{option.description}</p>
+                {/* Add-ons */}
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-white">Optional Add-ons</h4>
+                  
+                  {product.addons.map((addon) => {
+                    const isSelected = selectedAddons.includes(addon.id);
+                    
+                    return (
+                      <motion.div
+                        key={addon.id}
+                        whileHover={{ scale: 1.02 }}
+                        className={`
+                          p-4 rounded-lg border cursor-pointer transition-all duration-200
+                          ${isSelected 
+                            ? 'border-green-400 bg-green-500/10 glow-primary' 
+                            : 'border-gray-600 bg-gray-800/50 hover:border-gray-500'
+                          }
+                        `}
+                        onClick={() => handleAddonToggle(addon.id)}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-3">
+                              <div className={`
+                                w-5 h-5 rounded border-2 flex items-center justify-center
+                                ${isSelected 
+                                  ? 'border-green-400 bg-green-400' 
+                                  : 'border-gray-400'
+                                }
+                              `}>
+                                {isSelected && (
+                                  <Check className="w-3 h-3 text-white" />
                                 )}
                               </div>
-                              {isSelected && (
-                                <Check className="w-5 h-5 text-green-400 flex-shrink-0" />
-                              )}
+                              <div>
+                                <span className={`font-medium ${isSelected ? 'text-green-400' : 'text-white'}`}>
+                                  {addon.name}
+                                </span>
+                                <span className="text-green-400 font-medium ml-2">
+                                  +{formatCurrency(addon.price)}
+                                </span>
+                              </div>
                             </div>
-                          </motion.div>
+                            {addon.description && (
+                              <p className="text-xs text-gray-400 mt-1 ml-8">{addon.description}</p>
+                            )}
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* Price Summary */}
+                <div className="border-t border-gray-600 pt-6 space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-400">Base Price:</span>
+                    <span className="text-white">{formatCurrency(product.basePrice)}</span>
+                  </div>
+                  
+                  {selectedAddons.length > 0 && (
+                    <div className="space-y-2">
+                      {selectedAddons.map(addonId => {
+                        const addon = product.addons.find(a => a.id === addonId);
+                        if (!addon) return null;
+                        return (
+                          <div key={addonId} className="flex justify-between text-sm">
+                            <span className="text-gray-400">+ {addon.name}:</span>
+                            <span className="text-green-400">+{formatCurrency(addon.price)}</span>
+                          </div>
                         );
                       })}
                     </div>
-                  </motion.div>
-                ))}
-
-                {/* Price Summary */}
-                <div className="border-t border-gray-600 pt-6">
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-lg font-semibold text-white">Total Price</span>
+                  )}
+                  
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-600">
+                    <span className="text-lg font-semibold text-white">Total Price:</span>
                     <span className="text-2xl font-bold text-green-400">
                       {formatCurrency(totalPrice)}
                     </span>
                   </div>
-
-                  <Button 
-                    className="w-full text-lg py-4"
-                    size="lg"
-                    onClick={handleOrder}
-                    isLoading={isOrdering}
-                    disabled={isOrdering}
-                  >
-                    {isOrdering ? (
-                      'Processing Order...'
-                    ) : (
-                      <>
-                        <ShoppingCart className="mr-2 w-5 h-5" />
-                        Order Now - {formatCurrency(totalPrice)}
-                      </>
-                    )}
-                  </Button>
-                  
-                  <p className="text-center text-xs text-gray-400 mt-3">
-                    Your project will enter the build queue immediately after payment
-                  </p>
                 </div>
+
+                {/* Order Button */}
+                <Button 
+                  className="w-full text-lg py-4"
+                  size="lg"
+                  onClick={handleOrder}
+                  isLoading={isOrdering}
+                  disabled={isOrdering}
+                >
+                  {isOrdering ? (
+                    'Creating Order...'
+                  ) : (
+                    <>
+                      <ShoppingCart className="mr-2 w-5 h-5" />
+                      Order Now - {formatCurrency(totalPrice)}
+                    </>
+                  )}
+                </Button>
+                
+                <p className="text-center text-xs text-gray-400 mt-3">
+                  Your project will be reviewed and entered into our build queue
+                </p>
               </CardContent>
             </Card>
           </motion.div>

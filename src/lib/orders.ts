@@ -13,18 +13,17 @@ export const createOrder = (productConfiguration: ProductConfiguration): Order =
     throw new Error('Product not found');
   }
 
-  const buildTime = BUILD_TIMES[product.category];
-  const estimatedHours = Math.floor(Math.random() * (buildTime.max - buildTime.min + 1)) + buildTime.min;
-  const estimatedCompletionAt = new Date(Date.now() + estimatedHours * 60 * 60 * 1000);
+  // Set estimated completion to 24 hours from now (placeholder)
+  const estimatedCompletionAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
   const order: Order = {
     id: generateOrderId(),
     productConfiguration,
-    status: 'queued',
+    status: 'pending', // Start as pending, not queued
     createdAt: new Date(),
     estimatedCompletionAt,
-    progressMessages: [],
-    currentMessage: HUMOROUS_MESSAGES[0]
+    progressMessages: [`Order received at ${new Date().toISOString()}`],
+    currentMessage: 'Your order has been received and is awaiting review.'
   };
 
   return order;
@@ -94,27 +93,19 @@ export const updateOrderStatus = (orderId: string, status: OrderStatus, message?
   saveOrder(order);
 };
 
-export const simulateOrderProgress = (orderId: string): void => {
-  const order = loadOrder(orderId);
-  if (!order) return;
-  
-  const statusProgression: OrderStatus[] = ['queued', 'building', 'optimizing', 'finalizing', 'ready'];
-  const currentIndex = statusProgression.indexOf(order.status);
-  
-  if (currentIndex < statusProgression.length - 1) {
-    const nextStatus = statusProgression[currentIndex + 1];
-    const randomMessage = HUMOROUS_MESSAGES[Math.floor(Math.random() * HUMOROUS_MESSAGES.length)];
-    updateOrderStatus(orderId, nextStatus, randomMessage);
-  }
-};
+// DISABLED: Auto simulation removed for controlled order flow
+// export const simulateOrderProgress = (orderId: string): void => {
+//   // Simulation disabled - orders remain in pending state until manual approval
+// };
 
 export const getOrderProgress = (status: OrderStatus): number => {
   const statusProgress: Record<OrderStatus, number> = {
-    'queued': 5,
-    'building': 35,
-    'optimizing': 70,
+    'pending': 5,
+    'reviewing': 10,
+    'approved_to_build': 20,
+    'building': 50,
     'finalizing': 90,
-    'ready': 100,
+    'ready_for_delivery': 100,
     'delivered': 100
   };
   
@@ -137,23 +128,5 @@ export const formatTimeRemaining = (estimatedCompletionAt: Date): string => {
   }
 };
 
-// Development helper to simulate realistic order progression
-export const startOrderSimulation = (orderId: string): void => {
-  if (typeof window === 'undefined') return;
-  
-  const intervals = [2000, 5000, 8000, 12000]; // Realistic timing between status updates
-  
-  intervals.forEach((delay, index) => {
-    setTimeout(() => {
-      simulateOrderProgress(orderId);
-      
-      // Trigger message rotation
-      const order = loadOrder(orderId);
-      if (order && order.status !== 'ready') {
-        const randomMessage = HUMOROUS_MESSAGES[Math.floor(Math.random() * HUMOROUS_MESSAGES.length)];
-        order.currentMessage = randomMessage;
-        saveOrder(order);
-      }
-    }, delay);
-  });
-};
+// DISABLED: Auto simulation removed for controlled order flow
+// Orders now remain in 'pending' state until manually processed by seller
