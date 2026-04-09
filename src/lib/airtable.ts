@@ -56,6 +56,32 @@ export async function getOrderFromAirtable(orderId: string) {
   return record;
 }
 
+export async function getOrderByStripeSessionId(sessionId: string) {
+  const safeSessionId = String(sessionId || '').trim();
+
+  const response = await fetch(`${BASE_URL}?maxRecords=100`, {
+    headers: {
+      Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+    },
+    cache: 'no-store',
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    console.error('GET BY SESSION ERROR:', result);
+    throw new Error(result?.error?.message || 'Fetch by session failed');
+  }
+
+  const record =
+    result.records?.find((r: any) => {
+      const value = String(r.fields?.['Stripe Session ID'] || '').trim();
+      return value === safeSessionId;
+    }) || null;
+
+  return record;
+}
+
 export async function listOrdersFromAirtable() {
   const response = await fetch(
     `${BASE_URL}?maxRecords=100&sort[0][field]=Created%20At&sort[0][direction]=desc`,

@@ -49,33 +49,33 @@ export default function ProductDetailPage() {
   setIsOrdering(true);
 
   try {
-    const response = await fetch('/api/orders/create', {
+    const response = await fetch('/api/checkout/create-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         productId: product.id,
-        productName: product.name,
-        totalPrice: totalPrice,
-        selectedAddons: selectedAddons,
+        selectedAddons,
       }),
     });
 
     const data = await response.json();
 
-    if (data.success) {
-      router.push(`/order-status/${data.orderId}`);
-    } else {
-      alert('Failed to create order');
-      setIsOrdering(false);
+    if (data.success && data.url) {
+      window.location.href = data.url;
+      return;
     }
+
+    alert(data.error || 'Failed to start checkout');
   } catch (error) {
     console.error(error);
-    alert('Something went wrong');
+    alert('Something went wrong starting checkout');
+  } finally {
     setIsOrdering(false);
   }
 };
+
 
   if (!product) {
     return (
