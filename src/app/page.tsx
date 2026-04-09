@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { PRODUCTS } from '@/data/products';
 import { formatCurrency, staggerContainer, fadeInUp, scaleIn } from '@/lib/utils';
-import { ArrowRight, Code, Globe, Zap, Shield, Users, Star } from 'lucide-react';
+import { ArrowRight, Code, Globe, Zap, Shield, Users, Star, Sparkles } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
@@ -50,17 +50,18 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10 pointer-events-none" />
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-green-500/20 rounded-full blur-xl animate-pulse" />
+    <div className="min-h-screen relative overflow-hidden bg-[#0a0a14]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.16),transparent_30%),linear-gradient(135deg,rgba(34,197,94,0.06),rgba(99,102,241,0.05),rgba(168,85,247,0.08))] pointer-events-none" />
+
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-16 left-16 w-40 h-40 bg-green-500/15 rounded-full blur-3xl animate-pulse" />
         <div
-          className="absolute bottom-20 right-20 w-48 h-48 bg-purple-500/20 rounded-full blur-xl animate-pulse"
-          style={{ animationDelay: '2s' }}
+          className="absolute top-24 right-24 w-56 h-56 bg-purple-500/15 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '1.8s' }}
         />
         <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: '4s' }}
+          className="absolute bottom-16 left-1/3 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '3.2s' }}
         />
       </div>
 
@@ -69,19 +70,27 @@ export default function HomePage() {
         animate={{ opacity: 1, y: 0 }}
         className="relative z-10 p-6"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-5 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-green-400 to-purple-400 bg-clip-text text-transparent"
+            whileHover={{ scale: 1.03 }}
+            className="flex items-center gap-2 text-2xl font-bold"
           >
-            AppStore Platform
+            <Sparkles className="w-6 h-6 text-green-400" />
+            <span className="bg-gradient-to-r from-white via-green-200 to-purple-200 bg-clip-text text-transparent">
+              AppStore Platform
+            </span>
           </motion.div>
 
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" onClick={handleHowItWorks}>
+          <div className="flex items-center space-x-3">
+            <Button variant="ghost" size="sm" onClick={handleHowItWorks} className="text-white/90 hover:text-white">
               How It Works
             </Button>
-            <Button variant="outline" size="sm" onClick={handleBrowseCategories}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleBrowseCategories}
+              className="border-white/15 bg-white/5 text-white hover:bg-white/10"
+            >
               Browse Categories
             </Button>
           </div>
@@ -94,9 +103,17 @@ export default function HomePage() {
         initial="initial"
         animate="animate"
       >
+        <motion.div
+          variants={fadeInUp}
+          className="inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-4 py-2 text-sm text-green-200 mb-6"
+        >
+          <Sparkles className="w-4 h-4" />
+          Premium custom builds with fast delivery
+        </motion.div>
+
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-green-200 to-purple-200 bg-clip-text text-transparent leading-tight"
+          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-green-100 to-purple-200 bg-clip-text text-transparent leading-tight tracking-tight"
         >
           Your Digital Product
           <br />
@@ -105,28 +122,45 @@ export default function HomePage() {
 
         <motion.p
           variants={fadeInUp}
-          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
-          Premium web applications crafted just for you. Watch your idea come to life with our build queue system.
+          Premium web applications crafted just for you. Launch faster with a polished build process,
+          clear delivery workflow, and production-ready handoff.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button size="lg" className="text-lg" onClick={handleBrowseProducts}>
-            Browse Products <ArrowRight className="ml-2 w-5 h-5" />
+          <Button
+            size="lg"
+            className="text-lg h-14 px-8 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_30px_rgba(34,197,94,0.35)] hover:scale-[1.02] transition-all"
+            onClick={handleBrowseProducts}
+          >
+            <span className="flex items-center justify-center gap-2">
+              <span>Browse Products</span>
+              <ArrowRight className="w-5 h-5 relative top-[1px]" />
+            </span>
           </Button>
-          <Button variant="outline" size="lg" onClick={handleHowItWorks}>
+
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleHowItWorks}
+            className="h-14 px-8 rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10"
+          >
             How It Works
           </Button>
         </motion.div>
 
-        <motion.div variants={scaleIn} className="glass rounded-lg p-6 max-w-2xl mx-auto mb-16">
+        <motion.div
+          variants={scaleIn}
+          className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+        >
           <div className="flex items-center justify-center mb-3">
             <Code className="w-6 h-6 text-green-400 mr-2" />
             <span className="text-lg font-semibold text-white">Real Build Process</span>
           </div>
-          <p className="text-gray-300">
+          <p className="text-gray-300 leading-relaxed">
             Each product enters our build queue where real developers craft your application.
-            Delivery times: <span className="text-green-400 font-medium">2-48 hours</span> depending on complexity.
+            Delivery times: <span className="text-green-400 font-semibold">2–48 hours</span> depending on complexity.
           </p>
         </motion.div>
       </motion.section>
@@ -140,7 +174,7 @@ export default function HomePage() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl font-bold text-center mb-12 text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white tracking-tight"
         >
           What Would You Like to Build?
         </motion.h2>
@@ -149,15 +183,17 @@ export default function HomePage() {
           {categories.map((category) => (
             <motion.div key={category.id} variants={scaleIn}>
               <Card
-                className="h-full cursor-pointer hover:glow-accent group transition-all duration-200 hover:scale-[1.02]"
+                className="h-full cursor-pointer border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.22)] hover:border-green-400/30 hover:shadow-[0_16px_50px_rgba(34,197,94,0.12)] group transition-all duration-300 hover:-translate-y-1"
                 onClick={() => handleCategoryClick(category.id)}
               >
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
-                    <category.icon className="w-12 h-12 text-green-400 group-hover:text-purple-400 transition-colors" />
+                    <div className="rounded-2xl bg-white/5 border border-white/10 p-4 group-hover:border-green-400/30 transition-colors">
+                      <category.icon className="w-10 h-10 text-green-400 group-hover:text-purple-300 transition-colors" />
+                    </div>
                   </div>
-                  <CardTitle className="text-lg">{category.name}</CardTitle>
-                  <CardDescription>{category.description}</CardDescription>
+                  <CardTitle className="text-lg text-white">{category.name}</CardTitle>
+                  <CardDescription className="text-gray-400">{category.description}</CardDescription>
                 </CardHeader>
               </Card>
             </motion.div>
@@ -174,7 +210,7 @@ export default function HomePage() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl font-bold text-center mb-12 text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white tracking-tight"
         >
           Featured Products
         </motion.h2>
@@ -182,24 +218,25 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRODUCTS.slice(0, 6).map((product) => (
             <motion.div key={product.id} variants={scaleIn}>
-              <Card className="h-full group cursor-pointer">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="group-hover:text-green-400 transition-colors">
+              <Card className="h-full group cursor-pointer border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_16px_50px_rgba(0,0,0,0.25)] hover:border-green-400/30 hover:shadow-[0_18px_60px_rgba(34,197,94,0.10)] transition-all duration-300 hover:-translate-y-1">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-between items-start gap-4 mb-2">
+                    <CardTitle className="text-white text-xl leading-tight group-hover:text-green-300 transition-colors">
                       {product.name}
                     </CardTitle>
-                    <span className="text-green-400 font-bold text-lg">
+                    <span className="text-green-400 font-bold text-2xl shrink-0">
                       {formatCurrency(product.basePrice)}
                     </span>
                   </div>
-                  <CardDescription className="text-sm">
+
+                  <CardDescription className="text-sm text-gray-400 leading-relaxed min-h-[72px]">
                     {product.description}
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent>
-                  <div className="flex items-center space-x-2 text-sm text-gray-400 mb-4">
-                    <Zap className="w-4 h-4" />
+                <CardContent className="pt-0">
+                  <div className="flex items-center space-x-2 text-sm text-gray-300 mb-5">
+                    <Zap className="w-4 h-4 text-green-400" />
                     <span>Build Time: {product.buildTime.display}</span>
                   </div>
 
@@ -207,7 +244,7 @@ export default function HomePage() {
                     {product.techStack.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-white/10 rounded-md text-xs text-gray-300"
+                        className="px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-gray-300"
                       >
                         {tech}
                       </span>
@@ -215,13 +252,13 @@ export default function HomePage() {
                   </div>
                 </CardContent>
 
-                <CardFooter>
+                <CardFooter className="pt-6">
                   <Button
-                    className="w-full group-hover:glow-primary cursor-pointer"
+                    className="w-full h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_24px_rgba(34,197,94,0.28)] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
                     onClick={() => router.push(`/product/${product.id}`)}
                   >
-                    Customize & Order
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 relative top-[1px]" />
+                    <span>Customize &amp; Order</span>
                   </Button>
                 </CardFooter>
               </Card>
@@ -239,7 +276,7 @@ export default function HomePage() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl font-bold text-center mb-12 text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white tracking-tight"
         >
           How It Works
         </motion.h2>
@@ -263,12 +300,14 @@ export default function HomePage() {
             },
           ].map((item, index) => (
             <motion.div key={index} variants={scaleIn}>
-              <div className="text-center glass rounded-xl p-6 h-full">
+              <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] text-center hover:border-purple-400/20 transition-colors">
                 <div className="flex justify-center mb-4">
-                  <item.icon className="w-8 h-8 text-green-400" />
+                  <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+                    <item.icon className="w-8 h-8 text-green-400" />
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <p className="text-gray-400 leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}

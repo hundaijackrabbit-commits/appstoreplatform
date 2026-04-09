@@ -277,22 +277,17 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Order Button */}
-                <Button 
-                  className="w-full text-lg py-4"
-                  size="lg"
-                  onClick={handleOrder}
-                  isLoading={isOrdering}
-                  disabled={isOrdering}
-                >
-                  {isOrdering ? (
-                    'Creating Order...'
-                  ) : (
-                    <>
-                      <ShoppingCart className="mr-2 w-5 h-5" />
-                      Order Now - {formatCurrency(totalPrice)}
-                    </>
-                  )}
-                </Button>
+                <Button
+  className="w-full h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_6px_20px_rgba(34,197,94,0.25)] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+>
+  <span className="flex items-center justify-center gap-2">
+    <span>Order Now</span>
+    <span className="text-black/80 font-medium">
+      - ${totalPrice.toFixed(2)}
+    </span>
+  </span>
+</Button>
+
                 
                 <p className="text-center text-xs text-gray-400 mt-3">
                   Your project will be reviewed and entered into our build queue
