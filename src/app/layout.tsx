@@ -34,8 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <>
-        {/* Google Analytics */}
+      <body className="min-h-full flex flex-col">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DE2MKQSRRC"
           strategy="afterInteractive"
@@ -49,7 +48,6 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Microsoft Clarity */}
         <Script id="clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
@@ -59,9 +57,9 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "w8ukff2950");
           `}
         </Script>
-      </head>
 
-      <body className="min-h-full flex flex-col">{children}</body>
+        {children}
+      </body>
     </html>
   );
 }
