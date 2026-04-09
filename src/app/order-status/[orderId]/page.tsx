@@ -53,18 +53,20 @@ export default function OrderStatusPage() {
   status: airtableOrder.status,
   createdAt:
     airtableOrder.createdAt && !Number.isNaN(new Date(airtableOrder.createdAt).getTime())
-      ? new Date(airtableOrder.createdAt).toISOString()
-      : new Date().toISOString(),
-  currentMessage: airtableOrder.currentMessage || '',
-  progressMessages: [],
-  estimatedCompletionAt: null,
-  actualCompletionAt: null,
-  productConfiguration: {
+      ? new Date(airtableOrder.createdAt)
+      : new Date(),
+currentMessage: airtableOrder.currentMessage || '',
+progressMessages: [],
+estimatedCompletionAt: new Date(),
+actualCompletionAt: new Date(),
+productConfiguration: {
+
     productId: airtableOrder.productId || '',
     selectedAddons: airtableOrder.selectedAddons || [],
     totalPrice: airtableOrder.totalPrice || 0,
   },
 };
+
 
           setOrder(formattedOrder);
 

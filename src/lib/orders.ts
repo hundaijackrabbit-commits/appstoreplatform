@@ -85,10 +85,11 @@ export const updateOrderStatus = (orderId: string, status: OrderStatus, message?
     order.progressMessages.push(`${new Date().toISOString()}: ${message}`);
   }
   
-  if (status === 'ready') {
-    order.actualCompletionAt = new Date();
-    order.downloadUrl = `/api/download/${orderId}`;
-  }
+   if (status === 'ready_for_delivery' || status === 'delivered') {
+  order.actualCompletionAt = new Date();
+  order.downloadUrl = `/api/download/${orderId}`;
+}
+
   
   saveOrder(order);
 };
