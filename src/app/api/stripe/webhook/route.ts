@@ -3,6 +3,8 @@ import Stripe from 'stripe';
 import { stripe } from '@/lib/stripe';
 import { createOrderInAirtable, getOrderByStripeSessionId } from '@/lib/airtable';
 import { getProductById } from '@/data/products';
+import { sendOrderReceivedEmail } from '@/lib/email';
+
 
 export async function POST(req: Request) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -28,51 +30,59 @@ export async function POST(req: Request) {
     const event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
 
     if (event.type === 'checkout.session.completed') {
-      const session = event.data.object as Stripe.Checkout.Session;
+  const session = event.data.object as Stripe.Checkout.Session;
 
-      if (session.payment_status !== 'paid') {
-        return NextResponse.json({ received: true });
-      }
+  if (session.payment_status !== 'paid') {
+    return NextResponse.json({ received: true });
+  }
 
-      const existingOrder = await getOrderByStripeSessionId(session.id);
+  const existingOrder = await getOrderByStripeSessionId(session.id);
 
-      if (existingOrder) {
-        return NextResponse.json({ received: true, duplicate: true });
-      }
+  if (existingOrder) {
+    return NextResponse.json({ received: true, duplicate: true });
+  }
 
-      const productId = session.metadata?.productId || '';
-      const selectedAddons = session.metadata?.selectedAddons
-        ? JSON.parse(session.metadata.selectedAddons)
-        : [];
-      const totalPrice = Number(session.metadata?.totalPrice || 0);
+  const productId = session.metadata?.productId || '';
+  const selectedAddons = session.metadata?.selectedAddons
+    ? JSON.parse(session.metadata.selectedAddons)
+    : [];
+  const totalPrice = Number(session.metadata?.totalPrice || 0);
 
-      const product = getProductById(productId);
+  const product = getProductById(productId);
 
-      if (!product) {
-        throw new Error('Product not found from paid Stripe session');
-      }
+  if (!product) {
+    throw new Error('Product not found from paid Stripe session');
+  }
 
-      const orderId = `ORD-${Date.now()}`;
+  const orderId = `ORD-${Date.now()}`;
 
-      await createOrderInAirtable({
-        'Order ID': orderId,
-        'Stripe Session ID': session.id,
-        'Product ID': product.id,
-        'Product Name': product.name,
-        'Total Price': totalPrice,
-        'Status': 'pending',
-        'Created At': new Date().toISOString(),
-        'Selected Addons': JSON.stringify(selectedAddons),
-        'Current Message': 'Payment received. Waiting to be reviewed.',
-        'Progress Messages': JSON.stringify([
-          {
-            status: 'pending',
-            message: 'Payment received and order created',
-            timestamp: new Date().toISOString(),
-          },
-        ]),
-      });
-    }
+  await createOrderInAirtable({
+    'Order ID': orderId,
+    'Stripe Session ID': session.id,
+    'Customer Email': session.customer_details?.email || '',
+    'Product ID': product.id,
+    'Product Name': product.name,
+    'Total Price': totalPrice,
+    'Status': 'pending',
+    'Created At': new Date().toISOString(),
+    'Selected Addons': JSON.stringify(selectedAddons),
+    'Current Message': 'Payment received. Waiting to be reviewed.',
+    'Progress Messages': JSON.stringify([
+      {
+        status: 'pending',
+        message: 'Payment received and order created',
+        timestamp: new Date().toISOString(),
+      },
+    ]),
+  });
+
+  await sendOrderReceivedEmail({
+    to: session.customer_details?.email || '',
+    orderId,
+    productName: product.name,
+    totalPrice,
+  });
+}
 
     return NextResponse.json({ received: true });
   } catch (error: any) {

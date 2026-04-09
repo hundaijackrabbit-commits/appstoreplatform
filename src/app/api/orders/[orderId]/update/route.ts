@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getOrderFromAirtable, updateOrderInAirtable } from '@/lib/airtable';
+import { sendOrderReadyEmail } from '@/lib/email';
 
 export async function PATCH(
   request: Request,
@@ -31,6 +32,25 @@ export async function PATCH(
     }
 
     const updated = await updateOrderInAirtable(record.id, fields);
+
+if (body.status === 'ready_for_delivery' || body.status === 'delivered') {
+  const customerEmail = record.fields['Customer Email'] || '';
+  const productName = record.fields['Product Name'] || '';
+  const orderIdValue = record.fields['Order ID'] || orderId;
+
+  await sendOrderReadyEmail({
+    to: customerEmail,
+    orderId: orderIdValue,
+    productName,
+    zipUrl: typeof body.zipUrl === 'string' ? body.zipUrl : record.fields['ZIP URL'] || '',
+    repoUrl: typeof body.repoUrl === 'string' ? body.repoUrl : record.fields['Repo URL'] || '',
+    deliveryNotes:
+      typeof body.deliveryNotes === 'string'
+        ? body.deliveryNotes
+        : record.fields['Delivery Notes'] || '',
+  });
+}
+
 
     return NextResponse.json({
       success: true,
