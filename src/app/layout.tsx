@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,34 +15,29 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "AppStore Platform - Premium Digital Products",
-  description: "Build your dream web application with our premium digital storefront. Custom websites, SaaS tools, and more - built just for you.",
-  keywords: ["web development", "custom websites", "SaaS tools", "digital products"],
-  authors: [{ name: "AppStore Platform" }],
-  viewport: "width=device-width, initial-scale=1",
+  description:
+    "Build your dream web application with our premium digital storefront.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
-}
-import Script from "next/script";
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
       <head>
+        {/* Google Analytics */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-DE2MKQSRRC`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-DE2MKQSRRC"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -49,20 +45,23 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-DE2MKQSRRC');
+          `}
+        </Script>
+
+        {/* Microsoft Clarity */}
+        <Script id="clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "w8ukff2950");
           `}
         </Script>
       </head>
-      <body>{children}</body>
+
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
-<Script id="clarity" strategy="afterInteractive">
-{`
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="<script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=69225886"></script>"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "YOUR_ID");
-`}
-</Script>
