@@ -1,56 +1,43 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { loadOrder } from '@/lib/orders';
-import { getProductById } from '@/data/products';
+import { NextResponse } from 'next/server';
+import { getOrderFromAirtable } from '@/lib/airtable';
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ orderId: string }> }
+  request: Request,
+  context: { params: Promise<{ orderId: string }> }
 ) {
   try {
-    const { orderId } = await params;
-    const order = loadOrder(orderId);
-    
-    if (!order) {
+    const { orderId } = await context.params;
+
+    const record = await getOrderFromAirtable(orderId);
+
+    if (!record) {
       return NextResponse.json({ error: 'Order not found' }, { status: 404 });
     }
 
-    if (order.status !== 'ready' && order.status !== 'delivered') {
-      return NextResponse.json({ error: 'Order not ready for download' }, { status: 400 });
+    const status = record.fields['Status'] || 'pending';
+    const zipUrl = record.fields['ZIP URL'] || '';
+    const repoUrl = record.fields['Repo URL'] || '';
+
+    if (status !== 'ready_for_delivery' && status !== 'delivered') {
+      return NextResponse.json(
+        { error: 'Order not ready for download' },
+        { status: 400 }
+      );
     }
 
-    const product = getProductById(order.productConfiguration.productId);
-    if (!product) {
-      return NextResponse.json({ error: 'Product not found' }, { status: 404 });
-    }
-
-    // In a real application, you would:
-    // 1. Generate or retrieve the actual project files
-    // 2. Create a ZIP file with all the customizations
-    // 3. Return a download link or stream the file
-    
-    // For demo purposes, we'll return download information
-    const downloadInfo = {
-      orderId: order.id,
-      productName: product.name,
-      fileName: `${product.name.toLowerCase().replace(/\s+/g, '-')}-${orderId.slice(-8)}.zip`,
-      fileSize: '15.2 MB', // Simulated
-      downloadUrl: `/downloads/${orderId}.zip`, // Simulated
-      customizations: order.productConfiguration.customizations,
-      techStack: product.techStack,
-      buildTime: order.actualCompletionAt || order.estimatedCompletionAt,
-      includes: [
-        'Complete source code',
-        'Customization implementations',
-        'Build and deployment scripts',
-        'Documentation and README files',
-        'Environment configuration examples'
-      ]
-    };
-
-    return NextResponse.json(downloadInfo);
-    
-  } catch (error) {
-    console.error('Download API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({
+      success: true,
+      orderId: record.fields['Order ID'] || '',
+      status,
+      zipUrl,
+      repoUrl,
+      deliveryNotes: record.fields['Delivery Notes'] || '',
+    });
+  } catch (error: any) {
+    console.error('DOWNLOAD ROUTE ERROR:', error);
+    return NextResponse.json(
+      { error: error?.message || 'Failed to load download data' },
+      { status: 500 }
+    );
   }
 }
