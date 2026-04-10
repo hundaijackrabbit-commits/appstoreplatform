@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Icon: Stylized rocket/arrow -->
+  <g id="icon">
+    <circle cx="20" cy="30" r="8" fill="#00D562"/>
+    <path d="M28 26 L38 30 L28 34 Z" fill="#00D562"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="50" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">
+    Start<tspan fill="#00D562">Ova</tspan>
+  </text>
+</svg>
