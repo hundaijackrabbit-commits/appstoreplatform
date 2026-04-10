@@ -1,0 +1,197 @@
+[
+  {
+    "file": "instagram_post_01.png",
+    "platform": "instagram",
+    "caption": "Most entrepreneurs waste 6 months on setup While you're perfecting your website, competitors are getting customers. Launch first, perfect later.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Start Today",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_02.png",
+    "platform": "instagram",
+    "caption": "Technical debt starts at zero Every feature you build without customers is a guess. Start simple, grow based on real feedback.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Launch Simple",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_03.png",
+    "platform": "instagram",
+    "caption": "Revenue beats perfection A $500 imperfect business beats a $0 perfect idea every time. Start earning, then improving.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Get Revenue",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_04.png",
+    "platform": "instagram",
+    "caption": "Your MVP is probably too complex The minimum viable product should embarrass you. If it doesn't, you're overthinking it.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Start Simpler",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_05.png",
+    "platform": "instagram",
+    "caption": "Build time: 2 hours vs 2 months Stop coding what you can customize. Focus your energy on what makes you unique.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Skip The Code",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_06.png",
+    "platform": "instagram",
+    "caption": "Day 1 vs Day 100 Day 1: Get something online. Day 100: Make it better. Most people never leave day 0.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Start Day 1",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_07.png",
+    "platform": "instagram",
+    "caption": "Validation requires visitors You can't validate an idea that no one can see. Get online first, then optimize for conversion.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Go Live",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_08.png",
+    "platform": "instagram",
+    "caption": "Speed is a competitive advantage In business, being first matters more than being perfect. Launch fast, iterate faster.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Move Fast",
+    "intent": "educational"
+  },
+  {
+    "file": "instagram_post_09.png",
+    "platform": "instagram",
+    "caption": "Stop building features Most startups fail because they build what customers don't want. Start selling, then building.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Sell First",
+    "intent": "contrarian"
+  },
+  {
+    "file": "instagram_post_10.png",
+    "platform": "instagram",
+    "caption": "Your business plan is wrong No plan survives first customer contact. Start with assumptions, not detailed projections.",
+    "hashtags": [
+      "#StartOva",
+      "#Entrepreneurship",
+      "#StartupLife",
+      "#BusinessLaunch",
+      "#OnlineBusiness\u00e7"
+    ],
+    "cta": "Test Assumptions",
+    "intent": "contrarian"
+  },
+  {
+    "file": "story_01.png",
+    "platform": "instagram_story",
+    "caption": "Technical founders quit faster Coding your way out of customer problems is procrastination disguised as productivity.",
+    "hashtags": [
+      "#StartOva",
+      "#QuickLaunch"
+    ],
+    "cta": "Talk to Customers",
+    "intent": "contrarian"
+  },
+  {
+    "file": "story_02.png",
+    "platform": "instagram_story",
+    "caption": "Unique ideas usually fail If no one's doing it, there might be a reason. Start with proven models, then innovate.",
+    "hashtags": [
+      "#StartOva",
+      "#QuickLaunch"
+    ],
+    "cta": "Copy Success",
+    "intent": "contrarian"
+  },
+  {
+    "file": "story_03.png",
+    "platform": "instagram_story",
+    "caption": "More features = slower growth Complexity kills conversion. Every extra feature is another reason for customers to hesitate.",
+    "hashtags": [
+      "#StartOva",
+      "#QuickLaunch"
+    ],
+    "cta": "Remove Features",
+    "intent": "contrarian"
+  },
+  {
+    "file": "story_04.png",
+    "platform": "instagram_story",
+    "caption": "Passion doesn't pay bills Follow the market, not your passion. You can be passionate about profitable problems.",
+    "hashtags": [
+      "#StartOva",
+      "#QuickLaunch"
+    ],
+    "cta": "Find Profit",
+    "intent": "contrarian"
+  },
+  {
+    "file": "story_05.png",
+    "platform": "instagram_story",
+    "caption": "Perfect timing is a myth You'll never feel ready. The market will never be perfect. Start anyway.",
+    "hashtags": [
+      "#StartOva",
+      "#QuickLaunch"
+    ],
+    "cta": "Start Anyway",
+    "intent": "contrarian"
+  }
+]
