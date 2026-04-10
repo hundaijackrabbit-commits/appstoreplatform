@@ -5,17 +5,37 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { PRODUCTS } from '@/data/products';
 import { formatCurrency, staggerContainer, fadeInUp, scaleIn } from '@/lib/utils';
-import { ArrowRight, Code, Globe, Zap, Shield, Users, Star, Sparkles } from 'lucide-react';
+import { ArrowRight, Code, Globe, Zap, Shield, Users, Star, Sparkles, RefreshCcw } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
   const router = useRouter();
 
   const categories = [
-    { id: 'landing-page', name: 'Landing Pages', icon: Globe, description: 'Convert visitors into customers' },
-    { id: 'saas-tool', name: 'SaaS Tools', icon: Zap, description: 'Full-featured applications' },
-    { id: 'ecommerce', name: 'E-commerce', icon: Users, description: 'Complete online stores' },
-    { id: 'portfolio', name: 'Portfolios', icon: Star, description: 'Showcase your work' },
+    {
+      id: 'landing-page',
+      name: 'Landing Pages',
+      icon: Globe,
+      description: 'Simple pages built to attract leads and start selling fast',
+    },
+    {
+      id: 'saas-tool',
+      name: 'SaaS Tools',
+      icon: Zap,
+      description: 'Lean software products for founders and service businesses',
+    },
+    {
+      id: 'ecommerce',
+      name: 'E-commerce',
+      icon: Users,
+      description: 'Online stores designed to help you launch and grow',
+    },
+    {
+      id: 'portfolio',
+      name: 'Business Presence',
+      icon: Star,
+      description: 'Professional sites that help you look credible from day one',
+    },
   ];
 
   const handleBrowseProducts = () => {
@@ -77,7 +97,7 @@ export default function HomePage() {
           >
             <Sparkles className="w-6 h-6 text-green-400" />
             <span className="bg-gradient-to-r from-white via-green-200 to-purple-200 bg-clip-text text-transparent">
-              AppStore Platform
+              StartOva
             </span>
           </motion.div>
 
@@ -107,25 +127,25 @@ export default function HomePage() {
           variants={fadeInUp}
           className="inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-4 py-2 text-sm text-green-200 mb-6"
         >
-          <Sparkles className="w-4 h-4" />
-          Premium custom builds with fast delivery
+          <RefreshCcw className="w-4 h-4" />
+          Start fresh online with less friction
         </motion.div>
 
         <motion.h1
           variants={fadeInUp}
           className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-green-100 to-purple-200 bg-clip-text text-transparent leading-tight tracking-tight"
         >
-          Your Digital Product
+          Start Over.
           <br />
-          <span className="text-green-400">Built to Order</span>
+          <span className="text-green-400">Start Online.</span>
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
-          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
         >
-          Premium web applications crafted just for you. Launch faster with a polished build process,
-          clear delivery workflow, and production-ready handoff.
+          StartOva helps you launch a business online without getting buried in technical complexity.
+          Choose a website, store, or digital product build, customize what you need, and move from idea to launch with a clear path forward.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -135,7 +155,7 @@ export default function HomePage() {
             onClick={handleBrowseProducts}
           >
             <span className="flex items-center justify-center gap-2">
-              <span>Browse Products</span>
+              <span>Launch Something New</span>
               <ArrowRight className="w-5 h-5 relative top-[1px]" />
             </span>
           </Button>
@@ -146,7 +166,7 @@ export default function HomePage() {
             onClick={handleHowItWorks}
             className="h-14 px-8 rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10"
           >
-            How It Works
+            See How StartOva Works
           </Button>
         </motion.div>
 
@@ -156,11 +176,11 @@ export default function HomePage() {
         >
           <div className="flex items-center justify-center mb-3">
             <Code className="w-6 h-6 text-green-400 mr-2" />
-            <span className="text-lg font-semibold text-white">Real Build Process</span>
+            <span className="text-lg font-semibold text-white">Built for Real Business Launches</span>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            Each product enters our build queue where real developers craft your application.
-            Delivery times: <span className="text-green-400 font-semibold">2–48 hours</span> depending on complexity.
+            StartOva is for people who want a faster way to get online.
+            Whether you are starting from scratch, rebuilding, or finally turning an idea into a real business, each project is built with a practical launch-first approach.
           </p>
         </motion.div>
       </motion.section>
@@ -174,10 +194,18 @@ export default function HomePage() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white tracking-tight"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          What Would You Like to Build?
+          What Do You Want to Start?
         </motion.h2>
+
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          Pick the kind of online business presence that fits your next move.
+          Start small, rebuild smarter, or launch something completely new.
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {categories.map((category) => (
@@ -210,10 +238,18 @@ export default function HomePage() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white tracking-tight"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          Featured Products
+          Ready-to-Launch Builds
         </motion.h2>
+
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          These products are designed to make starting online simpler.
+          Choose a foundation, customize it to your needs, and move forward faster.
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRODUCTS.slice(0, 6).map((product) => (
@@ -258,7 +294,7 @@ export default function HomePage() {
                     onClick={() => router.push(`/product/${product.id}`)}
                   >
                     <ArrowRight className="w-4 h-4 relative top-[1px]" />
-                    <span>Customize &amp; Order</span>
+                    <span>Customize and Launch</span>
                   </Button>
                 </CardFooter>
               </Card>
@@ -276,27 +312,34 @@ export default function HomePage() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white tracking-tight"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          How It Works
+          How StartOva Works
         </motion.h2>
+
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          The goal is simple. Remove the confusion, keep the momentum, and help you get online with clarity.
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               icon: Shield,
-              title: 'Choose Your Product',
-              description: 'Pick the website or app type that matches your business goal.',
+              title: 'Choose Your Starting Point',
+              description: 'Pick the website, store, or digital product that best fits the business you want to launch.',
             },
             {
               icon: Zap,
-              title: 'Customize and Order',
-              description: 'Select your options, features, and add-ons, then place your order.',
+              title: 'Customize What You Need',
+              description: 'Select the features, layout, and add-ons that make sense for your goals without overcomplicating the process.',
             },
             {
               icon: Users,
-              title: 'Receive and Launch',
-              description: 'Download your finished project and deploy it live with the included guidance.',
+              title: 'Launch with Confidence',
+              description: 'Receive your finished build with a practical handoff so you can move from idea to online presence faster.',
             },
           ].map((item, index) => (
             <motion.div key={index} variants={scaleIn}>

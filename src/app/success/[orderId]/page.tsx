@@ -122,7 +122,7 @@ export default function SuccessPage() {
             animate="animate"
             className="text-5xl font-bold text-white mb-4"
           >
-            🎉 Your Project is Ready!
+            🎉 Your StartOva Build is Ready
           </motion.h1>
 
           <motion.p
@@ -131,7 +131,7 @@ export default function SuccessPage() {
             animate="animate"
             className="text-xl text-gray-300 mb-2"
           >
-            {product?.name || order.productName} is ready for delivery
+            {product?.name || order.productName} is ready. You can now launch your business online.
           </motion.p>
 
           <motion.p
@@ -150,9 +150,9 @@ export default function SuccessPage() {
               <div className="flex items-center justify-center mb-4">
                 <Download className="w-8 h-8 text-green-400" />
               </div>
-              <CardTitle className="text-2xl">Your Delivery Files</CardTitle>
+              <CardTitle className="text-2xl">Your StartOva Package</CardTitle>
               <CardDescription>
-                Access your ZIP package and repository below
+                Everything you need to go live is included below
               </CardDescription>
             </CardHeader>
 
@@ -164,7 +164,7 @@ export default function SuccessPage() {
                 onClick={() => order.zipUrl && window.open(order.zipUrl, '_blank')}
               >
                 <Download className="mr-2 w-5 h-5" />
-                {order.zipUrl ? 'Download ZIP Package' : 'ZIP not added yet'}
+                {order.zipUrl ? 'Download Your Project Files' : 'ZIP not added yet'}
               </Button>
 
               <Button
@@ -202,9 +202,9 @@ export default function SuccessPage() {
               <div className="flex items-center justify-center mb-4">
                 <Rocket className="w-8 h-8 text-purple-400" />
               </div>
-              <CardTitle className="text-2xl">Setup Notes</CardTitle>
+              <CardTitle className="text-2xl">Launch Instructions</CardTitle>
               <CardDescription>
-                Instructions from the builder
+                Steps to get your project live quickly
               </CardDescription>
             </CardHeader>
 
@@ -234,10 +234,10 @@ export default function SuccessPage() {
 
                 <Button
                   variant="ghost"
-                  onClick={() => window.open('mailto:support@appstoreplatform.com', '_blank')}
+                  onClick={() => window.open('mailto:support@startova.space', '_blank')}
                 >
                   <Globe className="mr-2 w-4 h-4" />
-                  Need Support?
+                  Contact StartOva Support
                 </Button>
               </div>
             </CardContent>

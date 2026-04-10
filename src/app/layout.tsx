@@ -13,10 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "AppStore Platform - Premium Digital Products",
-  description:
-    "Build your dream web application with our premium digital storefront.",
+export const metadata = {
+  title: "StartOva",
+  description: "StartOva helps businesses launch high-converting websites and digital products quickly.",
 };
 
 export const viewport: Viewport = {
