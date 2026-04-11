@@ -1,11 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PRODUCTS } from '@/data/products';
 import { formatCurrency, staggerContainer, fadeInUp, scaleIn } from '@/lib/utils';
-import { ArrowRight, Code, Globe, Zap, Shield, Users, Star, Sparkles, RefreshCcw } from 'lucide-react';
+import {
+  ArrowRight,
+  Code,
+  Globe,
+  Zap,
+  Shield,
+  Users,
+  Star,
+  Sparkles,
+  RefreshCcw,
+  BookOpen,
+} from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
@@ -69,6 +80,10 @@ export default function HomePage() {
     handleBrowseProducts();
   };
 
+  const handleOpenBlog = () => {
+    router.push('/blog');
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#0a0a14]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.16),transparent_30%),linear-gradient(135deg,rgba(34,197,94,0.06),rgba(99,102,241,0.05),rgba(168,85,247,0.08))] pointer-events-none" />
@@ -102,9 +117,27 @@ export default function HomePage() {
           </motion.div>
 
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" size="sm" onClick={handleHowItWorks} className="text-white/90 hover:text-white">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleHowItWorks}
+              className="text-white/90 hover:text-white"
+            >
               How It Works
             </Button>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleOpenBlog}
+              className="text-white/90 hover:text-white"
+            >
+              <span className="flex items-center gap-2">
+                <BookOpen className="w-4 h-4" />
+                <span>Blog</span>
+              </span>
+            </Button>
+
             <Button
               variant="outline"
               size="sm"
@@ -157,6 +190,18 @@ export default function HomePage() {
             <span className="flex items-center justify-center gap-2">
               <span>Launch Something New</span>
               <ArrowRight className="w-5 h-5 relative top-[1px]" />
+            </span>
+          </Button>
+
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleOpenBlog}
+            className="h-14 px-8 rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10"
+          >
+            <span className="flex items-center justify-center gap-2">
+              <BookOpen className="w-5 h-5" />
+              <span>Read the Blog</span>
             </span>
           </Button>
 
@@ -270,24 +315,6 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="pt-0">
-                  <div className="flex items-center space-x-2 text-sm text-gray-300 mb-5">
-                    <Zap className="w-4 h-4 text-green-400" />
-                    <span>Build Time: {product.buildTime.display}</span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {product.techStack.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-gray-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-
                 <CardFooter className="pt-6">
                   <Button
                     className="w-full h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_24px_rgba(34,197,94,0.28)] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
@@ -356,6 +383,20 @@ export default function HomePage() {
           ))}
         </div>
       </motion.section>
+
+      <footer className="relative z-10 max-w-7xl mx-auto px-6 pb-12 pt-4">
+        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-6 py-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+          <p className="text-sm uppercase tracking-[0.18em] text-gray-400 mb-2">
+            Support
+          </p>
+          <a
+            href="mailto:support@startova.space"
+            className="text-lg md:text-xl font-semibold text-green-400 hover:text-green-300 transition-colors"
+          >
+            support@startova.space
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
