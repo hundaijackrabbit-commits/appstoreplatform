@@ -78,7 +78,7 @@ export function getPostsByCategory(category: BlogCategory): BlogPostMeta[] {
 
   const files = getAllMarkdownFilesRecursive(categoryDir);
 
-  const posts = files
+    const posts: BlogPostMeta[] = files
     .map((filePath) => {
       const raw = fs.readFileSync(filePath, 'utf8');
       const parsed = safeParseMatter(raw, filePath);
@@ -93,16 +93,18 @@ export function getPostsByCategory(category: BlogCategory): BlogPostMeta[] {
         (data.excerpt as string) ||
         content.trim().replace(/\s+/g, ' ').slice(0, 180);
 
+      const cluster = getClusterFromPath(categoryDir, filePath);
+
       return {
         title,
         slug,
         category,
-        cluster: getClusterFromPath(categoryDir, filePath),
+        ...(cluster ? { cluster } : {}),
         excerpt,
         date: (data.date as string) || '',
       };
     })
-    .filter((post): post is BlogPostMeta => post !== null);
+    .filter((post): post is NonNullable<typeof post> => post !== null);
 
   return posts.sort((a, b) => {
     if (!a.date && !b.date) return a.title.localeCompare(b.title);
@@ -136,11 +138,13 @@ export function getPostByCategoryAndSlug(
     const resolvedSlug = (data.slug as string) || slugFromFile;
 
     if (resolvedSlug === slug) {
+            const cluster = getClusterFromPath(categoryDir, filePath);
+
       return {
         title: (data.title as string) || formatTitleFromSlug(slugFromFile),
         slug: resolvedSlug,
         category,
-        cluster: getClusterFromPath(categoryDir, filePath),
+        ...(cluster ? { cluster } : {}),
         excerpt: (data.excerpt as string) || '',
         date: (data.date as string) || '',
         content,
