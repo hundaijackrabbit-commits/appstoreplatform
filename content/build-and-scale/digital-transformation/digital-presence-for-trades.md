@@ -1,13 +1,12 @@
 ---
 title: "Digital Presence for Trades: Contractor Online Strategy"
-slug: digital-presence-for-trades
-category: build-and-scale
-cluster: digital-transformation
-excerpt: Stepbystep guidance for digital presence for trades with practical implementation strategies.
-primary_keyword: digital presence for trades
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "digital-presence-for-trades"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "Step-by-step guidance for digital presence for trades with practical implementation strategies. Understanding where your business stands and transformation opportunities. Practical"
 ---
+
+# Digital Presence for Trades: Contractor Online Strategy
 
 ## Introduction
 

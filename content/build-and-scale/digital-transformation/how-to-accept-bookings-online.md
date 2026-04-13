@@ -1,13 +1,12 @@
 ---
 title: "How to Accept Bookings Online: Appointment System Setup"
-slug: how-to-accept-bookings-online
-category: build-and-scale
-cluster: digital-transformation
-excerpt: Stepbystep guidance for how to accept bookings online with practical implementation strategies.
-primary_keyword: how to accept bookings online
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "how-to-accept-bookings-online"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "Step-by-step guidance for how to accept bookings online with practical implementation strategies. Understanding where your business stands and transformation opportunities. Practic"
 ---
+
+# How to Accept Bookings Online: Appointment System Setup
 
 ## Introduction
 

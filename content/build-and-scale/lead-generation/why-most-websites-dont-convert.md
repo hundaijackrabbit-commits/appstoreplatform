@@ -1,13 +1,12 @@
 ---
 title: "Why Most Websites Don't Convert: Conversion Failure Analysis"
-slug: why-most-websites-dont-convert
-category: build-and-scale
-cluster: lead-generation
-excerpt: Practical strategies for why most websites dont convert with proven implementation techniques.
-primary_keyword: why most websites dont convert
-search_intent: Implementation/Strategy
-problem_this_article_solves: Businesses need practical lead generation strategies without advertising
+slug: "why-most-websites-dont-convert"
+category: "build-and-scale"
+cluster: "lead-generation"
+excerpt: "Practical strategies for why most websites dont convert with proven implementation techniques. Comprehensive approach and methodology for effective lead generation. Specific techni"
 ---
+
+# Why Most Websites Don't Convert: Conversion Failure Analysis
 
 ## Introduction
 

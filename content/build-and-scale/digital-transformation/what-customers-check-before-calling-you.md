@@ -1,13 +1,12 @@
 ---
 title: "What Customers Check Before Calling You: Research Behavior"
-slug: what-customers-check-before-calling-you
-category: build-and-scale
-cluster: digital-transformation
-excerpt: Stepbystep guidance for what customers check before calling you with practical implementation strategies.
-primary_keyword: what customers check before calling you
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "what-customers-check-before-calling-you"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "Step-by-step guidance for what customers check before calling you with practical implementation strategies. Understanding where your business stands and transformation opportunitie"
 ---
+
+# What Customers Check Before Calling You: Research Behavior
 
 ## Introduction
 

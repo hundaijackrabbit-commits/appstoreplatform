@@ -1,13 +1,12 @@
 ---
 title: "Improving Conversion Rates Simply: Practical Optimization"
-slug: improving-conversion-rates-simply
-category: build-and-scale
-cluster: lead-generation
-excerpt: Practical strategies for improving conversion rates simply with proven implementation techniques.
-primary_keyword: improving conversion rates simply
-search_intent: Implementation/Strategy
-problem_this_article_solves: Businesses need practical lead generation strategies without advertising
+slug: "improving-conversion-rates-simply"
+category: "build-and-scale"
+cluster: "lead-generation"
+excerpt: "Practical strategies for improving conversion rates simply with proven implementation techniques. Comprehensive approach and methodology for effective lead generation. Specific tec"
 ---
+
+# Improving Conversion Rates Simply: Practical Optimization
 
 ## Introduction
 

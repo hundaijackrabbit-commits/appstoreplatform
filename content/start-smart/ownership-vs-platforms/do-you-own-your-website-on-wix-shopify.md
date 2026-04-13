@@ -1,13 +1,12 @@
 ---
-title: Do You Own Your Website on Wix/Shopify? Platform Ownership Reality
-slug: do-you-own-your-website-on-wix-shopify
-category: start-smart
-cluster: ownership-vs-platforms
-excerpt: "I just want to sell online—do I really need to worry about 'owning' my website?"
-primary_keyword: do you own your website on wix shopify
-search_intent: Educational/Decision-making
-problem_this_article_solves: Business owners need to understand platform dependencies vs ownership benefits
+title: "Do You Own Your Website on Wix/Shopify? Platform Ownership Reality"
+slug: "do-you-own-your-website-on-wix-shopify"
+category: "start-smart"
+cluster: "ownership-vs-platforms"
+excerpt: "'I just want to sell online—do I really need to worry about 'owning' my website?' **Six months ago, Jessica learned the hard way why ownership matters.** Her Shopify store was gene"
 ---
+
+# Do You Own Your Website on Wix/Shopify? Platform Ownership Reality
 
 ## Introduction
 
@@ -82,19 +81,19 @@ It took three weeks to resolve the "mistake." Three weeks of zero sales during h
 
 ### What Platforms Actually Own
 
-**Your design**: Template modifications stay on their servers  
-**Your functionality**: Apps and features work only within their ecosystem  
-**Your customer experience**: They control checkout, hosting, and performance  
-**Your data infrastructure**: All information stored on their servers  
+**Your design**: Template modifications stay on their servers
+**Your functionality**: Apps and features work only within their ecosystem
+**Your customer experience**: They control checkout, hosting, and performance
+**Your data infrastructure**: All information stored on their servers
 **Your business continuity**: They can change terms, raise prices, or shut down
 
 ## Real-World Platform Risks (What They Don't Tell You)
 
 ### Account Suspension Stories
 
-**The jewelry designer**: Automated content flagging shut down $15K/month business for 3 weeks  
-**The supplement seller**: FDA compliance misunderstanding led to permanent Shopify ban  
-**The clothing brand**: Copyright dispute (later proven false) caused 6-month suspension  
+**The jewelry designer**: Automated content flagging shut down $15K/month business for 3 weeks
+**The supplement seller**: FDA compliance misunderstanding led to permanent Shopify ban
+**The clothing brand**: Copyright dispute (later proven false) caused 6-month suspension
 **The software company**: Visa/Mastercard policy change eliminated their entire payment processing
 
 ### Platform Policy Changes
@@ -126,72 +125,72 @@ It took three weeks to resolve the "mistake." Three weeks of zero sales during h
 
 ### Immediate Costs (What You See)
 
-**Wix Premium Plans**: $14-$49/month  
-**Shopify Plans**: $29-$299/month  
-**Transaction fees**: 2.4%-2.9% + 30¢ per transaction  
+**Wix Premium Plans**: $14-$49/month
+**Shopify Plans**: $29-$299/month
+**Transaction fees**: 2.4%-2.9% + 30¢ per transaction
 **App costs**: $10-$100+/month for additional functionality
 
 ### Hidden Costs (What You Don't See)
 
-**Transaction fees compound**: $10K/month sales = $240-$290/month in fees  
-**App dependency**: Essential features require paid apps ($50-$200/month)  
-**Design limitations**: Custom design requires expensive developers familiar with platform constraints  
+**Transaction fees compound**: $10K/month sales = $240-$290/month in fees
+**App dependency**: Essential features require paid apps ($50-$200/month)
+**Design limitations**: Custom design requires expensive developers familiar with platform constraints
 **Migration costs**: Moving to owned solution later costs $5,000-$25,000+
 
 ### Opportunity Costs (What You Lose)
 
-**Limited customization**: Can't optimize user experience for your specific customers  
-**Integration restrictions**: Can't connect to specialized business tools  
-**Data limitations**: Can't use customer data for advanced marketing and analysis  
+**Limited customization**: Can't optimize user experience for your specific customers
+**Integration restrictions**: Can't connect to specialized business tools
+**Data limitations**: Can't use customer data for advanced marketing and analysis
 **Performance constraints**: Can't optimize for speed, SEO, or user experience
 
 ## Website Ownership Alternatives
 
 ### Self-Hosted WordPress
 
-**True ownership level**: High  
-**Pros**: Complete control, unlimited customization, own your data  
-**Cons**: Requires technical knowledge or developer  
+**True ownership level**: High
+**Pros**: Complete control, unlimited customization, own your data
+**Cons**: Requires technical knowledge or developer
 **Best for**: Businesses wanting maximum control and growth potential
 
 ### Custom-Built Websites
 
-**True ownership level**: Complete  
-**Pros**: Built exactly for your needs, optimal performance, total control  
-**Cons**: Higher upfront cost, requires ongoing maintenance  
+**True ownership level**: Complete
+**Pros**: Built exactly for your needs, optimal performance, total control
+**Cons**: Higher upfront cost, requires ongoing maintenance
 **Best for**: Established businesses with specific requirements
 
 ### Platform-to-Owned Migration Services
 
-**True ownership level**: High  
-**Pros**: Professional migration from platform to owned solution  
-**Cons**: One-time migration cost  
+**True ownership level**: High
+**Pros**: Professional migration from platform to owned solution
+**Cons**: One-time migration cost
 **Best for**: Existing platform businesses wanting to own their assets
 
 ## When Platform Solutions Still Make Sense
 
 ### Testing and Validation Phase
 
-**Use case**: Testing a business idea before major investment  
-**Timeline**: 6-12 months maximum  
-**Exit strategy**: Plan migration to owned solution if successful  
+**Use case**: Testing a business idea before major investment
+**Timeline**: 6-12 months maximum
+**Exit strategy**: Plan migration to owned solution if successful
 **Risk management**: Don't build critical business dependencies
 
 ### Temporary or Event-Based Businesses
 
-**Use case**: Seasonal businesses, one-time events, short-term projects  
-**Timeline**: Under 12 months  
+**Use case**: Seasonal businesses, one-time events, short-term projects
+**Timeline**: Under 12 months
 **Consideration**: Even temporary businesses can benefit from ownership
 
 ### Very Small Budget Constraints
 
-**Use case**: Absolute minimum viable budget  
-**Plan**: Use platform as stepping stone, not permanent solution  
+**Use case**: Absolute minimum viable budget
+**Plan**: Use platform as stepping stone, not permanent solution
 **Timeline**: Move to ownership as soon as financially feasible
 
 ### Non-Critical Business Functions
 
-**Use case**: Landing pages, microsites, secondary business functions  
+**Use case**: Landing pages, microsites, secondary business functions
 **Main business**: Should always be on owned infrastructure
 
 ## Making the Right Choice for Your Business
@@ -236,46 +235,46 @@ It took three weeks to resolve the "mistake." Three weeks of zero sales during h
 
 ### Data You Can Usually Export
 
-**Customer information**: Names, emails, addresses  
-**Product catalogs**: Names, descriptions, prices  
-**Order history**: Transaction records and customer data  
+**Customer information**: Names, emails, addresses
+**Product catalogs**: Names, descriptions, prices
+**Order history**: Transaction records and customer data
 **Blog content**: Posts and basic formatting
 
 ### What You Lose in Migration
 
-**Design**: Templates don't transfer, need complete redesign  
-**Apps and functionality**: Platform-specific features don't transfer  
-**SEO rankings**: May lose search rankings during migration  
+**Design**: Templates don't transfer, need complete redesign
+**Apps and functionality**: Platform-specific features don't transfer
+**SEO rankings**: May lose search rankings during migration
 **URLs**: May need redirects, potential ranking loss
 
 ### Migration Timeline and Costs
 
-**Simple migration**: 2-4 weeks, $2,000-$8,000  
-**Complex migration**: 1-3 months, $5,000-$25,000  
-**Timing considerations**: Plan for temporary revenue disruption  
+**Simple migration**: 2-4 weeks, $2,000-$8,000
+**Complex migration**: 1-3 months, $5,000-$25,000
+**Timing considerations**: Plan for temporary revenue disruption
 **Success factors**: Professional migration team, careful planning
 
 ## Start Ova's Ownership-First Approach
 
 ### Why We Recommend Ownership
 
-**Business philosophy**: Your business should be an asset you own, not rent  
-**Long-term thinking**: Build value that compounds over time  
-**Risk management**: Reduce dependency on external platforms  
+**Business philosophy**: Your business should be an asset you own, not rent
+**Long-term thinking**: Build value that compounds over time
+**Risk management**: Reduce dependency on external platforms
 **Growth enablement**: Own the infrastructure needed to scale
 
 ### Our Ownership Solutions
 
-**Entry-level ownership**: Professional WordPress sites starting at $3,000  
-**E-commerce ownership**: Custom online stores with full control  
-**Migration services**: Professional platform-to-owned transitions  
+**Entry-level ownership**: Professional WordPress sites starting at $3,000
+**E-commerce ownership**: Custom online stores with full control
+**Migration services**: Professional platform-to-owned transitions
 **Ongoing support**: Maintenance and growth without platform limitations
 
 ### The Start Ova Difference
 
-**Ownership education**: We explain what you're getting and why it matters  
-**Future-proofing**: Build with growth and changes in mind  
-**Real support**: Direct access to experts, not platform ticket systems  
+**Ownership education**: We explain what you're getting and why it matters
+**Future-proofing**: Build with growth and changes in mind
+**Real support**: Direct access to experts, not platform ticket systems
 **Your success**: When you succeed, we succeed—no ongoing platform fees
 
 ## Key Takeaways
@@ -294,7 +293,7 @@ It took three weeks to resolve the "mistake." Three weeks of zero sales during h
 
 **Her reflection six months later**: "I was paying Shopify $400/month in fees and thought I was saving money. Now I pay $150/month for hosting and maintenance, have zero transaction fees, and sleep better knowing no algorithm can shut down my business."
 
-**The platform vs ownership decision isn't about technology—it's about how you view your business.** 
+**The platform vs ownership decision isn't about technology—it's about how you view your business.**
 
 **If you're building a hobby, platforms work fine. If you're building a business that supports your life and family, you need infrastructure you control.**
 

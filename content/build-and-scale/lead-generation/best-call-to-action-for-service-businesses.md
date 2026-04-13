@@ -1,13 +1,12 @@
 ---
 title: "Best Call to Action for Service Businesses: Conversion Elements"
-slug: best-call-to-action-for-service-businesses
-category: build-and-scale
-cluster: lead-generation
-excerpt: Practical strategies for best call to action for service businesses with proven implementation techniques.
-primary_keyword: best call to action for service businesses
-search_intent: Implementation/Strategy
-problem_this_article_solves: Businesses need practical lead generation strategies without advertising
+slug: "best-call-to-action-for-service-businesses"
+category: "build-and-scale"
+cluster: "lead-generation"
+excerpt: "Practical strategies for best call to action for service businesses with proven implementation techniques. Comprehensive approach and methodology for effective lead generation. Spe"
 ---
+
+# Best Call to Action for Service Businesses: Conversion Elements
 
 ## Introduction
 

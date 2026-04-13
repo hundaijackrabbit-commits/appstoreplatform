@@ -1,13 +1,12 @@
 ---
 title: "Freelancing vs Building a Business: Which Path to Choose"
-slug: freelancing-vs-building-a-business
-category: start-smart
-cluster: income-models
-excerpt: Should I freelance or start a real business?
-primary_keyword: freelancing vs building a business
-search_intent: Educational/Decision-making
-problem_this_article_solves: Entrepreneurs need guidance on specific income generation strategies
+slug: "freelancing-vs-building-a-business"
+category: "start-smart"
+cluster: "income-models"
+excerpt: "'Should I freelance or start a real business?' **That's the question Amanda wrestled with for months.** She was a talented graphic designer making $45,000/year at her corporate job"
 ---
+
+# Freelancing vs Building a Business: Which Path to Choose
 
 ## Introduction
 
@@ -36,7 +35,7 @@ problem_this_article_solves: Entrepreneurs need guidance on specific income gene
 
 **Examples**: Freelance writer, independent consultant, contract developer, solo designer, virtual assistant
 
-### Business Building Definition  
+### Business Building Definition
 
 **Building a business** = Creating systems that generate revenue without your constant personal involvement
 
@@ -51,7 +50,7 @@ problem_this_article_solves: Entrepreneurs need guidance on specific income gene
 
 ### The Fundamental Difference
 
-**Freelancer mindset**: "How can I sell my time for more money?"  
+**Freelancer mindset**: "How can I sell my time for more money?"
 **Business owner mindset**: "How can I create value that doesn't require my personal time?"
 
 **Reality check**: Many "businesses" are actually freelancing with business cards. If revenue stops when the founder stops working, it's freelancing regardless of the legal structure.

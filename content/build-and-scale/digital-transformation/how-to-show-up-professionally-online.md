@@ -1,13 +1,12 @@
 ---
 title: "How to Show Up Professionally Online: Digital Presence"
-slug: how-to-show-up-professionally-online
-category: build-and-scale
-cluster: digital-transformation
-excerpt: Stepbystep guidance for how to show up professionally online with practical implementation strategies.
-primary_keyword: how to show up professionally online
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "how-to-show-up-professionally-online"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "Step-by-step guidance for how to show up professionally online with practical implementation strategies. Understanding where your business stands and transformation opportunities."
 ---
+
+# How to Show Up Professionally Online: Digital Presence
 
 ## Introduction
 

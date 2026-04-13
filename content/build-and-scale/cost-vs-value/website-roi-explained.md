@@ -1,13 +1,12 @@
 ---
 title: "Website ROI Explained: Return on Investment Analysis"
-slug: website-roi-explained
-category: build-and-scale
-cluster: cost-vs-value
-excerpt: I spent $6,000 on a website two years ago. How do I know if it was worth it?
-primary_keyword: website roi explained
-search_intent: Decision-making/Investment analysis
-problem_this_article_solves: Business owners need guidance for website investment decisions
+slug: "website-roi-explained"
+category: "build-and-scale"
+cluster: "cost-vs-value"
+excerpt: "'I spent $6,000 on a website two years ago. How do I know if it was worth it?' **That's the question Carol asked me about her accounting firm's website.** She knew the website look"
 ---
+
+# Website ROI Explained: Return on Investment Analysis
 
 ## Introduction
 
@@ -65,7 +64,7 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 
 **Website development**: $2,500-$15,000 (most businesses: $4,000-$8,000)
 - Design and development labor
-- Content creation and copywriting  
+- Content creation and copywriting
 - Photography and visual assets
 - Initial SEO optimization and setup
 
@@ -119,7 +118,7 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 
 **ROI calculation example - Legal Practice**:
 
-**Initial investment**: $7,500 website + $400/month maintenance  
+**Initial investment**: $7,500 website + $400/month maintenance
 **Annual operating cost**: $12,300
 
 **Revenue attribution** (12 months):
@@ -132,8 +131,8 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 - **Fewer missed calls** (24/7 contact forms): 8 clients × $3,200 = $25,600
 - **Total cost savings**: $28,000
 
-**Total value**: $96,000 + $28,000 = $124,000  
-**Total cost**: $12,300  
+**Total value**: $96,000 + $28,000 = $124,000
+**Total cost**: $12,300
 **ROI**: (124,000 - 12,300) ÷ 12,300 × 100 = **908%**
 
 ### Retail and E-commerce Businesses
@@ -146,7 +145,7 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 
 **ROI calculation example - Local Retail Store**:
 
-**Initial investment**: $9,200 e-commerce website + $600/month maintenance  
+**Initial investment**: $9,200 e-commerce website + $600/month maintenance
 **Annual operating cost**: $16,400
 
 **Revenue attribution** (12 months):
@@ -160,8 +159,8 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 - **Extended hours sales**: $12,400 (online sales after hours)
 - **Total operational value**: $23,400
 
-**Total value**: $123,000 + $23,400 = $146,400  
-**Total cost**: $16,400  
+**Total value**: $123,000 + $23,400 = $146,400
+**Total cost**: $16,400
 **ROI**: (146,400 - 16,400) ÷ 16,400 × 100 = **793%**
 
 ### Local Service Businesses (Restaurants, Healthcare, Personal Services)
@@ -174,7 +173,7 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 
 **ROI calculation example - Dental Practice**:
 
-**Initial investment**: $5,800 website + $350/month maintenance  
+**Initial investment**: $5,800 website + $350/month maintenance
 **Annual operating cost**: $10,000
 
 **Revenue attribution** (12 months):
@@ -188,8 +187,8 @@ ROI = (Gain from Investment - Cost of Investment) ÷ Cost of Investment × 100
 - **Patient education** (reduced consultation time): $3,200 value
 - **Total efficiency value**: $17,200
 
-**Total value**: $86,880 + $17,200 = $104,080  
-**Total cost**: $10,000  
+**Total value**: $86,880 + $17,200 = $104,080
+**Total cost**: $10,000
 **ROI**: (104,080 - 10,000) ÷ 10,000 × 100 = **940%**
 
 ## Advanced ROI Metrics and Attribution Models
@@ -231,12 +230,12 @@ CLV = Average Order Value × Number of Orders per Year × Customer Lifespan × P
 3. Phone call or email inquiry
 4. Final purchase decision
 
-**First-touch attribution**: Credits 100% to initial website visit  
-**Last-touch attribution**: Credits 100% to final conversion point  
-**Linear attribution**: Splits credit equally across all touchpoints  
+**First-touch attribution**: Credits 100% to initial website visit
+**Last-touch attribution**: Credits 100% to final conversion point
+**Linear attribution**: Splits credit equally across all touchpoints
 **Time-decay attribution**: Gives more credit to recent interactions
 
-**Recommended approach for small businesses**: 
+**Recommended approach for small businesses**:
 - 60% credit to website visit (if it's the discovery method)
 - 40% credit to final conversion method
 - Track both direct and influenced revenue
@@ -256,8 +255,8 @@ CLV = Average Order Value × Number of Orders per Year × Customer Lifespan × P
 
 **Real example - 3-year ROI progression**:
 
-**Year 1**: 287% ROI (mostly direct lead generation)  
-**Year 2**: 445% ROI (SEO traffic increases, referral amplification)  
+**Year 1**: 287% ROI (mostly direct lead generation)
+**Year 2**: 445% ROI (SEO traffic increases, referral amplification)
 **Year 3**: 612% ROI (brand authority, premium pricing acceptance)
 
 **Key insight**: Website ROI typically improves over time as SEO benefits compound and brand authority builds.

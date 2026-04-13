@@ -1,13 +1,12 @@
 ---
 title: "How to Convert Visitors into Calls: Phone Lead Optimization"
-slug: how-to-convert-visitors-into-calls
-category: build-and-scale
-cluster: lead-generation
-excerpt: Practical strategies for how to convert visitors into calls with proven implementation techniques.
-primary_keyword: how to convert visitors into calls
-search_intent: Implementation/Strategy
-problem_this_article_solves: Businesses need practical lead generation strategies without advertising
+slug: "how-to-convert-visitors-into-calls"
+category: "build-and-scale"
+cluster: "lead-generation"
+excerpt: "Practical strategies for how to convert visitors into calls with proven implementation techniques. Comprehensive approach and methodology for effective lead generation. Specific te"
 ---
+
+# How to Convert Visitors into Calls: Phone Lead Optimization
 
 ## Introduction
 

@@ -1,13 +1,12 @@
 ---
-title: What is Local SEO? Complete Guide for Small Business
-slug: what-is-local-seo
-category: build-and-scale
-cluster: local-seo
-excerpt: "Last week, Mike's plumbing company got three emergency calls in one hour. All from the same neighborhood, all found him by searching emergency plumber near me."
-primary_keyword: what is local seo
-search_intent: Educational/Implementation
-problem_this_article_solves: Local businesses need practical SEO guidance for visibility
+title: "What is Local SEO? Complete Guide for Small Business"
+slug: "what-is-local-seo"
+category: "build-and-scale"
+cluster: "local-seo"
+excerpt: "Last week, Mike's plumbing company got three emergency calls in one hour. All from the same neighborhood, all found him by searching 'emergency plumber near me.' The week before? Z"
 ---
+
+# What is Local SEO? Complete Guide for Small Business
 
 ## Introduction
 
@@ -50,7 +49,7 @@ How well your business matches what someone searched for.
 
 **Example**: If someone searches "emergency plumber," Google looks for businesses with "plumber" in their name, description, or services.
 
-### Distance  
+### Distance
 
 How close your business is to the searcher.
 
@@ -80,7 +79,7 @@ Your Google Business Profile (formerly Google My Business) is your most importan
 
 **What it controls**:
 - Your appearance in Google Maps
-- Your business information in search results  
+- Your business information in search results
 - Customer reviews display
 - Photos and posts visibility
 - Call and direction buttons
@@ -202,27 +201,27 @@ Local keywords combine your service with geographic terms.
 
 ### Mistake 1: Inconsistent Business Information
 
-**Problem**: Different addresses or phone numbers across websites  
+**Problem**: Different addresses or phone numbers across websites
 **Fix**: Audit all online mentions and standardize information
 
 ### Mistake 2: Ignoring Reviews
 
-**Problem**: Not asking for reviews or responding to them  
+**Problem**: Not asking for reviews or responding to them
 **Fix**: Create systematic review generation and response process
 
 ### Mistake 3: Wrong Business Category
 
-**Problem**: Choosing broad categories instead of specific ones  
+**Problem**: Choosing broad categories instead of specific ones
 **Fix**: Select the most specific category that describes your business
 
 ### Mistake 4: Keyword Stuffing Business Name
 
-**Problem**: "Joe's Best Affordable Emergency Plumbing Services"  
+**Problem**: "Joe's Best Affordable Emergency Plumbing Services"
 **Fix**: Use actual business name, add keywords to description instead
 
 ### Mistake 5: No Local Content
 
-**Problem**: Website doesn't mention local area or community  
+**Problem**: Website doesn't mention local area or community
 **Fix**: Create location-specific pages and local community content
 
 ## Industry-Specific Local SEO Tips
@@ -259,22 +258,22 @@ Local keywords combine your service with geographic terms.
 
 ### Free Tools
 
-**Google Business Profile**: Business listing management  
-**Google Analytics**: Traffic and conversion tracking  
-**Google Search Console**: Search performance data  
+**Google Business Profile**: Business listing management
+**Google Analytics**: Traffic and conversion tracking
+**Google Search Console**: Search performance data
 **Bing Places**: Secondary search engine optimization
 
 ### Paid Tools
 
-**BrightLocal** ($29+/month): Complete local SEO platform  
-**Whitespark** ($17+/month): Citation building and rank tracking  
-**Moz Local** ($99/year): Listing management and insights  
+**BrightLocal** ($29+/month): Complete local SEO platform
+**Whitespark** ($17+/month): Citation building and rank tracking
+**Moz Local** ($99/year): Listing management and insights
 **SEMrush** ($119+/month): Comprehensive SEO with local features
 
 ### Citation Resources
 
-**Major directories**: Yelp, BBB, Yellow Pages, Foursquare  
-**Industry directories**: Angie's List, Healthgrades, Avvo  
+**Major directories**: Yelp, BBB, Yellow Pages, Foursquare
+**Industry directories**: Angie's List, Healthgrades, Avvo
 **Local directories**: Chamber of Commerce, city websites
 
 ## Advanced Local SEO Strategies
@@ -285,7 +284,7 @@ Add structured data to your website to help Google understand your business info
 
 **Essential schema types**:
 - LocalBusiness
-- Organization  
+- Organization
 - Review
 - FAQ
 

@@ -1,13 +1,12 @@
 ---
 title: "First Steps to Going Online: Digital Transition Planning"
-slug: first-steps-to-going-online
-category: build-and-scale
-cluster: digital-transformation
-excerpt: Stepbystep guidance for first steps to going online with practical implementation strategies.
-primary_keyword: first steps to going online
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "first-steps-to-going-online"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "Step-by-step guidance for first steps to going online with practical implementation strategies. Understanding where your business stands and transformation opportunities. Practical"
 ---
+
+# First Steps to Going Online: Digital Transition Planning
 
 ## Introduction
 

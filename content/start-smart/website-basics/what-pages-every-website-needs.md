@@ -1,13 +1,12 @@
 ---
 title: "What Pages Every Website Needs: Essential Page Guide for Business Success"
-slug: what-pages-every-website-needs
-category: start-smart
-cluster: website-basics
-excerpt: I know I need a website, but what pages should it actually have?
-primary_keyword: what pages every website needs
-search_intent: Informational (people want to know essential website structure)
-problem_this_article_solves: Business owners need to understand which pages are essential vs optional for their website
+slug: "what-pages-every-website-needs"
+category: "start-smart"
+cluster: "website-basics"
+excerpt: "'I know I need a website, but what pages should it actually have?' When you're building a business website, it's easy to get overwhelmed by all the possible pages you could create."
 ---
+
+# What Pages Every Website Needs: Essential Page Guide for Business Success
 
 ## Introduction
 
@@ -246,8 +245,8 @@ This guide shows you exactly which pages every business website needs and why ea
 
 ### Information Architecture:
 
-**Homepage** → **Services** → **Contact** (primary path)  
-**Homepage** → **About** → **Contact** (trust-building path)  
+**Homepage** → **Services** → **Contact** (primary path)
+**Homepage** → **About** → **Contact** (trust-building path)
 **Any page** → **Testimonials** → **Contact** (social proof path)
 
 ### Mobile Navigation:
@@ -263,12 +262,12 @@ This guide shows you exactly which pages every business website needs and why ea
 
 #### Focus on Customer Benefits
 
-**Instead of**: "We have 20 years of experience"  
+**Instead of**: "We have 20 years of experience"
 **Write**: "Our 20 years of experience means we solve problems quickly and avoid costly mistakes"
 
 #### Use Clear, Simple Language
 
-**Instead of**: "We provide comprehensive solutions for your business needs"  
+**Instead of**: "We provide comprehensive solutions for your business needs"
 **Write**: "We help restaurants increase profits by reducing food waste"
 
 #### Include Calls-to-Action
@@ -291,12 +290,12 @@ This guide shows you exactly which pages every business website needs and why ea
 
 ### Content Length by Page Type:
 
-**Homepage**: 300-600 words  
-**About page**: 400-800 words  
-**Service pages**: 500-1,000 words each  
-**Contact page**: 100-300 words  
-**FAQ page**: 1,000-2,000 words total  
-**Testimonials**: 100-200 words per testimonial  
+**Homepage**: 300-600 words
+**About page**: 400-800 words
+**Service pages**: 500-1,000 words each
+**Contact page**: 100-300 words
+**FAQ page**: 1,000-2,000 words total
+**Testimonials**: 100-200 words per testimonial
 
 ### Content Quality Standards:
 
@@ -310,49 +309,49 @@ This guide shows you exactly which pages every business website needs and why ea
 
 ### Every Page Must Have:
 
-**Descriptive page title**: Unique title for each page  
-**Meta description**: Summary that appears in search results  
-**Header tags**: Organized content structure (H1, H2, H3)  
-**Alt text for images**: Describes images for accessibility and SEO  
+**Descriptive page title**: Unique title for each page
+**Meta description**: Summary that appears in search results
+**Header tags**: Organized content structure (H1, H2, H3)
+**Alt text for images**: Describes images for accessibility and SEO
 **Internal links**: Connections to related pages on your site
 
 ### Page Speed Requirements:
 
-**Loading time**: Under 3 seconds on mobile  
-**Image optimization**: Compressed for web use  
+**Loading time**: Under 3 seconds on mobile
+**Image optimization**: Compressed for web use
 **Clean code**: No unnecessary plugins or scripts
 
 ### Mobile Optimization:
 
-**Responsive design**: Works on all screen sizes  
-**Touch-friendly**: Buttons large enough for fingers  
+**Responsive design**: Works on all screen sizes
+**Touch-friendly**: Buttons large enough for fingers
 **Fast loading**: Optimized for mobile networks
 
 ## Common Page Structure Mistakes
 
 ### Mistake 1: Too Many Main Pages
 
-**Problem**: Overwhelming navigation confuses visitors  
+**Problem**: Overwhelming navigation confuses visitors
 **Solution**: Limit main navigation to 7 items or fewer
 
 ### Mistake 2: Unclear Page Purpose
 
-**Problem**: Visitors can't quickly understand what each page offers  
+**Problem**: Visitors can't quickly understand what each page offers
 **Solution**: Clear headlines and descriptions for every page
 
 ### Mistake 3: No Clear Path to Contact
 
-**Problem**: Interested visitors can't easily take next step  
+**Problem**: Interested visitors can't easily take next step
 **Solution**: Contact information and calls-to-action on every page
 
 ### Mistake 4: Duplicate Content
 
-**Problem**: Multiple pages saying the same thing  
+**Problem**: Multiple pages saying the same thing
 **Solution**: Each page should have unique purpose and content
 
 ### Mistake 5: Missing Essential Pages
 
-**Problem**: Visitors leave because they can't find basic information  
+**Problem**: Visitors leave because they can't find basic information
 **Solution**: Include all 7 essential pages before adding optional pages
 
 ## Page Priority for New Websites

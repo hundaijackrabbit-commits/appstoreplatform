@@ -1,13 +1,12 @@
 ---
 title: "How to Move Your Business Online: Digital Transformation Guide"
-slug: how-to-move-your-business-online
-category: build-and-scale
-cluster: digital-transformation
-excerpt: "We've been doing business the same way for 20 years. Now everyone's talking about 'going digital.' Where do we even start?"
-primary_keyword: how to move your business online
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "how-to-move-your-business-online"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "'We've been doing business the same way for 20 years. Now everyone's talking about 'going digital.' Where do we even start?' **That's the question Robert asked me about his family-"
 ---
+
+# How to Move Your Business Online: Digital Transformation Guide
 
 ## Introduction
 
@@ -25,7 +24,7 @@ problem_this_article_solves: Traditional businesses need practical guidance for 
 
 ### What "Moving Online" Actually Means
 
-**Digital transformation** ≠ Becoming a tech company  
+**Digital transformation** ≠ Becoming a tech company
 **Digital transformation** = Using technology to improve how you serve customers and run operations
 
 **For traditional businesses, this typically includes**:

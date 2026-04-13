@@ -1,13 +1,12 @@
 ---
 title: "Building a Brand for Local Business: Brand Development"
-slug: building-a-brand-for-local-business
-category: build-and-scale
-cluster: digital-transformation
-excerpt: Stepbystep guidance for building a brand for local business with practical implementation strategies.
-primary_keyword: building a brand for local business
-search_intent: Implementation/Guidance
-problem_this_article_solves: Traditional businesses need practical guidance for digital transformation
+slug: "building-a-brand-for-local-business"
+category: "build-and-scale"
+cluster: "digital-transformation"
+excerpt: "Step-by-step guidance for building a brand for local business with practical implementation strategies. Understanding where your business stands and transformation opportunities. P"
 ---
+
+# Building a Brand for Local Business: Brand Development
 
 ## Introduction
 

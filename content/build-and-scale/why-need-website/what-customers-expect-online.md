@@ -1,13 +1,12 @@
 ---
 title: "What Customers Expect Online: Modern Business Standards"
-slug: what-customers-expect-online
-category: build-and-scale
-cluster: why-need-website
-excerpt: Direct analysis of what customers expect online with datadriven insights for business decisionmaking.
-primary_keyword: what customers expect online
-search_intent: Educational/Business decision
-problem_this_article_solves: Small business owners need concrete evidence for website value proposition
+slug: "what-customers-expect-online"
+category: "build-and-scale"
+cluster: "why-need-website"
+excerpt: "Direct analysis of what customers expect online with data-driven insights for business decision-making. How customer expectations and business practices have evolved in the digital"
 ---
+
+# What Customers Expect Online: Modern Business Standards
 
 ## Introduction
 
@@ -17,7 +16,7 @@ Direct analysis of what customers expect online with data-driven insights for bu
 
 How customer expectations and business practices have evolved in the digital marketplace.
 
-## ROI Analysis  
+## ROI Analysis
 
 Concrete return on investment calculations and performance metrics.
 

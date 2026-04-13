@@ -1,13 +1,12 @@
 ---
-title: What Is a Website and How Does It Work? Simple Explanation for Beginners
-slug: what-is-a-website-and-how-does-it-work
-category: start-smart
-cluster: website-basics
-excerpt: I know I need a website, but I have no idea what that actually means.
-primary_keyword: what is a website and how does it work
-search_intent: Educational (people want basic understanding of website concepts)
-problem_this_article_solves: Non-technical people need to understand websites before making business decisions about them
+title: "What Is a Website and How Does It Work? Simple Explanation for Beginners"
+slug: "what-is-a-website-and-how-does-it-work"
+category: "start-smart"
+cluster: "website-basics"
+excerpt: "'I know I need a website, but I have no idea what that actually means.' If technology isn't your thing, the whole world of websites can feel like a foreign language. Domain names,"
 ---
+
+# What Is a Website and How Does It Work? Simple Explanation for Beginners
 
 ## Introduction
 
@@ -44,11 +43,11 @@ Just like a physical building, your website has an address (domain), sits somewh
 
 ### 1. Domain Name (Your Website Address)
 
-**What it is**: The address people type to find your website  
-**Examples**: google.com, amazon.com, yourname.com  
+**What it is**: The address people type to find your website
+**Examples**: google.com, amazon.com, yourname.com
 **Purpose**: Makes your website easy to find and remember
 
-**How it works**: 
+**How it works**:
 - You type facebook.com in your browser
 - Your browser asks "Where is facebook.com?"
 - The internet directory system points to the right server
@@ -58,8 +57,8 @@ Just like a physical building, your website has an address (domain), sits somewh
 
 ### 2. Web Hosting (Where Your Website Lives)
 
-**What it is**: Computers (servers) that store your website files and make them available 24/7  
-**Purpose**: Keeps your website running and accessible to visitors  
+**What it is**: Computers (servers) that store your website files and make them available 24/7
+**Purpose**: Keeps your website running and accessible to visitors
 **Types**: Shared hosting, VPS hosting, dedicated servers (like apartments vs houses)
 
 **How it works**:
@@ -72,7 +71,7 @@ Just like a physical building, your website has an address (domain), sits somewh
 
 ### 3. Website Files (Your Actual Website)
 
-**What they are**: The code, text, images, and design that create your website experience  
+**What they are**: The code, text, images, and design that create your website experience
 **Main types**: HTML (structure), CSS (design), JavaScript (functionality), images, videos
 
 **How they work**:
@@ -113,64 +112,64 @@ The visitor's browser takes all those files and assembles them into the website 
 
 ### Static Websites
 
-**What they are**: Websites where the content doesn't change unless you manually update it  
-**Examples**: Basic business information sites, portfolios, simple brochures  
+**What they are**: Websites where the content doesn't change unless you manually update it
+**Examples**: Basic business information sites, portfolios, simple brochures
 **Analogy**: Like a printed brochure — same information for everyone who reads it
 
-**Advantages**: Fast, simple, inexpensive, secure  
+**Advantages**: Fast, simple, inexpensive, secure
 **Best for**: Small businesses, professionals, informational sites
 
-### Dynamic Websites  
+### Dynamic Websites
 
-**What they are**: Websites that can change content automatically based on who's visiting or what they want  
-**Examples**: Online stores, social media, banking sites, blogs  
+**What they are**: Websites that can change content automatically based on who's visiting or what they want
+**Examples**: Online stores, social media, banking sites, blogs
 **Analogy**: Like a smart display that shows different information to different people
 
-**Advantages**: Interactive, personalized, can handle complex functions  
+**Advantages**: Interactive, personalized, can handle complex functions
 **Best for**: E-commerce, membership sites, complex business applications
 
 ### Content Management Systems (CMS)
 
-**What they are**: Websites built on platforms that let you update content easily without coding  
-**Examples**: WordPress, Wix, Squarespace, Shopify  
+**What they are**: Websites built on platforms that let you update content easily without coding
+**Examples**: WordPress, Wix, Squarespace, Shopify
 **Analogy**: Like having a remote control for your TV — you can change channels without understanding how television broadcasting works
 
-**Advantages**: Easy updates, professional features, cost-effective  
+**Advantages**: Easy updates, professional features, cost-effective
 **Best for**: Most small businesses, blogs, growing companies
 
 ## How People Find Websites
 
 ### Direct Traffic
 
-**How it works**: People type your domain name directly or have it bookmarked  
-**Business value**: Shows brand recognition and repeat customers  
+**How it works**: People type your domain name directly or have it bookmarked
+**Business value**: Shows brand recognition and repeat customers
 **Example**: Existing customers typing yourplumbingcompany.com
 
 ### Search Engine Traffic
 
-**How it works**: People search Google for services, and your website appears in results  
-**Business value**: Captures new customers actively looking for your services  
+**How it works**: People search Google for services, and your website appears in results
+**Business value**: Captures new customers actively looking for your services
 **Example**: Someone searches "plumber near me" and finds your website
 
 ### Social Media Traffic
 
-**How it works**: People click links to your website from social media posts  
-**Business value**: Extends your social media marketing efforts  
+**How it works**: People click links to your website from social media posts
+**Business value**: Extends your social media marketing efforts
 **Example**: Facebook post about your service with link to your website
 
 ### Referral Traffic
 
-**How it works**: Other websites link to yours, and people click those links  
-**Business value**: Builds credibility and reaches new audiences  
+**How it works**: Other websites link to yours, and people click those links
+**Business value**: Builds credibility and reaches new audiences
 **Example**: Local business directory or partner website linking to you
 
 ## Website Performance: What Makes Them Fast or Slow
 
 ### Page Load Speed Factors
 
-**Good hosting**: Like having a powerful computer and fast internet connection  
-**Optimized images**: Like using smaller file sizes without losing quality  
-**Clean code**: Like organizing your files efficiently  
+**Good hosting**: Like having a powerful computer and fast internet connection
+**Optimized images**: Like using smaller file sizes without losing quality
+**Clean code**: Like organizing your files efficiently
 **Content delivery networks**: Like having multiple copies of your website around the world
 
 ### Why Speed Matters for Business
@@ -185,15 +184,15 @@ The visitor's browser takes all those files and assembles them into the website 
 
 ### Common Security Features
 
-**SSL Certificates**: Creates secure connection between your website and visitors (shows lock icon in browser)  
-**Regular Updates**: Keeps website software current to prevent vulnerabilities  
-**Strong Passwords**: Protects admin access to your website  
+**SSL Certificates**: Creates secure connection between your website and visitors (shows lock icon in browser)
+**Regular Updates**: Keeps website software current to prevent vulnerabilities
+**Strong Passwords**: Protects admin access to your website
 **Backups**: Creates copies of your website in case something goes wrong
 
 ### Why Security Matters
 
 - **Protects customer information** and builds trust
-- **Google flags insecure sites** which hurts search rankings  
+- **Google flags insecure sites** which hurts search rankings
 - **Prevents hackers** from damaging your business reputation
 - **Ensures website reliability** and uptime
 
@@ -209,9 +208,9 @@ The visitor's browser takes all those files and assembles them into the website 
 
 ### What Makes a Website Mobile-Friendly
 
-**Responsive design**: Website automatically adjusts to fit different screen sizes  
-**Fast loading**: Mobile users are even less patient than desktop users  
-**Easy navigation**: Buttons and links easy to tap with fingers  
+**Responsive design**: Website automatically adjusts to fit different screen sizes
+**Fast loading**: Mobile users are even less patient than desktop users
+**Easy navigation**: Buttons and links easy to tap with fingers
 **Readable text**: No zooming required to read content
 
 **Business necessity**: If your website doesn't work well on mobile, you're losing the majority of potential customers.
@@ -222,7 +221,7 @@ The visitor's browser takes all those files and assembles them into the website 
 
 **Reality**: Modern website builders make it easier than ever to create professional sites without technical knowledge.
 
-### Myth: "You need to know coding to have a website"  
+### Myth: "You need to know coding to have a website"
 
 **Reality**: Most businesses use website builders or hire professionals. Coding knowledge isn't required.
 
@@ -242,19 +241,19 @@ The visitor's browser takes all those files and assembles them into the website 
 
 ### One-Time Costs
 
-**Domain name**: $10-20/year (like annual address registration)  
-**Website design**: $500-10,000 (like building construction)  
+**Domain name**: $10-20/year (like annual address registration)
+**Website design**: $500-10,000 (like building construction)
 **Setup and launch**: $100-1,000 (like moving-in costs)
 
-### Ongoing Costs  
+### Ongoing Costs
 
-**Web hosting**: $10-200/month (like rent)  
-**Maintenance and updates**: $50-500/month (like utilities and upkeep)  
+**Web hosting**: $10-200/month (like rent)
+**Maintenance and updates**: $50-500/month (like utilities and upkeep)
 **Marketing and promotion**: $100-2,000+/month (like advertising)
 
 ### Total Investment
 
-**Basic business website**: $1,000-3,000 first year, $500-1,500/year ongoing  
+**Basic business website**: $1,000-3,000 first year, $500-1,500/year ongoing
 **Professional business website**: $3,000-10,000 first year, $1,000-5,000/year ongoing
 
 **ROI reality**: Most business websites pay for themselves within 1-6 months through new customer acquisition.

@@ -1,13 +1,12 @@
 ---
-title: Are Side Hustles Worth It? ROI Analysis and Reality Check
-slug: are-side-hustles-worth-it
-category: start-smart
-cluster: myths-reality
-excerpt: Addressing common myths and misconceptions about are side hustles worth it with datadriven analysis and realworld insights.
-primary_keyword: are side hustles worth it
-search_intent: Educational/Myth-busting
-problem_this_article_solves: Entrepreneurs need realistic information to counter common misconceptions
+title: "Are Side Hustles Worth It? ROI Analysis and Reality Check"
+slug: "are-side-hustles-worth-it"
+category: "start-smart"
+cluster: "myths-reality"
+excerpt: "Addressing common myths and misconceptions about are side hustles worth it with data-driven analysis and real-world insights. Common misconception and why people believe it. Data-b"
 ---
+
+# Are Side Hustles Worth It? ROI Analysis and Reality Check
 
 ## Introduction
 

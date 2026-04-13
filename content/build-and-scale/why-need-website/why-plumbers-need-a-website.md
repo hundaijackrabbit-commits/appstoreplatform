@@ -1,13 +1,12 @@
 ---
 title: "Why Plumbers Need a Website: Trade Business Online Presence"
-slug: why-plumbers-need-a-website
-category: build-and-scale
-cluster: why-need-website
-excerpt: "I'm a plumber, not a computer guy. Why do I need a website when people just call when their pipes burst?"
-primary_keyword: why plumbers need a website
-search_intent: Educational/Business decision
-problem_this_article_solves: Small business owners need concrete evidence for website value proposition
+slug: "why-plumbers-need-a-website"
+category: "build-and-scale"
+cluster: "why-need-website"
+excerpt: "'I'm a plumber, not a computer guy. Why do I need a website when people just call when their pipes burst?' **That's exactly what Frank asked me six months ago.** His plumbing busin"
 ---
+
+# Why Plumbers Need a Website: Trade Business Online Presence
 
 ## Introduction
 
@@ -112,7 +111,7 @@ problem_this_article_solves: Small business owners need concrete evidence for we
 
 **Google search volume for plumbing terms** (monthly averages):
 - "plumber near me": 246,000 searches
-- "emergency plumber": 165,000 searches  
+- "emergency plumber": 165,000 searches
 - "drain cleaning service": 74,000 searches
 - "water heater repair": 61,000 searches
 - "toilet repair": 49,000 searches
@@ -127,7 +126,7 @@ problem_this_article_solves: Small business owners need concrete evidence for we
 **What makes customers trust a plumber** (survey of 1,200 homeowners):
 1. **Professional website**: 84% say it increases trust
 2. **Positive online reviews**: 81%
-3. **Clear pricing information**: 76% 
+3. **Clear pricing information**: 76%
 4. **Photos of completed work**: 71%
 5. **Certifications and licensing displayed**: 69%
 6. **Years in business prominently shown**: 64%
@@ -276,7 +275,7 @@ problem_this_article_solves: Small business owners need concrete evidence for we
 
 **Monthly expenses**:
 - **Hosting and security**: $25-$75/month
-- **Maintenance and updates**: $100-$300/month  
+- **Maintenance and updates**: $100-$300/month
 - **Local SEO management**: $200-$600/month
 - **Review management**: $50-$150/month
 - **Content updates**: $100-$400/month
@@ -287,7 +286,7 @@ problem_this_article_solves: Small business owners need concrete evidence for we
 
 **Conservative estimates** (based on industry averages):
 - **Month 1-3**: 15% increase in qualified leads
-- **Month 4-6**: 25% increase in total customer inquiries  
+- **Month 4-6**: 25% increase in total customer inquiries
 - **Month 7-12**: 35-50% increase in monthly revenue
 - **Year 2+**: Sustainable 40-60% revenue growth
 
@@ -362,7 +361,7 @@ problem_this_article_solves: Small business owners need concrete evidence for we
 
 ### "My customers don't use the internet"
 
-**Reality check**: 
+**Reality check**:
 - 89% of adults use the internet regularly
 - 76% of seniors (65+) are online
 - Even if YOUR current customers don't, potential customers do

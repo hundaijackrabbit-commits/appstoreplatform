@@ -1,13 +1,12 @@
 ---
 title: "Why Electricians Need a Website: Contractor Digital Strategy"
-slug: why-electricians-need-a-website
-category: build-and-scale
-cluster: why-need-website
-excerpt: "I'm an electrician, not a computer guy. My customers call me when their power goes out—why do I need a website?"
-primary_keyword: why electricians need a website
-search_intent: Educational/Business decision
-problem_this_article_solves: Small business owners need concrete evidence for website value proposition
+slug: "why-electricians-need-a-website"
+category: "build-and-scale"
+cluster: "why-need-website"
+excerpt: "'I'm an electrician, not a computer guy. My customers call me when their power goes out—why do I need a website?' **That's what Carl asked me eight months ago.** His electrical con"
 ---
+
+# Why Electricians Need a Website: Contractor Digital Strategy
 
 ## Introduction
 

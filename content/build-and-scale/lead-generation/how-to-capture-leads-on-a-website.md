@@ -1,13 +1,12 @@
 ---
 title: "How to Capture Leads on a Website: Lead Magnet Strategy"
-slug: how-to-capture-leads-on-a-website
-category: build-and-scale
-cluster: lead-generation
-excerpt: Practical strategies for how to capture leads on a website with proven implementation techniques.
-primary_keyword: how to capture leads on a website
-search_intent: Implementation/Strategy
-problem_this_article_solves: Businesses need practical lead generation strategies without advertising
+slug: "how-to-capture-leads-on-a-website"
+category: "build-and-scale"
+cluster: "lead-generation"
+excerpt: "Practical strategies for how to capture leads on a website with proven implementation techniques. Comprehensive approach and methodology for effective lead generation. Specific tec"
 ---
+
+# How to Capture Leads on a Website: Lead Magnet Strategy
 
 ## Introduction
 

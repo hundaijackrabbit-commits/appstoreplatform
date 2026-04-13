@@ -1,13 +1,12 @@
 ---
 title: "How to Rank for Service Keywords: Local SEO Tactics"
-slug: how-to-rank-for-service-keywords
-category: build-and-scale
-cluster: local-seo
-excerpt: Comprehensive guide to how to rank for service keywords with actionable implementation strategies.
-primary_keyword: how to rank for service keywords
-search_intent: Educational/Implementation
-problem_this_article_solves: Local businesses need practical SEO guidance for visibility
+slug: "how-to-rank-for-service-keywords"
+category: "build-and-scale"
+cluster: "local-seo"
+excerpt: "Comprehensive guide to how to rank for service keywords with actionable implementation strategies. Fundamental principles and mechanisms driving local search performance. Step-by-s"
 ---
+
+# How to Rank for Service Keywords: Local SEO Tactics
 
 ## Introduction
 
@@ -21,7 +20,7 @@ Fundamental principles and mechanisms driving local search performance.
 
 Step-by-step process for implementing effective local SEO strategies.
 
-## Tools and Resources  
+## Tools and Resources
 
 Recommended tools and platforms for local search optimization.
 
@@ -36,7 +35,7 @@ Typical obstacles and solutions for local search optimization.
 ## Key Takeaways
 
 - Practical implementation guidance
-- Performance measurement strategies  
+- Performance measurement strategies
 - Tool recommendations and resources
 - Success factors and best practices
 

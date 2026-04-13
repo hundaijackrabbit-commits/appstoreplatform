@@ -1,13 +1,12 @@
 ---
-title: 17 Online Business Mistakes Beginners Make (And How to Avoid Them)
-slug: online-business-mistakes-beginners-make
-category: start-smart
-cluster: starting-online-business
-excerpt: Starting an online business feels like navigating a minefield blindfolded.
-primary_keyword: online business mistakes beginners make
-search_intent: Educational + preventive (people want to avoid common pitfalls)
-problem_this_article_solves: Beginners make predictable mistakes that cost time, money, and motivation - this guide helps avoid them
+title: "17 Online Business Mistakes Beginners Make (And How to Avoid Them)"
+slug: "online-business-mistakes-beginners-make"
+category: "start-smart"
+cluster: "starting-online-business"
+excerpt: "Starting an online business feels like navigating a minefield blindfolded. Every day brings new decisions, new tools to learn, and new 'experts' telling you different strategies. I"
 ---
+
+# 17 Online Business Mistakes Beginners Make (And How to Avoid Them)
 
 ## Introduction
 
@@ -49,7 +48,7 @@ Great product, terrible marketing leads to the "build it and they will come" fan
 
 **Why beginners do this**: Fear of missing out on potential customers by being too specific
 
-**The real cost**: 
+**The real cost**:
 - Marketing becomes generic and ineffective
 - Can't become expert at anything
 - Customers don't know what you actually do

@@ -1,13 +1,12 @@
 ---
 title: "What You Actually Pay For in Web Design: Value Breakdown"
-slug: what-you-actually-pay-for-in-web-design
-category: build-and-scale
-cluster: cost-vs-value
-excerpt: Comprehensive analysis of what you actually pay for in web design for informed business decisionmaking.
-primary_keyword: what you actually pay for in web design
-search_intent: Decision-making/Investment analysis
-problem_this_article_solves: Business owners need guidance for website investment decisions
+slug: "what-you-actually-pay-for-in-web-design"
+category: "build-and-scale"
+cluster: "cost-vs-value"
+excerpt: "Comprehensive analysis of what you actually pay for in web design for informed business decision-making. Detailed analysis of pricing components and value factors. Framework for as"
 ---
+
+# What You Actually Pay For in Web Design: Value Breakdown
 
 ## Introduction
 
@@ -36,7 +35,7 @@ Potential risks and mitigation strategies for website investments.
 ## Key Takeaways
 
 - Investment evaluation criteria and methods
-- Cost-benefit analysis and ROI calculations  
+- Cost-benefit analysis and ROI calculations
 - Risk assessment and mitigation strategies
 - Decision-making framework for business owners
 

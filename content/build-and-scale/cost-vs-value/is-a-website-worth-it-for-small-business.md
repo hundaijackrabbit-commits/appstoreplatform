@@ -1,13 +1,12 @@
 ---
-title: Is a Website Worth It for Small Business? Cost-Benefit Analysis
-slug: is-a-website-worth-it-for-small-business
-category: build-and-scale
-cluster: cost-vs-value
-excerpt: Comprehensive analysis of is a website worth it for small business for informed business decisionmaking.
-primary_keyword: is a website worth it for small business
-search_intent: Decision-making/Investment analysis
-problem_this_article_solves: Business owners need guidance for website investment decisions
+title: "Is a Website Worth It for Small Business? Cost-Benefit Analysis"
+slug: "is-a-website-worth-it-for-small-business"
+category: "build-and-scale"
+cluster: "cost-vs-value"
+excerpt: "Comprehensive analysis of is a website worth it for small business for informed business decision-making. Detailed analysis of pricing components and value factors. Framework for a"
 ---
+
+# Is a Website Worth It for Small Business? Cost-Benefit Analysis
 
 ## Introduction
 
@@ -36,7 +35,7 @@ Potential risks and mitigation strategies for website investments.
 ## Key Takeaways
 
 - Investment evaluation criteria and methods
-- Cost-benefit analysis and ROI calculations  
+- Cost-benefit analysis and ROI calculations
 - Risk assessment and mitigation strategies
 - Decision-making framework for business owners
 
