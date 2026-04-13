@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -255,15 +256,21 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-500/10 via-purple-500/10 to-blue-500/10">
       <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-8">
           <div>
             <h1 className="text-4xl font-bold text-white">Admin Dashboard</h1>
             <p className="text-gray-300 mt-2">
-              Manage orders, paste ZIP links, add GitHub repos, and deliver projects.
+              Manage orders, paste ZIP links, add GitHub repos, deliver projects, and access your blog tools.
             </p>
           </div>
 
           <div className="flex gap-3 flex-wrap">
+            <Link href="/admin/blogs">
+              <Button variant="outline" className="border-white/15 bg-white/5 text-white hover:bg-white/10">
+                Open Blog Manager
+              </Button>
+            </Link>
+
             <select
               className="bg-black/30 border border-white/10 rounded-md px-3 py-2 text-white"
               value={filter}
@@ -282,6 +289,44 @@ export default function AdminPage() {
               Log out
             </Button>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <Card className="bg-black/30 border border-white/10 text-white">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg">Orders</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-3xl font-bold">{orders.length}</p>
+              <p className="text-sm text-gray-400 mt-2">Total loaded order records</p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-black/30 border border-white/10 text-white">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg">Filtered View</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-3xl font-bold">{filteredOrders.length}</p>
+              <p className="text-sm text-gray-400 mt-2">
+                Currently viewing: {filter === 'all' ? 'all orders' : filter}
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-black/30 border border-white/10 text-white">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg">Content Tools</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <p className="text-sm text-gray-400">
+                Review blog drafts, publish strong articles, and improve weaker content from one place.
+              </p>
+              <Link href="/admin/blogs">
+                <Button className="w-full">Go to Blog Manager</Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
 
         {loading ? (
