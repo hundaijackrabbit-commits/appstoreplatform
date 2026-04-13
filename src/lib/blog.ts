@@ -4,6 +4,8 @@ import matter from 'gray-matter';
 
 export type BlogCategory = 'start-smart' | 'build-and-scale';
 
+export type BlogStatus = 'published' | 'ready' | 'needs-work' | 'draft';
+
 export type BlogPostMeta = {
   title: string;
   slug: string;
@@ -11,6 +13,9 @@ export type BlogPostMeta = {
   cluster?: string;
   excerpt?: string;
   date?: string;
+  published?: boolean;
+  wordCount: number;
+  status: BlogStatus;
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -19,6 +24,7 @@ export type BlogPost = BlogPostMeta & {
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 export const CATEGORIES: BlogCategory[] = ['start-smart', 'build-and-scale'];
+const MIN_WORD_COUNT = 900;
 
 function getCategoryDir(category: BlogCategory) {
   return path.join(CONTENT_DIR, category);
@@ -62,6 +68,20 @@ function getClusterFromPath(categoryDir: string, filePath: string): string | und
   return parts.length > 1 ? parts[0] : undefined;
 }
 
+function countWords(text: string) {
+  return text
+    .replace(/[#>*`\-\[\]\(\)_]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
+
+function getStatus(published: boolean, wordCount: number): BlogStatus {
+  if (published && wordCount >= MIN_WORD_COUNT) return 'published';
+  if (!published && wordCount >= MIN_WORD_COUNT) return 'ready';
+  if (!published && wordCount < MIN_WORD_COUNT) return 'draft';
+  return 'needs-work';
+}
+
 function safeParseMatter(raw: string, filePath: string) {
   try {
     return matter(raw);
@@ -72,38 +92,45 @@ function safeParseMatter(raw: string, filePath: string) {
   }
 }
 
+function buildMetaFromFile(filePath: string, category: BlogCategory): BlogPostMeta | null {
+  const raw = fs.readFileSync(filePath, 'utf8');
+  const parsed = safeParseMatter(raw, filePath);
+  if (!parsed) return null;
+
+  const { data, content } = parsed;
+  const categoryDir = getCategoryDir(category);
+  const slugFromFile = path.basename(filePath).replace(/\.mdx?$/, '');
+  const slug = (data.slug as string) || slugFromFile;
+  const title = (data.title as string) || formatTitleFromSlug(slugFromFile);
+  const excerpt =
+    (data.excerpt as string) ||
+    content.trim().replace(/\s+/g, ' ').slice(0, 180);
+
+  const wordCount = countWords(content);
+  const published = Boolean(data.published);
+  const cluster = getClusterFromPath(categoryDir, filePath);
+
+  return {
+    title,
+    slug,
+    category,
+    ...(cluster ? { cluster } : {}),
+    excerpt,
+    date: (data.date as string) || '',
+    published,
+    wordCount,
+    status: getStatus(published, wordCount),
+  };
+}
+
 export function getPostsByCategory(category: BlogCategory): BlogPostMeta[] {
   const categoryDir = getCategoryDir(category);
   ensureDirExists(categoryDir);
 
   const files = getAllMarkdownFilesRecursive(categoryDir);
 
-    const posts: BlogPostMeta[] = files
-    .map((filePath) => {
-      const raw = fs.readFileSync(filePath, 'utf8');
-      const parsed = safeParseMatter(raw, filePath);
-
-      if (!parsed) return null;
-
-      const { data, content } = parsed;
-      const slugFromFile = path.basename(filePath).replace(/\.mdx?$/, '');
-      const slug = (data.slug as string) || slugFromFile;
-      const title = (data.title as string) || formatTitleFromSlug(slugFromFile);
-      const excerpt =
-        (data.excerpt as string) ||
-        content.trim().replace(/\s+/g, ' ').slice(0, 180);
-
-      const cluster = getClusterFromPath(categoryDir, filePath);
-
-      return {
-        title,
-        slug,
-        category,
-        ...(cluster ? { cluster } : {}),
-        excerpt,
-        date: (data.date as string) || '',
-      };
-    })
+  const posts: BlogPostMeta[] = files
+    .map((filePath) => buildMetaFromFile(filePath, category))
     .filter((post): post is NonNullable<typeof post> => post !== null);
 
   return posts.sort((a, b) => {
@@ -118,6 +145,10 @@ export function getAllPosts(): BlogPostMeta[] {
   return CATEGORIES.flatMap((category) => getPostsByCategory(category));
 }
 
+export function getPublishedPostsByCategory(category: BlogCategory): BlogPostMeta[] {
+  return getPostsByCategory(category).filter((post) => post.status === 'published');
+}
+
 export function getPostByCategoryAndSlug(
   category: BlogCategory,
   slug: string
@@ -130,26 +161,35 @@ export function getPostByCategoryAndSlug(
   for (const filePath of files) {
     const raw = fs.readFileSync(filePath, 'utf8');
     const parsed = safeParseMatter(raw, filePath);
-
     if (!parsed) continue;
 
     const { data, content } = parsed;
     const slugFromFile = path.basename(filePath).replace(/\.mdx?$/, '');
     const resolvedSlug = (data.slug as string) || slugFromFile;
 
-    if (resolvedSlug === slug) {
-            const cluster = getClusterFromPath(categoryDir, filePath);
+    if (resolvedSlug !== slug) continue;
 
-      return {
-        title: (data.title as string) || formatTitleFromSlug(slugFromFile),
-        slug: resolvedSlug,
-        category,
-        ...(cluster ? { cluster } : {}),
-        excerpt: (data.excerpt as string) || '',
-        date: (data.date as string) || '',
-        content,
-      };
+    const published = Boolean(data.published);
+    const wordCount = countWords(content);
+
+    if (!(published && wordCount >= MIN_WORD_COUNT)) {
+      return null;
     }
+
+    const cluster = getClusterFromPath(categoryDir, filePath);
+
+    return {
+      title: (data.title as string) || formatTitleFromSlug(slugFromFile),
+      slug: resolvedSlug,
+      category,
+      ...(cluster ? { cluster } : {}),
+      excerpt: (data.excerpt as string) || '',
+      date: (data.date as string) || '',
+      published,
+      wordCount,
+      status: getStatus(published, wordCount),
+      content,
+    };
   }
 
   return null;
@@ -160,7 +200,7 @@ export function getAllCategorySlugPairs(): Array<{
   slug: string;
 }> {
   return CATEGORIES.flatMap((category) =>
-    getPostsByCategory(category).map((post) => ({
+    getPublishedPostsByCategory(category).map((post) => ({
       category,
       slug: post.slug,
     }))
