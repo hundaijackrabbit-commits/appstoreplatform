@@ -100,55 +100,59 @@ export default function HomePage() {
         />
       </div>
 
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative z-10 p-6"
+     <motion.nav
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="relative z-10 px-4 pt-4 md:px-6 md:pt-6"
+>
+  <div className="max-w-7xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-4 py-4 md:px-5 md:py-4 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
+    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <motion.div
+        whileHover={{ scale: 1.03 }}
+        className="flex items-center justify-center md:justify-start gap-2 text-2xl font-bold min-w-0"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-5 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            className="flex items-center gap-2 text-2xl font-bold"
-          >
-            <Sparkles className="w-6 h-6 text-green-400" />
-            <span className="bg-gradient-to-r from-white via-green-200 to-purple-200 bg-clip-text text-transparent">
-              StartOva
-            </span>
-          </motion.div>
+        <Sparkles className="w-6 h-6 text-green-400 shrink-0" />
+        <span className="bg-gradient-to-r from-white via-green-200 to-purple-200 bg-clip-text text-transparent truncate">
+          StartOva
+        </span>
+      </motion.div>
 
-          <div className="flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleHowItWorks}
-              className="text-white/90 hover:text-white"
-            >
-              How It Works
-            </Button>
+      <div className="flex flex-col gap-3 w-full md:w-auto md:flex-row md:items-center md:justify-end">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleHowItWorks}
+          className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10"
+        >
+          How It Works
+        </Button>
 
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleOpenBlog}
-              className="text-white/90 hover:text-white"
-            >
-              <span className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4" />
-                <span>Blog</span>
-              </span>
-            </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleOpenBlog}
+          className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10"
+        >
+          <span className="flex items-center justify-center gap-2">
+            <BookOpen className="w-4 h-4 shrink-0" />
+            <span>Blog</span>
+          </span>
+        </Button>
 
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleBrowseCategories}
-              className="border-white/15 bg-white/5 text-white hover:bg-white/10"
-            >
-              Browse Categories
-            </Button>
-          </div>
-        </div>
-      </motion.nav>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleBrowseCategories}
+          className="h-11 w-full md:w-auto px-5 border-white/15 bg-white/5 text-white hover:bg-white/10"
+        >
+          Browse Categories
+        </Button>
+      </div>
+    </div>
+  </div>
+</motion.nav>
+
+
 
       <motion.section
         className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-20 text-center"

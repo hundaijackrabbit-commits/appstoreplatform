@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Briefcase } from 'lucide-react';
+import { ArrowRight, BookOpen, Briefcase, ChevronLeft } from 'lucide-react';
 import { getPostsByCategory } from '@/lib/blog';
 
 export const revalidate = 3600;
@@ -11,6 +11,16 @@ export default function BlogHubPage() {
   return (
     <main className="min-h-screen bg-[--color-background] text-white px-6 py-12">
       <div className="max-w-6xl mx-auto">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Back Home
+          </Link>
+        </div>
+
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[--color-primary] mb-6">
             <BookOpen className="w-4 h-4" />

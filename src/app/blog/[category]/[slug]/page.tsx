@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Home, BookOpen, FolderOpen } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
@@ -40,13 +40,31 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-[--color-background] text-white px-6 py-12">
       <div className="max-w-4xl mx-auto">
-        <Link
-          href={`/blog/${category}`}
-          className="inline-flex items-center gap-2 text-sm text-[--color-primary] hover:opacity-80 transition mb-8"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to {category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
-        </Link>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <Home className="w-4 h-4" />
+            Home
+          </Link>
+
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <BookOpen className="w-4 h-4" />
+            Blog Hub
+          </Link>
+
+          <Link
+            href={`/blog/${category}`}
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <FolderOpen className="w-4 h-4" />
+            {category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
+          </Link>
+        </div>
 
         <article className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-10 shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
           <div className="mb-4 flex flex-wrap gap-3">
@@ -77,6 +95,32 @@ export default async function BlogPostPage({ params }: PageProps) {
             </ReactMarkdown>
           </div>
         </article>
+
+        <div className="flex flex-wrap gap-3 mt-10">
+          <Link
+            href={`/blog/${category}`}
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to {category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
+          </Link>
+
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <BookOpen className="w-4 h-4" />
+            Blog Hub
+          </Link>
+
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+          >
+            <Home className="w-4 h-4" />
+            Home
+          </Link>
+        </div>
       </div>
     </main>
   );
