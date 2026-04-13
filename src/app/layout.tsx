@@ -66,6 +66,11 @@ export default function RootLayout({
           `}
         </Script>
 
+        <Script
+          src="https://tools.luckyorange.com/core/lo.js?site-id=69225886"
+          strategy="afterInteractive"
+        />
+
         {children}
         <Analytics />
       </body>
