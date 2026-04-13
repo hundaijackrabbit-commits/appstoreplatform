@@ -3,10 +3,10 @@ title: "Local SEO Mistakes: Common Pitfalls to Avoid"
 slug: "local-seo-mistakes"
 category: "build-and-scale"
 cluster: "local-seo"
-excerpt: "'I've been working on SEO for 18 months and we still don't show up when people search for [my service] in [my city].' **That's the frustrated message Stephen sent about his roofing"
+published: true
+wordCount: 3233
+excerpt: "\"I've been working on SEO for 18 months and we still don't show up when people search for my service in my city.\""
 ---
-
-# Local SEO Mistakes: Common Pitfalls to Avoid
 
 ## Introduction
 
@@ -30,6 +30,8 @@ excerpt: "'I've been working on SEO for 18 months and we still don't show up whe
 
 **Here's the complete breakdown of the most damaging local SEO mistakes and exactly how to fix them before they destroy your online visibility.**
 
+---
+
 ## The Cost of Local SEO Mistakes
 
 ### Revenue Impact of Poor Local Rankings
@@ -51,6 +53,8 @@ excerpt: "'I've been working on SEO for 18 months and we still don't show up whe
 - **Monthly opportunity cost**: $8,400 in missing leads
 - **Fix implementation cost**: $3,200 in optimization work
 - **ROI of fixes**: 3,975% return in first year
+
+---
 
 ## The 15 Most Damaging Local SEO Mistakes
 
@@ -433,6 +437,8 @@ Instead of generic "We provide plumbing services," write:
 - **Include keywords**: Natural use of service and location terms
 - **Monitor regularly**: Respond to new questions quickly
 
+---
+
 ## How to Fix Local SEO Mistakes: Action Plan
 
 ### Week 1: Audit and Assessment
@@ -488,10 +494,11 @@ Instead of generic "We provide plumbing services," write:
 - Set up local keyword tracking
 - Create monthly reporting template
 
+---
+
 ## Long-term Local SEO Maintenance
 
 ### Monthly Tasks
-
 - [ ] Monitor local keyword rankings
 - [ ] Publish 8-12 Google Posts
 - [ ] Request reviews from satisfied customers
@@ -501,7 +508,6 @@ Instead of generic "We provide plumbing services," write:
 - [ ] Review and respond to all new reviews
 
 ### Quarterly Tasks
-
 - [ ] Comprehensive citation audit
 - [ ] Local link building outreach
 - [ ] Website content updates
@@ -510,15 +516,15 @@ Instead of generic "We provide plumbing services," write:
 - [ ] Competitor analysis refresh
 
 ### Annual Tasks
-
 - [ ] Complete local SEO strategy review
 - [ ] Update all business information across platforms
 - [ ] Refresh website content and photos
 - [ ] Evaluate service area expansion opportunities
 - [ ] Review and update schema markup
 
-## Key Takeaways
+---
 
+## Key Takeaways
 - **NAP consistency is fundamental—inconsistencies destroy local rankings**
 - **Google Business Profile optimization provides the biggest impact for effort**
 - **Local content must be specific and valuable, not generic**
@@ -526,6 +532,8 @@ Instead of generic "We provide plumbing services," write:
 - **Review generation and management significantly impact rankings**
 - **Technical issues prevent Google from properly indexing and ranking your site**
 - **Tracking and measurement are essential for ongoing optimization**
+
+---
 
 ## Conclusion
 

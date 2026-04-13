@@ -3,10 +3,10 @@ title: "How to Get a Domain Name: Complete Guide for Business Owners"
 slug: "how-to-get-a-domain-name"
 category: "start-smart"
 cluster: "website-basics"
-excerpt: "Getting a domain name feels more complicated than it should be. You're bombarded with choices, pricing options, and technical terms that don't make sense if you're not a tech perso"
+published: true
+wordCount: 1436
+excerpt: "Getting a domain name feels more complicated than it should be. You're bombarded with choices, pricing options, and technical terms that don't make sense if you're not a tech perso..."
 ---
-
-# How to Get a Domain Name: Complete Guide for Business Owners
 
 ## Introduction
 
@@ -15,6 +15,8 @@ Getting a domain name feels more complicated than it should be. You're bombarded
 **The good news**: Getting a domain name is actually simple once you understand the basics. The process takes about 10 minutes, costs $10-20 per year, and doesn't require any technical knowledge.
 
 This guide walks you through everything you need to know about domain names and shows you exactly how to get one for your business.
+
+---
 
 ## What Is a Domain Name?
 
@@ -33,6 +35,8 @@ When someone types your domain name in their browser, it connects them to your w
 **yourname.com** breaks down as:
 - **yourname**: Your chosen name (subdomain)
 - **.com**: Domain extension (top-level domain)
+
+---
 
 ## Types of Domain Extensions
 
@@ -58,6 +62,8 @@ When someone types your domain name in their browser, it connects them to your w
 ### Recommendation for Most Businesses:
 
 **Always choose .com if available**. It's most trusted by customers and easier to remember.
+
+---
 
 ## Choosing the Right Domain Name
 
@@ -96,12 +102,13 @@ When someone types your domain name in their browser, it connects them to your w
 4. **Descriptive name**: quickrepairs.com
 
 ### What to Avoid:
-
 - Trademarked names
 - Hard to spell words
 - Confusing abbreviations
 - Numbers that could be confused (2 vs two)
 - Multiple words without clear separation
+
+---
 
 ## Step-by-Step: How to Get a Domain Name
 
@@ -136,10 +143,11 @@ Use domain search tools to see if your preferred names are available:
 5. Complete purchase
 
 ### Step 5: Configure Basic Settings
-
 - Set up domain privacy protection
 - Add your contact information
 - Configure DNS settings (usually done automatically)
+
+---
 
 ## Domain Registration Details
 
@@ -166,6 +174,8 @@ Use domain search tools to see if your preferred names are available:
 **Recommendation**: Always enable auto-renewal
 **Why**: Losing your domain name can destroy your business
 
+---
+
 ## Domain Name Costs
 
 ### Initial Registration:
@@ -185,6 +195,8 @@ Use domain search tools to see if your preferred names are available:
 **Basic**: $15-35/year
 **With email**: $75-200/year
 
+---
+
 ## What About Premium Domains?
 
 ### What Are Premium Domains?
@@ -203,11 +215,12 @@ Domain names that someone else previously owned and is now selling for higher pr
 **Better strategy**: Choose available .com domain that includes your business name
 
 ### When Premium Domains Make Sense:
-
 - Large budget available ($10,000+)
 - Exact match for high-value business
 - Competitive advantage significant
 - SEO benefits clearly measurable
+
+---
 
 ## Domain Name Mistakes to Avoid
 
@@ -236,6 +249,8 @@ Domain names that someone else previously owned and is now selling for higher pr
 **Problem**: Someone else registers your preferred domain name
 **Solution**: Register domain names as soon as you decide on business name
 
+---
+
 ## After You Get Your Domain Name
 
 ### Immediate Next Steps:
@@ -248,13 +263,11 @@ Create email addresses like:
 - yourname@yourname.com
 
 #### 2. Point Domain to Your Website
-
 - If using website builder, follow their instructions
 - If building custom site, configure DNS settings
 - If no website yet, set up "coming soon" page
 
 #### 3. Set Up Basic Security
-
 - Enable two-factor authentication on domain account
 - Use strong password for domain registrar account
 - Keep domain contact information updated
@@ -273,6 +286,8 @@ Consider registering:
 **Use registrar's official renewal process**: Ignore third-party renewal notices
 **Keep registrar account secure**: Use strong passwords and 2FA
 
+---
+
 ## Domain Name and SEO
 
 ### How Domain Names Affect Search Rankings:
@@ -283,7 +298,6 @@ Consider registering:
 **Authority builds**: Good content + time = domain authority
 
 ### SEO Best Practices:
-
 - Choose descriptive but brandable domain
 - Avoid hyphens and numbers
 - Keep domain for long term (don't change)
@@ -293,6 +307,8 @@ Consider registering:
 ### Domain Changes and SEO:
 
 **Changing domains hurts SEO rankings** - only do if absolutely necessary and with proper redirects.
+
+---
 
 ## Troubleshooting Common Issues
 
@@ -320,8 +336,9 @@ Consider registering:
 - Refunds within 5-30 days
 - Technical support to fix configuration issues
 
-## Key Takeaways
+---
 
+## Key Takeaways
 - **Domain names cost $10-20/year and take 10 minutes to register**
 - **Always choose .com extension if available for your business**
 - **Keep domain names simple, memorable, and related to your business**
@@ -329,6 +346,8 @@ Consider registering:
 - **Your domain name is a long-term business asset - choose carefully**
 - **Professional email addresses using your domain build credibility**
 - **Domain name changes hurt SEO - pick something you can keep long-term**
+
+---
 
 ## Conclusion
 

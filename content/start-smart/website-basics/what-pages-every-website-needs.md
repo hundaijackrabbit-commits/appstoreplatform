@@ -3,10 +3,10 @@ title: "What Pages Every Website Needs: Essential Page Guide for Business Succes
 slug: "what-pages-every-website-needs"
 category: "start-smart"
 cluster: "website-basics"
-excerpt: "'I know I need a website, but what pages should it actually have?' When you're building a business website, it's easy to get overwhelmed by all the possible pages you could create."
+published: true
+wordCount: 1724
+excerpt: "\"I know I need a website, but what pages should it actually have?\""
 ---
-
-# What Pages Every Website Needs: Essential Page Guide for Business Success
 
 ## Introduction
 
@@ -17,6 +17,8 @@ When you're building a business website, it's easy to get overwhelmed by all the
 **The truth**: Most successful business websites have the same core pages that serve specific purposes. You don't need 50 pages to have an effective website - you need the RIGHT pages that help visitors become customers.
 
 This guide shows you exactly which pages every business website needs and why each one matters for your success.
+
+---
 
 ## The 7 Essential Pages Every Business Website Needs
 
@@ -180,6 +182,8 @@ This guide shows you exactly which pages every business website needs and why ea
 - Use online privacy policy generators ($50-$200)
 - Adapt template for your business (free but risky)
 
+---
+
 ## Optional Pages That Add Value
 
 ### Blog/Resources Page
@@ -226,6 +230,8 @@ This guide shows you exactly which pages every business website needs and why ea
 - Personal touches that make team relatable
 - Contact information for specific team members
 
+---
+
 ## Page Organization and Navigation
 
 ### Navigation Best Practices:
@@ -250,11 +256,12 @@ This guide shows you exactly which pages every business website needs and why ea
 **Any page** → **Testimonials** → **Contact** (social proof path)
 
 ### Mobile Navigation:
-
 - Keep main menu items to 7 or fewer
 - Use hamburger menu for secondary items
 - Make contact information easily accessible
 - Ensure all links work properly on mobile
+
+---
 
 ## Content Strategy for Each Page
 
@@ -286,6 +293,8 @@ This guide shows you exactly which pages every business website needs and why ea
 - Answer questions customers actually ask
 - Use descriptive page titles and headings
 
+---
+
 ## Page Length and Content Guidelines
 
 ### Content Length by Page Type:
@@ -298,12 +307,13 @@ This guide shows you exactly which pages every business website needs and why ea
 **Testimonials**: 100-200 words per testimonial
 
 ### Content Quality Standards:
-
 - Scan-friendly with headings and bullet points
 - Professional but conversational tone
 - Error-free spelling and grammar
 - Mobile-friendly formatting
 - Fast-loading images
+
+---
 
 ## Technical Page Requirements
 
@@ -326,6 +336,8 @@ This guide shows you exactly which pages every business website needs and why ea
 **Responsive design**: Works on all screen sizes
 **Touch-friendly**: Buttons large enough for fingers
 **Fast loading**: Optimized for mobile networks
+
+---
 
 ## Common Page Structure Mistakes
 
@@ -354,6 +366,8 @@ This guide shows you exactly which pages every business website needs and why ea
 **Problem**: Visitors leave because they can't find basic information
 **Solution**: Include all 7 essential pages before adding optional pages
 
+---
+
 ## Page Priority for New Websites
 
 ### Phase 1: Launch with Essential Pages
@@ -376,14 +390,14 @@ This guide shows you exactly which pages every business website needs and why ea
 10. Additional service pages
 
 ### Why This Approach Works:
-
 - Get professional website online quickly
 - Focus on essential business functions first
 - Add pages based on customer feedback and needs
 - Avoid overwhelming yourself with content creation
 
-## Key Takeaways
+---
 
+## Key Takeaways
 - **7 pages are essential: Homepage, About, Services, Contact, Testimonials, FAQ, Privacy Policy**
 - **Each page should have a clear purpose and call-to-action**
 - **Quality content matters more than number of pages**
@@ -391,6 +405,8 @@ This guide shows you exactly which pages every business website needs and why ea
 - **Start with essential pages, add optional pages later**
 - **Every page should make it easy for visitors to contact you**
 - **Customer benefits matter more than business features**
+
+---
 
 ## Conclusion
 

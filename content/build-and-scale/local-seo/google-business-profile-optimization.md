@@ -3,10 +3,10 @@ title: "Google Business Profile Optimization: Complete Setup Guide"
 slug: "google-business-profile-optimization"
 category: "build-and-scale"
 cluster: "local-seo"
-excerpt: "'We're invisible on Google. How do we fix that?' **That's the question Derek asked me about his plumbing company.** Despite 12 years in business and excellent customer service, his"
+published: true
+wordCount: 2880
+excerpt: "\"We're invisible on Google. How do we fix that?\""
 ---
-
-# Google Business Profile Optimization: Complete Setup Guide
 
 ## Introduction
 
@@ -25,6 +25,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 **Your Google Business Profile is the most important factor in local search rankings.** Get it right, and customers find you easily. Get it wrong, and you're invisible to people actively looking for your services.
 
 **Here's the exact step-by-step process Derek used to dominate local search results, plus the advanced strategies that keep his profile ranking #1-#3 for all his target keywords.**
+
+---
 
 ## Why Google Business Profile Optimization Matters
 
@@ -66,6 +68,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - Driven by website SEO and content
 
 **Key insight**: Local pack results often get more clicks than organic #1 position for local businesses.
+
+---
 
 ## Complete Google Business Profile Setup
 
@@ -179,6 +183,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - **Auto-responses**: Set up for common questions
 - **Booking integration**: Connect scheduling tools if applicable
 
+---
+
 ## Review Management and Generation
 
 ### Review Generation Strategy
@@ -239,6 +245,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - **Diversity**: Reviews from different types of customers
 - **Recency**: Fresh reviews matter more than old ones
 
+---
+
 ## Local SEO Content Strategy
 
 ### Google Posts Optimization
@@ -297,6 +305,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - **Local media**: Press releases for business news, expert commentary
 - **Professional associations**: Industry organizations and certifications
 
+---
+
 ## Performance Tracking and Analytics
 
 ### Google Business Profile Insights
@@ -350,6 +360,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - Monthly optimization cost: $500 (5 hours × $100/hour)
 - **ROI**: 2,300%
 
+---
+
 ## Common Optimization Mistakes
 
 ### Mistake 1: Keyword Stuffing Business Name
@@ -386,6 +398,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 
 **Problem**: Optimization is ongoing, not one-time
 **Solution**: Schedule monthly profile updates and improvements
+
+---
 
 ## Advanced Optimization Strategies
 
@@ -431,38 +445,35 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - **Safety measures**: Communicate health and safety protocols
 - **Community support**: Show how you're helping the community
 
+---
+
 ## Implementation Timeline
 
 ### Week 1: Foundation Setup
-
 - [ ] Claim and verify Google Business Profile
 - [ ] Complete all basic information fields
 - [ ] Upload logo and cover photo
 - [ ] Set accurate business hours
 
 ### Week 2: Content Development
-
 - [ ] Write optimized business description
 - [ ] Upload 10-15 high-quality photos
 - [ ] Add products/services with descriptions
 - [ ] Configure all relevant attributes
 
 ### Week 3: Review System Launch
-
 - [ ] Create review request templates
 - [ ] Set up review monitoring alerts
 - [ ] Request reviews from past customers
 - [ ] Respond to all existing reviews
 
 ### Week 4: Content Strategy Implementation
-
 - [ ] Create first Google Posts (3-5 posts)
 - [ ] Add Q&A section with common questions
 - [ ] Set up citation tracking spreadsheet
 - [ ] Begin monthly content calendar
 
 ### Ongoing Monthly Tasks
-
 - [ ] Add 2-4 new photos weekly
 - [ ] Publish 2-3 Google Posts weekly
 - [ ] Request 3-6 new reviews monthly
@@ -470,8 +481,9 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - [ ] Monitor and track ranking positions
 - [ ] Update seasonal information and hours
 
-## Key Takeaways
+---
 
+## Key Takeaways
 - **Google Business Profile optimization is the #1 factor for local search rankings**
 - **Complete, accurate information is more important than keyword stuffing**
 - **Reviews and customer engagement drive long-term ranking success**
@@ -479,6 +491,8 @@ excerpt: "'We're invisible on Google. How do we fix that?' **That's the question
 - **Regular updates and fresh content keep profiles active and relevant**
 - **Local relevance beats generic optimization every time**
 - **Response time and customer service quality directly impact rankings**
+
+---
 
 ## Conclusion
 
