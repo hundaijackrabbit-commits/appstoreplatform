@@ -1,14 +1,24 @@
-# StartOva exact Lottie card colour fix
+# StartOva mobile hero fix
 
-This update makes the two feature cards under “You Do Not Just Get a Website. You Get the Whole Thing.” match the native Lottie animation backdrops:
+This update fixes the mobile top-of-page problems shown in the screenshot:
 
-- The Actual Project card background: `#DCEAFF`
-- A Live Working Version card background: `#FFFFFF`
-- The animation wrappers use the same exact colours so the Lotties appear embedded instead of boxed.
-- Text/icons remain dark/emerald for contrast so the cards still fit the dark StartOva page.
+- Prevents horizontal overflow on the whole page.
+- Adds `min-w-0` and tighter max-width controls to the hero grid/content so text wraps correctly on iPhone Safari.
+- Makes the hero feature chips stack cleanly on mobile instead of spilling off screen.
+- Makes hero CTA buttons full-width on mobile with proper font sizing.
+- Reduces and constrains the hero Lottie browser frame on mobile so it no longer dominates or clips awkwardly.
+- Tightens mobile nav spacing and button text sizing.
 
-Install dependency if needed:
+Copy these files into the same paths in your project, then run:
 
 ```bash
-npm install @lottiefiles/dotlottie-react
+npm run dev
+```
+
+Then commit and push:
+
+```bash
+git add .
+git commit -m "Fix mobile hero responsiveness and prevent overflow"
+git push origin main
 ```

@@ -104,7 +104,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-[#0a0a14]">
+    <div className="min-h-screen relative overflow-x-hidden bg-[#0a0a14]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.16),transparent_30%),linear-gradient(135deg,rgba(34,197,94,0.06),rgba(99,102,241,0.05),rgba(168,85,247,0.08))] pointer-events-none" />
       <motion.div
         aria-hidden="true"
@@ -128,13 +128,13 @@ export default function HomePage() {
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative z-10 px-4 pt-4 md:px-6 md:pt-6"
+        className="relative z-10 px-3 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6"
       >
-        <div className="max-w-7xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-4 py-4 md:px-5 md:py-4 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-white/5 px-3 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:px-4 sm:py-4 md:px-5">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <motion.div
               whileHover={{ scale: 1.03 }}
-              className="flex items-center justify-center md:justify-start gap-2 text-2xl font-bold min-w-0"
+              className="flex min-w-0 items-center justify-center gap-2 text-xl font-bold sm:text-2xl md:justify-start"
             >
               <Sparkles className="w-6 h-6 text-green-400 shrink-0" />
               <span className="bg-gradient-to-r from-white via-green-200 to-purple-200 bg-clip-text text-transparent truncate">
@@ -142,12 +142,12 @@ export default function HomePage() {
               </span>
             </motion.div>
 
-            <div className="flex flex-col gap-3 w-full md:w-auto md:flex-row md:items-center md:justify-end">
+            <div className="grid w-full grid-cols-3 gap-2 md:flex md:w-auto md:flex-row md:items-center md:justify-end md:gap-3">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleHowItWorks}
-                className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
+                className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
               >
                 How It Works
               </Button>
@@ -156,7 +156,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleOpenBlog}
-                className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
+                className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
               >
                 <span className="flex items-center justify-center gap-2">
                   <BookOpen className="w-4 h-4 shrink-0" />
@@ -168,7 +168,7 @@ export default function HomePage() {
                 variant="outline"
                 size="sm"
                 onClick={handleBrowseCategories}
-                className="h-11 w-full md:w-auto px-5 border-white/15 bg-white/5 text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"
+                className="h-9 w-full px-2 text-[11px] text-white transition-all hover:-translate-y-0.5 hover:bg-white/10 md:h-11 md:w-auto md:px-5 md:text-sm border-white/15 bg-white/5"
               >
                 Browse Categories
               </Button>
@@ -178,7 +178,7 @@ export default function HomePage() {
       </motion.nav>
 
       <motion.section
-        className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-10 md:px-6 md:pb-24 md:pt-16"
+        className="relative z-10 mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-5 md:px-6 md:pb-24 md:pt-16"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -193,11 +193,11 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="relative grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
-          <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+        <div className="relative grid min-w-0 items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
+          <div className="mx-auto w-full max-w-[min(100%,42rem)] min-w-0 text-center lg:mx-0 lg:text-left">
             <motion.div
               variants={fadeInUp}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-4 py-2 text-xs font-medium text-green-200 shadow-[0_0_30px_rgba(34,197,94,0.08)] md:text-sm"
+              className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-3 py-2 text-[11px] font-medium text-green-200 shadow-[0_0_30px_rgba(34,197,94,0.08)] sm:px-4 md:text-sm"
             >
               <RefreshCcw className="h-4 w-4" />
               Built for ownership, not lock-in
@@ -205,7 +205,7 @@ export default function HomePage() {
 
             <motion.h1
               variants={fadeInUp}
-              className="text-balance text-4xl font-bold leading-[0.96] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
+              className="text-balance text-[2.65rem] font-bold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
             >
               Stop Renting Your Website.
               <br />
@@ -221,7 +221,7 @@ export default function HomePage() {
 
             <motion.p
               variants={fadeInUp}
-              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
+              className="mx-auto mt-6 max-w-[34rem] overflow-hidden text-pretty text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
             >
               Ever build something on Wix or Shopify and then realize you do not really own it?
               Yeah. That part never feels great.
@@ -229,16 +229,16 @@ export default function HomePage() {
 
             <motion.p
               variants={fadeInUp}
-              className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
+              className="mx-auto mt-4 max-w-[34rem] overflow-hidden text-pretty text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
             >
               StartOva helps you launch with a real website or app, a clean handoff, and a live version ready to go without platform lock-in.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
+            <motion.div variants={fadeInUp} className="mx-auto mt-6 grid w-full max-w-sm grid-cols-1 gap-2 sm:max-w-none sm:grid-cols-3 lg:mx-0 lg:justify-start">
               {['No monthly fees', 'Full ownership', 'Real handoff'].map((item) => (
                 <span
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-medium text-white/80 backdrop-blur-xl"
+                  className="inline-flex min-w-0 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-medium text-white/80 backdrop-blur-xl"
                 >
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
                   {item}
@@ -246,11 +246,11 @@ export default function HomePage() {
               ))}
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="mt-8 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+            <motion.div variants={fadeInUp} className="mx-auto mt-8 flex w-full max-w-sm flex-col justify-center gap-3 sm:max-w-none sm:flex-row lg:mx-0 lg:justify-start">
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   size="lg"
-                  className="group h-14 w-full min-w-[190px] rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 px-7 text-sm font-bold leading-none text-black shadow-[0_8px_30px_rgba(34,197,94,0.35)] transition-all hover:shadow-[0_12px_42px_rgba(34,197,94,0.45)] sm:w-auto sm:text-base"
+                  className="group h-14 w-full rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 px-6 text-sm font-bold leading-none text-black shadow-[0_8px_30px_rgba(34,197,94,0.35)] transition-all hover:shadow-[0_12px_42px_rgba(34,197,94,0.45)] sm:w-auto sm:min-w-[190px] sm:px-7 sm:text-base"
                   onClick={handleBrowseProducts}
                 >
                   <span className="flex items-center justify-center gap-2">
@@ -265,7 +265,7 @@ export default function HomePage() {
                   variant="outline"
                   size="lg"
                   onClick={handleComparison}
-                  className="h-14 w-full min-w-[210px] rounded-xl border-white/15 bg-white/5 px-7 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:w-auto sm:text-base"
+                  className="h-14 w-full rounded-xl border-white/15 bg-white/5 px-6 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:w-auto sm:min-w-[210px] sm:px-7 sm:text-base"
                 >
                   <span className="whitespace-nowrap">Why Not Wix or Shopify?</span>
                 </Button>
@@ -277,7 +277,7 @@ export default function HomePage() {
             initial={{ opacity: 0, x: 36, scale: 0.98 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ delay: 0.25, duration: 0.85, ease: 'easeOut' }}
-            className="relative mx-auto w-full max-w-2xl"
+            className="relative mx-auto w-full max-w-[min(100%,42rem)] min-w-0"
           >
             <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-green-400/20 via-transparent to-purple-400/20 blur-3xl" />
             <motion.div
@@ -305,7 +305,7 @@ export default function HomePage() {
             <motion.div
               whileHover={{ y: -6, rotate: -0.2 }}
               transition={{ type: 'spring', stiffness: 120, damping: 16 }}
-              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d1120] shadow-[0_35px_110px_rgba(0,0,0,0.38)] backdrop-blur-2xl"
+              className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0d1120] shadow-[0_24px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:rounded-[2rem]"
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(250,204,21,0.13),transparent_30%),radial-gradient(circle_at_74%_40%,rgba(34,197,94,0.10),transparent_36%),radial-gradient(circle_at_90%_12%,rgba(168,85,247,0.18),transparent_40%)]" />
 
@@ -320,7 +320,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="relative flex aspect-[1.55/1] min-h-[280px] items-center justify-center overflow-hidden bg-[#111123] px-4 py-4 sm:min-h-[340px] sm:px-6 md:min-h-[410px] lg:min-h-[430px]">
+              <div className="relative flex aspect-[1.18/1] min-h-0 items-center justify-center overflow-hidden bg-[#111123] px-3 py-3 sm:aspect-[1.45/1] sm:px-5 md:aspect-[1.55/1]">
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,#08141b_0%,#111327_48%,#241640_100%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_44%,rgba(250,204,21,0.16),transparent_24%),radial-gradient(circle_at_75%_15%,rgba(168,85,247,0.16),transparent_34%)]" />
 
@@ -329,7 +329,7 @@ export default function HomePage() {
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <LottiePlayer src="/lottie/Web Development.lottie" className="h-full w-full max-w-[620px]" />
+                  <LottiePlayer src="/lottie/Web Development.lottie" className="h-full w-full max-w-[520px] sm:max-w-[620px]" />
                 </motion.div>
 
                 <div
@@ -352,7 +352,7 @@ export default function HomePage() {
           variants={scaleIn}
           whileHover={{ y: -3 }}
           transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-          className="relative mt-12 overflow-hidden rounded-3xl border border-white/10 bg-[#101724]/88 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl md:p-6"
+          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#101724]/88 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:p-5 md:p-6"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_8%_30%,rgba(34,197,94,0.14),transparent_26%),radial-gradient(circle_at_90%_15%,rgba(168,85,247,0.12),transparent_30%)]" />
           <div className="relative grid gap-5 lg:grid-cols-[1fr_1.2fr] lg:items-center">
@@ -398,7 +398,7 @@ export default function HomePage() {
 
       <motion.section
         id="what-you-get"
-        className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-16 md:pt-20"
+        className="relative z-10 mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 md:pt-20"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
