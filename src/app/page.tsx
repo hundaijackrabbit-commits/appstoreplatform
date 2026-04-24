@@ -1,5 +1,5 @@
 'use client';
-
+import LottiePlayer from "@/components/LottiePlayer"
 import { motion } from 'framer-motion';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -106,6 +106,12 @@ export default function HomePage() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#0a0a14]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.16),transparent_30%),linear-gradient(135deg,rgba(34,197,94,0.06),rgba(99,102,241,0.05),rgba(168,85,247,0.08))] pointer-events-none" />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.045] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:64px_64px]"
+        animate={{ backgroundPosition: ['0px 0px', '64px 64px'] }}
+        transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+      />
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-16 left-16 w-40 h-40 bg-green-500/15 rounded-full blur-3xl animate-pulse" />
@@ -141,7 +147,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleHowItWorks}
-                className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10"
+                className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 How It Works
               </Button>
@@ -150,7 +156,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleOpenBlog}
-                className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10"
+                className="h-11 w-full md:w-auto px-5 text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">
                   <BookOpen className="w-4 h-4 shrink-0" />
@@ -162,7 +168,7 @@ export default function HomePage() {
                 variant="outline"
                 size="sm"
                 onClick={handleBrowseCategories}
-                className="h-11 w-full md:w-auto px-5 border-white/15 bg-white/5 text-white hover:bg-white/10"
+                className="h-11 w-full md:w-auto px-5 border-white/15 bg-white/5 text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 Browse Categories
               </Button>
@@ -172,98 +178,227 @@ export default function HomePage() {
       </motion.nav>
 
       <motion.section
-        className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-20 text-center"
+        className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-10 md:px-6 md:pb-24 md:pt-16"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
-        <motion.div
-          variants={fadeInUp}
-          className="inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-4 py-2 text-sm text-green-200 mb-6"
-        >
-          <RefreshCcw className="w-4 h-4" />
-          Built for ownership, not lock-in
-        </motion.div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
+          <div className="absolute left-[-18%] top-[-20%] h-[520px] w-[520px] rounded-full bg-green-500/12 blur-[110px]" />
+          <div className="absolute right-[-16%] top-[-18%] h-[560px] w-[560px] rounded-full bg-purple-500/16 blur-[120px]" />
+          <motion.div
+            animate={{ opacity: [0.18, 0.34, 0.18], scale: [1, 1.05, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute left-1/2 top-32 h-px w-[78%] -translate-x-1/2 bg-gradient-to-r from-transparent via-green-300/30 to-transparent"
+          />
+        </div>
 
-        <motion.h1
-          variants={fadeInUp}
-          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-green-100 to-purple-200 bg-clip-text text-transparent leading-tight tracking-tight"
-        >
-          Stop Renting Your Website.
-          <br />
-          <span className="text-green-400">Own It.</span>
-        </motion.h1>
+        <div className="relative grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
+          <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+            <motion.div
+              variants={fadeInUp}
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-4 py-2 text-xs font-medium text-green-200 shadow-[0_0_30px_rgba(34,197,94,0.08)] md:text-sm"
+            >
+              <RefreshCcw className="h-4 w-4" />
+              Built for ownership, not lock-in
+            </motion.div>
 
-        <motion.p
-          variants={fadeInUp}
-          className="text-xl md:text-2xl text-gray-300 mb-5 max-w-4xl mx-auto leading-relaxed"
-        >
-          Ever build something on Wix or Shopify and then realize you do not really own it?
-          Yeah. That part never feels great.
-        </motion.p>
+            <motion.h1
+              variants={fadeInUp}
+              className="text-balance text-4xl font-bold leading-[0.96] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
+            >
+              Stop Renting Your Website.
+              <br />
+              <motion.span
+                initial={{ opacity: 0, y: 18, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.55, duration: 0.7, ease: 'easeOut' }}
+                className="mt-2 inline-block bg-gradient-to-r from-green-300 via-emerald-400 to-green-500 bg-clip-text text-transparent"
+              >
+                Own It.
+              </motion.span>
+            </motion.h1>
 
-        <motion.p
-          variants={fadeInUp}
-          className="text-lg md:text-xl text-gray-400 mb-8 max-w-4xl mx-auto leading-relaxed"
-        >
-          StartOva helps you launch online without getting buried in technical confusion.
-          You get a real website or app, a real handoff, and a live version ready to go.
-          No weird lock-in. No paying forever just to keep the lights on.
-        </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
+            >
+              Ever build something on Wix or Shopify and then realize you do not really own it?
+              Yeah. That part never feels great.
+            </motion.p>
 
-        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button
-            size="lg"
-            className="text-lg h-14 px-8 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_30px_rgba(34,197,94,0.35)] hover:scale-[1.02] transition-all"
-            onClick={handleBrowseProducts}
+            <motion.p
+              variants={fadeInUp}
+              className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
+            >
+              StartOva helps you launch with a real website or app, a clean handoff, and a live version ready to go without platform lock-in.
+            </motion.p>
+
+            <motion.div variants={fadeInUp} className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
+              {['No monthly fees', 'Full ownership', 'Real handoff'].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-medium text-white/80 backdrop-blur-xl"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-green-400" />
+                  {item}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="mt-8 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+              <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  size="lg"
+                  className="group h-14 w-full min-w-[190px] rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 px-7 text-sm font-bold leading-none text-black shadow-[0_8px_30px_rgba(34,197,94,0.35)] transition-all hover:shadow-[0_12px_42px_rgba(34,197,94,0.45)] sm:w-auto sm:text-base"
+                  onClick={handleBrowseProducts}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <span className="whitespace-nowrap">Browse Products</span>
+                    <ArrowRight className="relative top-[1px] h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Button>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={handleComparison}
+                  className="h-14 w-full min-w-[210px] rounded-xl border-white/15 bg-white/5 px-7 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:w-auto sm:text-base"
+                >
+                  <span className="whitespace-nowrap">Why Not Wix or Shopify?</span>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 36, scale: 0.98 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ delay: 0.25, duration: 0.85, ease: 'easeOut' }}
+            className="relative mx-auto w-full max-w-2xl"
           >
-            <span className="flex items-center justify-center gap-2">
-              <span>Browse Products</span>
-              <ArrowRight className="w-5 h-5 relative top-[1px]" />
-            </span>
-          </Button>
+            <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-green-400/20 via-transparent to-purple-400/20 blur-3xl" />
+            <motion.div
+              animate={{ rotate: [0, 1.5, 0], y: [0, -8, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+              className="pointer-events-none absolute left-1 top-10 z-20 hidden rounded-2xl border border-green-300/20 bg-[#0b1416]/70 px-4 py-2 text-xs text-green-100 shadow-2xl backdrop-blur-xl md:block"
+            >
+              Your code
+            </motion.div>
+            <motion.div
+              animate={{ rotate: [0, -1.5, 0], y: [0, 10, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+              className="pointer-events-none absolute right-2 top-32 z-20 hidden rounded-2xl border border-purple-300/20 bg-[#151126]/70 px-4 py-2 text-xs text-purple-100 shadow-2xl backdrop-blur-xl md:block"
+            >
+              Your brand
+            </motion.div>
+            <motion.div
+              animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
+              transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+              className="pointer-events-none absolute bottom-8 left-8 z-20 hidden rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2 text-xs text-white/75 shadow-2xl backdrop-blur-xl md:block"
+            >
+              Your data
+            </motion.div>
 
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={handleComparison}
-            className="h-14 px-8 rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10"
-          >
-            Why Not Wix or Shopify?
-          </Button>
+            <motion.div
+              whileHover={{ y: -6, rotate: -0.2 }}
+              transition={{ type: 'spring', stiffness: 120, damping: 16 }}
+              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d1120] shadow-[0_35px_110px_rgba(0,0,0,0.38)] backdrop-blur-2xl"
+            >
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(250,204,21,0.13),transparent_30%),radial-gradient(circle_at_74%_40%,rgba(34,197,94,0.10),transparent_36%),radial-gradient(circle_at_90%_12%,rgba(168,85,247,0.18),transparent_40%)]" />
 
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={handleOpenBlog}
-            className="h-14 px-8 rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10"
-          >
-            <span className="flex items-center justify-center gap-2">
-              <BookOpen className="w-5 h-5" />
-              <span>Read the Blog</span>
-            </span>
-          </Button>
-        </motion.div>
+              <div className="relative z-20 border-b border-white/10 bg-[#111827]/88 px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-red-400/80" />
+                  <span className="h-3 w-3 rounded-full bg-yellow-300/80" />
+                  <span className="h-3 w-3 rounded-full bg-green-400/80" />
+                  <span className="ml-3 hidden rounded-full bg-black/20 px-3 py-1 text-[11px] text-white/55 sm:inline">
+                    clean handoff • live website • real files
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative flex aspect-[1.55/1] min-h-[280px] items-center justify-center overflow-hidden bg-[#111123] px-4 py-4 sm:min-h-[340px] sm:px-6 md:min-h-[410px] lg:min-h-[430px]">
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,#08141b_0%,#111327_48%,#241640_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_44%,rgba(250,204,21,0.16),transparent_24%),radial-gradient(circle_at_75%_15%,rgba(168,85,247,0.16),transparent_34%)]" />
+
+                <motion.div
+                  className="relative z-10 flex h-full w-full items-center justify-center"
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <LottiePlayer src="/lottie/Web Development.lottie" className="h-full w-full max-w-[620px]" />
+                </motion.div>
+
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(120deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.025)_34%,transparent_58%),radial-gradient(circle_at_18%_8%,rgba(255,255,255,0.12),transparent_30%)] mix-blend-screen"
+                />
+                <motion.div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-30 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent"
+                  animate={{ x: ['-120%', '120%'] }}
+                  transition={{ duration: 5.2, repeat: Infinity, repeatDelay: 4.2, ease: 'easeInOut' }}
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-20 bg-gradient-to-t from-[#111123] to-transparent" />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
 
         <motion.div
           variants={scaleIn}
-          className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+          whileHover={{ y: -3 }}
+          transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+          className="relative mt-12 overflow-hidden rounded-3xl border border-white/10 bg-[#101724]/88 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl md:p-6"
         >
-          <div className="flex items-center justify-center mb-3">
-            <Code className="w-6 h-6 text-green-400 mr-2" />
-            <span className="text-lg font-semibold text-white">Built for Real Business Launches</span>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_8%_30%,rgba(34,197,94,0.14),transparent_26%),radial-gradient(circle_at_90%_15%,rgba(168,85,247,0.12),transparent_30%)]" />
+          <div className="relative grid gap-5 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+            <div className="flex items-start gap-4 text-left">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-green-400/20 bg-green-400/10 shadow-[0_0_30px_rgba(34,197,94,0.12)]">
+                <Rocket className="h-6 w-6 text-green-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white">Built for Real Business Launches</h3>
+                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-gray-300">
+                  Everything is designed around ownership: your files, your live site, your next move.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {[
+                'Project files included',
+                'Live deployment ready',
+                'No platform lock-in',
+              ].map((item, index) => (
+                <motion.div
+                  key={item}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 240, damping: 18 }}
+                  className="rounded-2xl border border-green-400/15 bg-[#0e2a22]/70 px-4 py-3 text-sm font-medium text-green-100/90 shadow-[0_12px_30px_rgba(34,197,94,0.06)]"
+                >
+                  <span className="flex items-center gap-2">
+                    <motion.span
+                      animate={{ scale: [1, 1.18, 1] }}
+                      transition={{ duration: 2.4, repeat: Infinity, delay: index * 0.35, ease: 'easeInOut' }}
+                    >
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-green-400" />
+                    </motion.span>
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <p className="text-gray-300 leading-relaxed">
-            This is for people who want something real. Maybe you are starting from scratch.
-            Maybe you are rebuilding after wasting time on platforms that looked easy until they did not.
-            Either way, the goal is simple: get online with something you can actually keep.
-          </p>
         </motion.div>
       </motion.section>
 
       <motion.section
         id="what-you-get"
-        className="relative z-10 max-w-7xl mx-auto px-6 pb-16"
+        className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-16 md:pt-20"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -283,58 +418,76 @@ export default function HomePage() {
           StartOva gives you something tangible.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <motion.div variants={scaleIn}>
-            <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
-              <div className="flex items-center gap-3 mb-4">
-                <FolderCode className="w-6 h-6 text-green-400" />
-                <h3 className="text-xl font-semibold text-white">The Actual Project</h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} transition={{ type: 'spring', stiffness: 180, damping: 18 }}>
+            <div className="group relative h-full overflow-hidden rounded-3xl border border-[#b7d3fb] bg-[#DCEAFF] p-6 shadow-[0_18px_55px_rgba(4,18,38,0.22)] transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_20px_65px_rgba(16,185,129,0.18)]">
+              <div className="relative grid gap-5 sm:grid-cols-[1fr_140px] sm:items-center">
+                <div className="order-2 sm:order-1">
+                  <div className="mb-4 flex items-center gap-3">
+                    <FolderCode className="h-6 w-6 shrink-0 text-emerald-600" />
+                    <h3 className="text-xl font-semibold text-slate-950">The Actual Project</h3>
+                  </div>
+                  <ul className="space-y-3 text-slate-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      Full codebase delivered in a usable format
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      GitHub repository included when applicable
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      ZIP-ready handoff so you actually have the files
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      Something you can edit, expand, or hand off later
+                    </li>
+                  </ul>
+                </div>
+                <div className="order-1 flex justify-center sm:order-2 sm:justify-end">
+                  <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl bg-[#DCEAFF] sm:h-32 sm:w-32">
+                    <LottiePlayer src="/lottie/Folder Processing.lottie" className="h-full w-full scale-[1.12]" />
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  Full codebase delivered in a usable format
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  GitHub repository included when applicable
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  ZIP-ready handoff so you actually have the files
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  Something you can edit, expand, or hand off later
-                </li>
-              </ul>
             </div>
           </motion.div>
 
-          <motion.div variants={scaleIn}>
-            <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
-              <div className="flex items-center gap-3 mb-4">
-                <Rocket className="w-6 h-6 text-green-400" />
-                <h3 className="text-xl font-semibold text-white">A Live Working Version</h3>
+          <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} transition={{ type: 'spring', stiffness: 180, damping: 18 }}>
+            <div className="group relative h-full overflow-hidden rounded-3xl border border-white/90 bg-[#FFFFFF] p-6 shadow-[0_18px_55px_rgba(4,18,38,0.22)] transition-all duration-300 hover:border-emerald-400/45 hover:shadow-[0_20px_65px_rgba(16,185,129,0.16)]">
+              <div className="relative grid gap-5 sm:grid-cols-[1fr_140px] sm:items-center">
+                <div className="order-2 sm:order-1">
+                  <div className="mb-4 flex items-center gap-3">
+                    <Rocket className="h-6 w-6 shrink-0 text-emerald-600" />
+                    <h3 className="text-xl font-semibold text-slate-950">A Live Working Version</h3>
+                  </div>
+                  <ul className="space-y-3 text-slate-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      Live deployment ready to use from day one
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      Vercel-friendly launch path for modern projects
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      Ready to share, test, or launch without setup chaos
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                      Less guessing, less friction, more forward momentum
+                    </li>
+                  </ul>
+                </div>
+                <div className="order-1 flex justify-center sm:order-2 sm:justify-end">
+                  <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl bg-[#FFFFFF] sm:h-32 sm:w-32">
+                    <LottiePlayer src="/lottie/Rocket in space.lottie" className="h-full w-full scale-[1.08]" />
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  Live deployment ready to use from day one
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  Vercel-friendly launch path for modern projects
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  Ready to share, test, or launch without setup chaos
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                  Less guessing, less friction, more forward momentum
-                </li>
-              </ul>
             </div>
           </motion.div>
         </div>
@@ -476,17 +629,27 @@ export default function HomePage() {
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {categories.map((category) => (
-            <motion.div key={category.id} variants={scaleIn}>
+          {categories.map((category, index) => (
+            <motion.div
+              key={category.id}
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.025 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+            >
               <Card
                 className="h-full cursor-pointer border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.22)] hover:border-green-400/30 hover:shadow-[0_16px_50px_rgba(34,197,94,0.12)] group transition-all duration-300 hover:-translate-y-1"
                 onClick={() => handleCategoryClick(category.id)}
               >
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="rounded-2xl bg-white/5 border border-white/10 p-4 group-hover:border-green-400/30 transition-colors">
+                    <motion.div
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 3.2, repeat: Infinity, delay: index * 0.25, ease: 'easeInOut' }}
+                      className="rounded-2xl bg-white/5 border border-white/10 p-4 group-hover:border-green-400/30 group-hover:bg-green-400/10 transition-colors"
+                    >
                       <category.icon className="w-10 h-10 text-green-400 group-hover:text-purple-300 transition-colors" />
-                    </div>
+                    </motion.div>
                   </div>
                   <CardTitle className="text-lg text-white">{category.name}</CardTitle>
                   <CardDescription className="text-gray-400">{category.description}</CardDescription>
@@ -519,9 +682,20 @@ export default function HomePage() {
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.slice(0, 6).map((product) => (
-            <motion.div key={product.id} variants={scaleIn}>
-              <Card className="h-full group cursor-pointer border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_16px_50px_rgba(0,0,0,0.25)] hover:border-green-400/30 hover:shadow-[0_18px_60px_rgba(34,197,94,0.10)] transition-all duration-300 hover:-translate-y-1">
+          {PRODUCTS.slice(0, 6).map((product, index) => (
+            <motion.div
+              key={product.id}
+              variants={scaleIn}
+              whileHover={{ y: -10, scale: 1.018 }}
+              transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+            >
+              <Card className="relative h-full group cursor-pointer overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_16px_50px_rgba(0,0,0,0.25)] hover:border-green-400/30 hover:shadow-[0_18px_60px_rgba(34,197,94,0.16)] transition-all duration-300">
+                <motion.div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-300/70 to-transparent"
+                  animate={{ opacity: [0.35, 1, 0.35] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: 'easeInOut' }}
+                />
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start gap-4 mb-2">
                     <CardTitle className="text-white text-xl leading-tight group-hover:text-green-300 transition-colors">
@@ -539,10 +713,10 @@ export default function HomePage() {
 
                 <CardFooter className="pt-6">
                   <Button
-                    className="w-full h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_24px_rgba(34,197,94,0.28)] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+                    className="group w-full h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_24px_rgba(34,197,94,0.28)] hover:scale-[1.01] hover:shadow-[0_10px_32px_rgba(34,197,94,0.42)] transition-all flex items-center justify-center gap-2"
                     onClick={() => router.push(`/product/${product.id}`)}
                   >
-                    <ArrowRight className="w-4 h-4 relative top-[1px]" />
+                    <ArrowRight className="w-4 h-4 relative top-[1px] transition-transform group-hover:translate-x-1" />
                     <span>Customize and Launch</span>
                   </Button>
                 </CardFooter>
@@ -594,11 +768,21 @@ export default function HomePage() {
                 'Receive a finished build, the project files, and a live version so you can actually move forward.',
             },
           ].map((item, index) => (
-            <motion.div key={index} variants={scaleIn}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] text-center hover:border-purple-400/20 transition-colors">
+            <motion.div
+              key={index}
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 190, damping: 18 }}
+            >
+              <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] text-center hover:border-purple-400/30 hover:bg-white/[0.07] transition-colors">
                 <div className="flex justify-center mb-4">
                   <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
-                    <item.icon className="w-8 h-8 text-green-400" />
+                    <motion.div
+                      animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.06, 1] }}
+                      transition={{ duration: 3.5, repeat: Infinity, delay: index * 0.35, ease: 'easeInOut' }}
+                    >
+                      <item.icon className="w-8 h-8 text-green-400" />
+                    </motion.div>
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
@@ -692,15 +876,21 @@ export default function HomePage() {
           StartOva was built for exactly that frustration.
         </motion.p>
 
-        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+        <motion.div variants={fadeInUp} className="relative mx-auto flex w-full max-w-lg flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center">
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-green-400/10 blur-2xl"
+            animate={{ opacity: [0.25, 0.45, 0.25], scale: [0.96, 1.04, 0.96] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
           <Button
             size="lg"
-            className="text-lg h-14 px-8 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_30px_rgba(34,197,94,0.35)] hover:scale-[1.02] transition-all"
+            className="group h-14 min-w-[180px] rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 px-8 text-sm font-bold leading-none text-black shadow-[0_8px_30px_rgba(34,197,94,0.35)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_42px_rgba(34,197,94,0.45)] sm:text-base"
             onClick={handleBrowseProducts}
           >
-            <span className="flex items-center justify-center gap-2">
+            <span className="flex items-center justify-center gap-2 whitespace-nowrap">
               <span>Start Your Build</span>
-              <ArrowRight className="w-5 h-5 relative top-[1px]" />
+              <ArrowRight className="relative top-[1px] h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
             </span>
           </Button>
 
@@ -708,9 +898,9 @@ export default function HomePage() {
             variant="outline"
             size="lg"
             onClick={handleWhatYouGet}
-            className="h-14 px-8 rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10"
+            className="h-14 min-w-[170px] rounded-xl border-white/15 bg-white/5 px-8 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:text-base"
           >
-            See What You Get
+            <span className="whitespace-nowrap">See What You Get</span>
           </Button>
         </motion.div>
       </motion.section>
