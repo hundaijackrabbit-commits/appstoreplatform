@@ -206,3 +206,42 @@ export function getAllCategorySlugPairs(): Array<{
     }))
   );
 }
+
+export function getRelatedPosts(
+  category: BlogCategory,
+  slug: string,
+  limit = 4
+): BlogPostMeta[] {
+  const publishedPosts = getPublishedPostsByCategory(category);
+  const currentPost = publishedPosts.find((post) => post.slug === slug);
+
+  if (!currentPost) return [];
+
+  const sameCluster = publishedPosts.filter(
+    (post) =>
+      post.slug !== slug &&
+      Boolean(post.cluster) &&
+      Boolean(currentPost.cluster) &&
+      post.cluster === currentPost.cluster
+  );
+
+  const sameCategory = publishedPosts.filter(
+    (post) =>
+      post.slug !== slug &&
+      !sameCluster.some((clusterPost) => clusterPost.slug === post.slug)
+  );
+
+  return [...sameCluster, ...sameCategory].slice(0, limit);
+}
+
+export function getFeaturedPublishedPosts(limit = 6): BlogPostMeta[] {
+  return getAllPosts()
+    .filter((post) => post.status === 'published')
+    .sort((a, b) => {
+      if (!a.date && !b.date) return a.title.localeCompare(b.title);
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    })
+    .slice(0, limit);
+}

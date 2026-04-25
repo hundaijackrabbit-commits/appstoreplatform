@@ -1,12 +1,22 @@
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Briefcase, ChevronLeft } from 'lucide-react';
-import { getPostsByCategory } from '@/lib/blog';
-
+import { getFeaturedPublishedPosts, getPublishedPostsByCategory } from '@/lib/blog';
+export const metadata = {
+  title: 'StartOva Blog',
+  description: 'Read StartOva guides on website ownership, online business, local growth, and building online without platform lock-in.',
+  alternates: {
+    canonical: 'https://startova.space/blog',
+  },
+};
 export const revalidate = 3600;
 
 export default function BlogHubPage() {
-  const startSmartCount = getPostsByCategory('start-smart').length;
-  const buildAndScaleCount = getPostsByCategory('build-and-scale').length;
+  const startSmartPosts = getPublishedPostsByCategory('start-smart');
+  const buildAndScalePosts = getPublishedPostsByCategory('build-and-scale');
+  const featuredPosts = getFeaturedPublishedPosts(6);
+
+  const startSmartCount = startSmartPosts.length;
+  const buildAndScaleCount = buildAndScalePosts.length;
 
   return (
     <main className="min-h-screen bg-[--color-background] text-white px-6 py-12">
@@ -96,6 +106,50 @@ export default function BlogHubPage() {
             </article>
           </Link>
         </div>
+
+        {featuredPosts.length > 0 ? (
+          <section className="mt-12">
+            <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="text-sm uppercase tracking-[0.16em] text-[--color-muted] mb-2">
+                  Featured Guides
+                </p>
+                <h2 className="text-2xl font-semibold text-white">
+                  Start with these internal paths
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-sm font-medium text-[--color-primary]"
+              >
+                View all guides
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+              {featuredPosts.map((post) => (
+                <Link
+                  key={`${post.category}-${post.slug}`}
+                  href={`/blog/${post.category}/${post.slug}`}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+                >
+                  <p className="text-xs uppercase tracking-[0.15em] text-[--color-muted] mb-2">
+                    {post.category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
+                    {post.cluster ? ` / ${post.cluster.replace(/-/g, ' ')}` : ''}
+                  </p>
+                  <h3 className="text-lg font-semibold text-white mb-2 leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-6">
+                    {post.excerpt || 'Read this StartOva guide.'}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
       </div>
     </main>
   );

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, Home, BookOpen } from 'lucide-react';
@@ -12,7 +13,29 @@ export const revalidate = 3600;
 type PageProps = {
   params: Promise<{ category: string }>;
 };
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { category } = await params;
 
+  if (!isValidCategory(category)) {
+    return {
+      title: 'Blog Section Not Found',
+      alternates: {
+        canonical: 'https://startova.space/blog',
+      },
+    };
+  }
+
+  const title = getCategoryTitle(category);
+  const description = getCategoryDescription(category);
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://startova.space/blog/${category}`,
+    },
+  };
+}
 export async function generateStaticParams() {
   return CATEGORIES.map((category) => ({ category }));
 }
@@ -23,6 +46,10 @@ function isValidCategory(value: string): value is BlogCategory {
 
 function getCategoryTitle(category: BlogCategory) {
   return category === 'start-smart' ? 'Start Smart' : 'Build & Scale';
+}
+
+function getOppositeCategory(category: BlogCategory): BlogCategory {
+  return category === 'start-smart' ? 'build-and-scale' : 'start-smart';
 }
 
 function getCategoryDescription(category: BlogCategory) {
@@ -39,6 +66,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
   }
 
   const posts = getPublishedPostsByCategory(category);
+  const oppositeCategory = getOppositeCategory(category);
 
   return (
     <main className="min-h-screen bg-[--color-background] text-white px-6 py-12">
@@ -74,6 +102,15 @@ export default async function BlogCategoryPage({ params }: PageProps) {
             {getCategoryDescription(category)}
           </p>
         </div>
+
+        {posts.length > 0 ? (
+          <div className="mb-8 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-gray-300">
+            <p className="font-medium text-white mb-2">Internal reading path</p>
+            <p className="leading-6">
+              Start with any guide below, then use the related-article cards inside each post to move through connected topics.
+            </p>
+          </div>
+        ) : null}
 
         {posts.length === 0 ? (
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-gray-300">
@@ -119,6 +156,14 @@ export default async function BlogCategoryPage({ params }: PageProps) {
               >
                 <BookOpen className="w-4 h-4" />
                 Back to Blog Hub
+              </Link>
+
+              <Link
+                href={`/blog/${oppositeCategory}`}
+                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10 transition"
+              >
+                <ArrowRight className="w-4 h-4" />
+                {oppositeCategory === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
               </Link>
 
               <Link
