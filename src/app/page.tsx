@@ -207,7 +207,7 @@ export default function HomePage() {
               variants={fadeInUp}
               className="text-balance text-[2.65rem] font-bold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
             >
-              Stop Renting Your Website.
+              Own Your Website. Own Your Code.
               <br />
               <motion.span
                 initial={{ opacity: 0, y: 18, scale: 0.97 }}
@@ -215,7 +215,7 @@ export default function HomePage() {
                 transition={{ delay: 0.55, duration: 0.7, ease: 'easeOut' }}
                 className="mt-2 inline-block bg-gradient-to-r from-green-300 via-emerald-400 to-green-500 bg-clip-text text-transparent"
               >
-                Own It.
+                Launch in Days, Not Months.
               </motion.span>
             </motion.h1>
 
@@ -223,15 +223,15 @@ export default function HomePage() {
               variants={fadeInUp}
               className="mx-auto mt-6 max-w-[34rem] overflow-hidden text-pretty text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
             >
-              Ever build something on Wix or Shopify and then realize you do not really own it?
-              Yeah. That part never feels great.
+              Most website builders feel easy until you realize you do not actually own what you built.
+              You are renting space on someone else’s platform.
             </motion.p>
 
             <motion.p
               variants={fadeInUp}
               className="mx-auto mt-4 max-w-[34rem] overflow-hidden text-pretty text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
             >
-              StartOva helps you launch with a real website or app, a clean handoff, and a live version ready to go without platform lock-in.
+              StartOva gives you something different: a real website or app, the full codebase, and a live deployed version. No lock-in. No subscriptions. No platform controlling your business.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mx-auto mt-6 grid w-full max-w-sm grid-cols-1 gap-2 sm:max-w-none sm:grid-cols-3 lg:mx-0 lg:justify-start">
@@ -254,7 +254,7 @@ export default function HomePage() {
                   onClick={handleBrowseProducts}
                 >
                   <span className="flex items-center justify-center gap-2">
-                    <span className="whitespace-nowrap">Browse Products</span>
+                    <span className="whitespace-nowrap">Launch Your Business This Week</span>
                     <ArrowRight className="relative top-[1px] h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Button>
@@ -307,7 +307,7 @@ export default function HomePage() {
               transition={{ type: 'spring', stiffness: 120, damping: 16 }}
               className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0d1120] shadow-[0_24px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:rounded-[2rem]"
             >
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(250,204,21,0.13),transparent_30%),radial-gradient(circle_at_74%_40%,rgba(34,197,94,0.10),transparent_36%),radial-gradient(circle_at_90%_12%,rgba(168,85,247,0.18),transparent_40%)]" />
+              <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_42%,rgba(250,204,21,0.10),transparent_30%),radial-gradient(circle_at_74%_40%,rgba(34,197,94,0.10),transparent_36%),radial-gradient(circle_at_90%_12%,rgba(168,85,247,0.18),transparent_40%)]" />
 
               <div className="relative z-20 border-b border-white/10 bg-[#111827]/88 px-4 py-3">
                 <div className="flex items-center gap-2">
@@ -320,17 +320,17 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="relative flex aspect-[1.18/1] min-h-0 items-center justify-center overflow-hidden bg-[#111123] px-3 py-3 sm:aspect-[1.45/1] sm:px-5 md:aspect-[1.55/1]">
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,#08141b_0%,#111327_48%,#241640_100%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_44%,rgba(250,204,21,0.16),transparent_24%),radial-gradient(circle_at_75%_15%,rgba(168,85,247,0.16),transparent_34%)]" />
-
-                <motion.div
-                  className="relative z-10 flex h-full w-full items-center justify-center"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <LottiePlayer src="/lottie/Web Development.lottie" className="h-full w-full max-w-[520px] sm:max-w-[620px]" />
-                </motion.div>
+              <div className="relative overflow-hidden bg-black">
+                <video
+                  className="aspect-[9/16] w-full max-h-[720px] object-cover md:aspect-[16/10] md:max-h-none"
+                  src="/videos/startova-hero.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="StartOva website ownership preview video"
+                />
 
                 <div
                   aria-hidden="true"
@@ -407,15 +407,14 @@ export default function HomePage() {
           variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          You Do Not Just Get a Website. You Get the Whole Thing.
+          You Do Not Just Get a Website. You Get a Real Business Asset.
         </motion.h2>
 
         <motion.p
           variants={fadeInUp}
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
-          This is where a lot of platforms get slippery. They give you access.
-          StartOva gives you something tangible.
+          This is where a lot of platforms get slippery. They give you access. StartOva gives you something tangible: the GitHub-ready project or ZIP, plus a live deployed version ready on day one.
         </motion.p>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -907,9 +906,7 @@ export default function HomePage() {
 
       <section className="relative z-10 max-w-4xl mx-auto px-6 pb-12">
         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 text-sm text-gray-500 leading-relaxed shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-          StartOva helps entrepreneurs and small business owners build websites and web applications they can fully own.
-          Unlike website builders and hosted store platforms, StartOva focuses on real project handoff, code access, GitHub-ready delivery,
-          and live deployment so users can launch with more control and less long-term platform dependency.
+          StartOva helps entrepreneurs and small business owners own their websites, source code, and digital business assets. Unlike hosted website builders and subscription store platforms, StartOva focuses on real project handoff, GitHub-ready delivery, ZIP access, and live deployment so users can launch with more control and less long-term platform dependency.
         </div>
       </section>
 
