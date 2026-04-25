@@ -234,6 +234,33 @@ export function getRelatedPosts(
   return [...sameCluster, ...sameCategory].slice(0, limit);
 }
 
+
+export function getCategoryLabel(category: BlogCategory) {
+  return category === 'start-smart' ? 'Start Smart' : 'Build & Scale';
+}
+
+export function getCategoryDescription(category: BlogCategory) {
+  return category === 'start-smart'
+    ? 'Beginner-friendly guides about starting online, understanding website ownership, and avoiding platform lock-in.'
+    : 'Practical guides for small businesses that want better visibility, trust, leads, and stronger digital ownership.';
+}
+
+export function getCrossCategoryPosts(category: BlogCategory, limit = 3): BlogPostMeta[] {
+  const oppositeCategory: BlogCategory = category === 'start-smart' ? 'build-and-scale' : 'start-smart';
+  return getPublishedPostsByCategory(oppositeCategory).slice(0, limit);
+}
+
+export function getTopicClusterPosts(category: BlogCategory, cluster: string | undefined, limit = 6): BlogPostMeta[] {
+  const posts = getPublishedPostsByCategory(category);
+
+  if (!cluster) return posts.slice(0, limit);
+
+  const clusterPosts = posts.filter((post) => post.cluster === cluster);
+  const fallbackPosts = posts.filter((post) => post.cluster !== cluster);
+
+  return [...clusterPosts, ...fallbackPosts].slice(0, limit);
+}
+
 export function getFeaturedPublishedPosts(limit = 6): BlogPostMeta[] {
   return getAllPosts()
     .filter((post) => post.status === 'published')

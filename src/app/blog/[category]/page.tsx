@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ArrowRight, Home, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Home, BookOpen, Link2 } from 'lucide-react';
 import {
   CATEGORIES,
   type BlogCategory,
@@ -110,6 +110,26 @@ export default async function BlogCategoryPage({ params }: PageProps) {
               Start with any guide below, then use the related-article cards inside each post to move through connected topics.
             </p>
           </div>
+        ) : null}
+
+
+        {posts.length > 0 ? (
+          <section className="mb-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div className="mb-4 flex items-center gap-2 text-sm font-medium text-white">
+              <Link2 className="h-4 w-4 text-[--color-primary]" />
+              Topic paths in this section
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {Array.from(new Set(posts.map((post) => post.cluster).filter(Boolean))).slice(0, 8).map((cluster) => (
+                <span
+                  key={cluster}
+                  className="rounded-full border border-white/10 bg-black/10 px-3 py-1 text-xs uppercase tracking-[0.12em] text-[--color-muted]"
+                >
+                  {cluster?.replace(/-/g, ' ')}
+                </span>
+              ))}
+            </div>
+          </section>
         ) : null}
 
         {posts.length === 0 ? (

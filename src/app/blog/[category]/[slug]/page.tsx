@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Home, BookOpen, FolderOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Home, BookOpen, FolderOpen, Link2, Rocket } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
@@ -10,6 +10,7 @@ import {
   getAllCategorySlugPairs,
   getPostByCategoryAndSlug,
   getRelatedPosts,
+  getCrossCategoryPosts,
 } from '@/lib/blog';
 
 export const revalidate = 3600;
@@ -81,6 +82,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   const relatedPosts = getRelatedPosts(category, slug, 4);
+  const crossCategoryPosts = getCrossCategoryPosts(category, 3);
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -138,6 +140,19 @@ export default async function BlogPostPage({ params }: PageProps) {
           </Link>
         </div>
 
+
+        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-500">
+          <Link href="/" className="hover:text-white">Home</Link>
+          <span className="mx-2">/</span>
+          <Link href="/blog" className="hover:text-white">Blog</Link>
+          <span className="mx-2">/</span>
+          <Link href={`/blog/${category}`} className="hover:text-white">
+            {category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
+          </Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-400">{post.title}</span>
+        </nav>
+
         <article className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-10 shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
           <div className="mb-4 flex flex-wrap gap-3">
             <span className="inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.15em] text-[--color-muted]">
@@ -167,6 +182,75 @@ export default async function BlogPostPage({ params }: PageProps) {
             </ReactMarkdown>
           </div>
         </article>
+
+        <section className="mt-8 rounded-3xl border border-green-400/20 bg-green-400/10 p-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-medium text-green-200">
+                <Rocket className="h-4 w-4" />
+                Turn this guide into action
+              </div>
+              <h2 className="text-2xl font-semibold text-white">Want an owned website instead of another rental platform?</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-300">
+                StartOva delivers the project files, GitHub-ready code, and a live deployed version so your online business has a real asset behind it.
+              </p>
+            </div>
+            <Link
+              href="/#featured-products"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-green-400 px-5 py-3 font-semibold text-black hover:bg-green-300 transition"
+            >
+              See owned website builds
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="mb-4 flex items-center gap-2 text-sm font-medium text-white">
+            <Link2 className="h-4 w-4 text-[--color-primary]" />
+            Explore connected paths
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/blog/start-smart" className="rounded-xl border border-white/10 bg-black/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 transition">
+              Website ownership basics
+            </Link>
+            <Link href="/blog/build-and-scale" className="rounded-xl border border-white/10 bg-black/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 transition">
+              Business growth guides
+            </Link>
+            <Link href="/blog" className="rounded-xl border border-white/10 bg-black/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 transition">
+              Full blog hub
+            </Link>
+          </div>
+        </section>
+
+        {crossCategoryPosts.length > 0 ? (
+          <section className="mt-12">
+            <div className="mb-5">
+              <p className="text-sm uppercase tracking-[0.16em] text-[--color-muted] mb-2">
+                Also Useful
+              </p>
+              <h2 className="text-2xl font-bold text-white">
+                Cross-topic guides
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {crossCategoryPosts.map((crossPost) => (
+                <Link
+                  key={`${crossPost.category}-${crossPost.slug}`}
+                  href={`/blog/${crossPost.category}/${crossPost.slug}`}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+                >
+                  <p className="text-xs uppercase tracking-[0.15em] text-[--color-muted] mb-2">
+                    {crossPost.category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
+                  </p>
+                  <h3 className="text-base font-semibold text-white leading-snug">
+                    {crossPost.title}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
 
         {relatedPosts.length > 0 ? (

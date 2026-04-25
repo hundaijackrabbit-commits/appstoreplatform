@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Briefcase, ChevronLeft } from 'lucide-react';
+import { ArrowRight, BookOpen, Briefcase, ChevronLeft, Link2, Rocket } from 'lucide-react';
 import { getFeaturedPublishedPosts, getPublishedPostsByCategory } from '@/lib/blog';
 export const metadata = {
   title: 'StartOva Blog',
@@ -46,6 +46,30 @@ export default function BlogHubPage() {
             grow with a stronger digital presence.
           </p>
         </div>
+
+
+        <section className="mb-10 rounded-3xl border border-white/10 bg-white/5 p-5 md:p-6">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+              <Link2 className="h-5 w-5 text-[--color-primary]" />
+            </div>
+            <div>
+              <p className="text-sm uppercase tracking-[0.16em] text-[--color-muted]">Internal Linking Map</p>
+              <h2 className="text-xl font-semibold text-white">Start with a topic path</h2>
+            </div>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3">
+            <Link href="/blog/start-smart" className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm text-gray-300 hover:bg-white/10 transition">
+              Learn how website ownership works
+            </Link>
+            <Link href="/blog/build-and-scale" className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm text-gray-300 hover:bg-white/10 transition">
+              Build a stronger business presence
+            </Link>
+            <Link href="/#featured-products" className="rounded-2xl border border-green-400/20 bg-green-400/10 p-4 text-sm text-green-200 hover:bg-green-400/15 transition">
+              Browse owned website builds
+            </Link>
+          </div>
+        </section>
 
         <div className="grid md:grid-cols-2 gap-8">
           <Link href="/blog/start-smart" className="block">
@@ -149,6 +173,19 @@ export default function BlogHubPage() {
             </div>
           </section>
         ) : null}
+
+
+        <section className="mt-12 rounded-3xl border border-green-400/20 bg-green-400/10 p-6 text-center">
+          <Rocket className="mx-auto mb-3 h-6 w-6 text-green-300" />
+          <h2 className="text-2xl font-semibold text-white mb-3">Ready to turn the learning into a launch?</h2>
+          <p className="mx-auto mb-5 max-w-2xl text-gray-300">
+            The blog explains the problems. StartOva builds the owned website, codebase, and live deployment so you can move forward.
+          </p>
+          <Link href="/#featured-products" className="inline-flex items-center gap-2 rounded-xl bg-green-400 px-5 py-3 font-semibold text-black hover:bg-green-300 transition">
+            See website builds
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </section>
 
       </div>
     </main>

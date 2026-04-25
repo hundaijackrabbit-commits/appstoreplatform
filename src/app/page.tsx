@@ -1,6 +1,4 @@
 'use client';
-import dynamic from "next/dynamic";
-const LottiePlayer = dynamic(() => import("@/components/LottiePlayer"), { ssr: false });
 import { motion } from 'framer-motion';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -336,12 +334,6 @@ export default function HomePage() {
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(120deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.025)_34%,transparent_58%),radial-gradient(circle_at_18%_8%,rgba(255,255,255,0.12),transparent_30%)] mix-blend-screen"
                 />
-                <motion.div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 z-30 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent"
-                  animate={{ x: ['-120%', '120%'] }}
-                  transition={{ duration: 5.2, repeat: Infinity, repeatDelay: 4.2, ease: 'easeInOut' }}
-                />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-20 bg-gradient-to-t from-[#111123] to-transparent" />
               </div>
             </motion.div>
@@ -441,7 +433,7 @@ export default function HomePage() {
                 </div>
                 <div className="order-1 flex justify-center sm:order-2 sm:justify-end">
                   <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl bg-[#DCEAFF] sm:h-32 sm:w-32">
-                    <LottiePlayer src="/lottie/Folder Processing.lottie" className="h-full w-full scale-[1.12]" />
+                    <FolderCode className="h-16 w-16 text-emerald-600" aria-hidden="true" />
                   </div>
                 </div>
               </div>
@@ -477,7 +469,7 @@ export default function HomePage() {
                 </div>
                 <div className="order-1 flex justify-center sm:order-2 sm:justify-end">
                   <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl bg-[#FFFFFF] sm:h-32 sm:w-32">
-                    <LottiePlayer src="/lottie/Rocket in space.lottie" className="h-full w-full scale-[1.08]" />
+                    <Rocket className="h-16 w-16 text-emerald-600" aria-hidden="true" />
                   </div>
                 </div>
               </div>
@@ -849,6 +841,27 @@ export default function HomePage() {
           </div>
         </motion.div>
       </motion.section>
+
+      <section id="seo-link-paths" className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
+        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
+          <p className="text-sm uppercase tracking-[0.18em] text-green-300 mb-3">High-intent StartOva guides</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Build knowledge before you build the site</h2>
+          <p className="text-gray-400 max-w-3xl mb-6 text-lg leading-relaxed">
+            These internal paths help visitors understand ownership, platform lock-in, and what it means to launch with real files instead of renting another builder.
+          </p>
+          <div className="grid gap-3 md:grid-cols-3">
+            <a href="/blog/start-smart" className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm text-gray-300 hover:bg-white/10 transition">
+              Learn the basics of owning your website
+            </a>
+            <a href="/blog/build-and-scale" className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm text-gray-300 hover:bg-white/10 transition">
+              Plan a stronger business website strategy
+            </a>
+            <a href="/blog" className="rounded-2xl border border-green-400/20 bg-green-400/10 p-4 text-sm text-green-200 hover:bg-green-400/15 transition">
+              Browse all StartOva guides
+            </a>
+          </div>
+        </div>
+      </section>
 
       <motion.section
         id="final-cta"
