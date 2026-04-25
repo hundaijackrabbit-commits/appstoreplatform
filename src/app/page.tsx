@@ -177,9 +177,6 @@ export default function HomePage() {
 
       <section
         className="relative z-10 mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-5 md:px-6 md:pb-24 md:pt-16"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
           <div className="absolute left-[-18%] top-[-20%] h-[520px] w-[520px] rounded-full bg-green-500/12 blur-[110px]" />
@@ -194,7 +191,6 @@ export default function HomePage() {
         <div className="relative grid min-w-0 items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
           <div className="mx-auto w-full max-w-[min(100%,42rem)] min-w-0 text-center lg:mx-0 lg:text-left">
             <motion.div
-              variants={fadeInUp}
               className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-green-400/20 bg-green-400/10 px-3 py-2 text-[11px] font-medium text-green-200 shadow-[0_0_30px_rgba(34,197,94,0.08)] sm:px-4 md:text-sm"
             >
               <RefreshCcw className="h-4 w-4" />
@@ -202,7 +198,6 @@ export default function HomePage() {
             </motion.div>
 
             <motion.h1
-              variants={fadeInUp}
               className="text-balance text-[2.65rem] font-bold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
             >
               Own Your Website. Own Your Code.
@@ -218,7 +213,6 @@ export default function HomePage() {
             </motion.h1>
 
             <motion.p
-              variants={fadeInUp}
               className="mx-auto mt-6 max-w-[34rem] overflow-hidden text-pretty text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
             >
               Most website builders feel easy until you realize you do not actually own what you built.
@@ -226,7 +220,6 @@ export default function HomePage() {
             </motion.p>
 
             <motion.p
-              variants={fadeInUp}
               className="mx-auto mt-4 max-w-[34rem] overflow-hidden text-pretty text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
             >
               StartOva gives you something different: a real website or app, the full codebase, and a live deployed version. No lock-in. No subscriptions. No platform controlling your business.
@@ -356,7 +349,6 @@ export default function HomePage() {
         </div>
 
         <motion.div
-          variants={scaleIn}
           whileHover={{ y: -3 }}
           transition={{ type: 'spring', stiffness: 180, damping: 18 }}
           className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#101724]/88 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:p-5 md:p-6"
@@ -406,19 +398,14 @@ export default function HomePage() {
       <motion.section
         id="what-you-get"
         className="relative z-10 mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 md:pt-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
           You Do Not Just Get a Website. You Get a Real Business Asset.
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
           This is where a lot of platforms get slippery. They give you access. StartOva gives you something tangible: the GitHub-ready project or ZIP, plus a live deployed version ready on day one.
@@ -499,7 +486,6 @@ export default function HomePage() {
         </div>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 mt-8 max-w-3xl mx-auto"
         >
           Most services give you access to a system. StartOva gives you a working product and the pieces behind it.
@@ -509,19 +495,14 @@ export default function HomePage() {
       <motion.section
         id="comparison"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
           Why Not Just Use Wix or Shopify?
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 max-w-4xl mx-auto mb-10 text-lg leading-relaxed"
         >
           Let’s be honest. Wix and Shopify can feel great at the beginning.
@@ -530,7 +511,6 @@ export default function HomePage() {
         </motion.p>
 
         <motion.div
-          variants={scaleIn}
           className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
         >
           <table className="w-full text-left min-w-[720px]">
@@ -572,7 +552,6 @@ export default function HomePage() {
         </motion.div>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 mt-6 max-w-3xl mx-auto"
         >
           Most platforms help you start fast. StartOva helps you stay independent.
@@ -582,12 +561,8 @@ export default function HomePage() {
       <motion.section
         id="pricing-anchor"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.div
-          variants={scaleIn}
           className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 text-center shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
         >
           <div className="flex items-center justify-center mb-4">
@@ -615,19 +590,14 @@ export default function HomePage() {
       <motion.section
         id="categories"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-16"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
           What Do You Want to Start?
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
           Pick the kind of online business presence that fits your next move.
@@ -638,7 +608,6 @@ export default function HomePage() {
           {categories.map((category, index) => (
             <motion.div
               key={category.id}
-              variants={scaleIn}
               whileHover={{ y: -8, scale: 1.025 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 220, damping: 18 }}
@@ -669,19 +638,14 @@ export default function HomePage() {
       <motion.section
         id="featured-products"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
           Ready-to-Launch Builds
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
           Choose a foundation, customize what you need, and move forward with something you can actually own.
@@ -691,7 +655,6 @@ export default function HomePage() {
           {PRODUCTS.slice(0, 6).map((product, index) => (
             <motion.div
               key={product.id}
-              variants={scaleIn}
               whileHover={{ y: -10, scale: 1.018 }}
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
             >
@@ -735,19 +698,14 @@ export default function HomePage() {
       <motion.section
         id="how-it-works"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
           How StartOva Works
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
           Honestly, it is pretty simple. Pick something close to what you need, point us in the right direction, and get a proper handoff instead of a maze.
@@ -776,7 +734,6 @@ export default function HomePage() {
           ].map((item, index) => (
             <motion.div
               key={index}
-              variants={scaleIn}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 190, damping: 18 }}
             >
@@ -802,19 +759,14 @@ export default function HomePage() {
       <motion.section
         id="who-its-for"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
           Who This Is Not For
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
           StartOva is not for everybody. That is part of the point.
@@ -853,7 +805,6 @@ export default function HomePage() {
         </div>
 
         <motion.p
-          variants={fadeInUp}
           className="text-center text-gray-400 mt-8 max-w-3xl mx-auto"
         >
           This is not the easiest way to build online. It is the more honest one.
@@ -863,12 +814,8 @@ export default function HomePage() {
       <motion.section
         id="learn-before-you-build"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.div
-          variants={scaleIn}
           className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]"
         >
           <p className="text-sm uppercase tracking-[0.18em] text-green-300 mb-3">
@@ -906,19 +853,14 @@ export default function HomePage() {
       <motion.section
         id="final-cta"
         className="relative z-10 max-w-5xl mx-auto px-6 pb-16 text-center"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
       >
         <motion.h2
-          variants={fadeInUp}
           className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight"
         >
           Build It Once. Keep It.
         </motion.h2>
 
         <motion.p
-          variants={fadeInUp}
           className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
           If you are tired of paying for access to something that never really becomes yours,
