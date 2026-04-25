@@ -60,6 +60,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://startova.space/blog/${category}/${slug}`,
       type: 'article',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
+    },
   };
 }
 export default async function BlogPostPage({ params }: PageProps) {
@@ -77,8 +82,35 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(category, slug, 4);
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
+    author: {
+      '@type': 'Organization',
+      name: 'StartOva',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'StartOva',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://startova.space/apple-touch-icon.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://startova.space/blog/${category}/${slug}`,
+    },
+  };
+
   return (
     <main className="min-h-screen bg-[--color-background] text-white px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-wrap gap-3 mb-8">
           <Link

@@ -854,6 +854,49 @@ export default function HomePage() {
       </motion.section>
 
       <motion.section
+        id="learn-before-you-build"
+        className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+      >
+        <motion.div
+          variants={scaleIn}
+          className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]"
+        >
+          <p className="text-sm uppercase tracking-[0.18em] text-green-300 mb-3">
+            Learn Before You Build
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+            Not sure whether to use a website builder, hire an agency, or own your code?
+          </h2>
+          <p className="text-gray-400 max-w-3xl mb-6 text-lg leading-relaxed">
+            Start with our practical guides on website ownership, platform lock-in, online business costs, and building a site you can actually keep.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/blog/start-smart"
+              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-white hover:bg-white/10 transition"
+            >
+              Start Smart Guides
+            </a>
+            <a
+              href="/blog/build-and-scale"
+              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-white hover:bg-white/10 transition"
+            >
+              Build & Scale Guides
+            </a>
+            <a
+              href="/blog"
+              className="rounded-xl border border-green-400/30 bg-green-400/10 px-4 py-2 text-green-300 hover:bg-green-400/20 transition"
+            >
+              View All Articles
+            </a>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
         id="final-cta"
         className="relative z-10 max-w-5xl mx-auto px-6 pb-16 text-center"
         variants={staggerContainer}

@@ -15,8 +15,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StartOva",
-  description: "Start fresh online with less friction",
+  metadataBase: new URL("https://startova.space"),
+  applicationName: "StartOva",
+  title: {
+    default: "Own Your Website | No Subscriptions | StartOva",
+    template: "%s | StartOva",
+  },
+  description:
+    "Build and own your website with full code, GitHub-ready files, ZIP delivery, and live deployment. No subscriptions. No lock-in. Launch your business in days.",
+  keywords: [
+    "own your website",
+    "website without subscription",
+    "website with source code",
+    "buy website with source code",
+    "Wix alternative ownership",
+    "Shopify alternative ownership",
+    "website builder without lock-in",
+    "ready made business website",
+    "launch website with code",
+    "StartOva",
+  ],
+  authors: [{ name: "StartOva" }],
+  creator: "StartOva",
+  publisher: "StartOva",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -24,6 +59,21 @@ export const metadata: Metadata = {
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "StartOva - Own Your Website, Code, and Launch",
+    description:
+      "Get a real website or app you fully own. Includes GitHub-ready files, ZIP delivery, and live deployment. No platform lock-in.",
+    url: "https://startova.space",
+    siteName: "StartOva",
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Own Your Website - StartOva",
+    description:
+      "Stop renting your website. Own your code, get the files, and launch in days.",
   },
 };
 
@@ -70,6 +120,30 @@ export default function RootLayout({
           src="https://tools.luckyorange.com/core/lo.js?site-id=69225886"
           strategy="afterInteractive"
         />
+
+        <Script id="startova-structured-data" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "StartOva",
+            url: "https://startova.space",
+            logo: "https://startova.space/apple-touch-icon.png",
+            description:
+              "StartOva helps entrepreneurs and small business owners own their websites, source code, and deployed digital business assets.",
+            sameAs: [],
+          })}
+        </Script>
+
+        <Script id="startova-website-structured-data" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "StartOva",
+            url: "https://startova.space",
+            description:
+              "Build and own your website with full code, ZIP delivery, GitHub-ready files, and live deployment.",
+          })}
+        </Script>
 
         {children}
         <Analytics />
