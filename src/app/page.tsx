@@ -1,5 +1,6 @@
 'use client';
-import LottiePlayer from "@/components/LottiePlayer"
+import dynamic from "next/dynamic";
+const LottiePlayer = dynamic(() => import("@/components/LottiePlayer"), { ssr: false });
 import { motion } from 'framer-motion';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -23,9 +24,11 @@ import {
   BadgeHelp,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function HomePage() {
   const router = useRouter();
+  const [isMuted, setIsMuted] = useState(true);
 
   const categories = [
     {
@@ -106,12 +109,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen relative overflow-x-hidden bg-[#0a0a14]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.16),transparent_30%),linear-gradient(135deg,rgba(34,197,94,0.06),rgba(99,102,241,0.05),rgba(168,85,247,0.08))] pointer-events-none" />
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.045] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:64px_64px]"
-        animate={{ backgroundPosition: ['0px 0px', '64px 64px'] }}
-        transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-      />
+      
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-16 left-16 w-40 h-40 bg-green-500/15 rounded-full blur-3xl animate-pulse" />
@@ -177,7 +175,7 @@ export default function HomePage() {
         </div>
       </motion.nav>
 
-      <motion.section
+      <section
         className="relative z-10 mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-5 md:px-6 md:pb-24 md:pt-16"
         variants={staggerContainer}
         initial="initial"
@@ -322,15 +320,24 @@ export default function HomePage() {
 
               <div className="relative overflow-hidden bg-black">
                 <video
+                  id="heroVideo"
                   className="aspect-[9/16] w-full max-h-[720px] object-cover md:aspect-[16/10] md:max-h-none"
                   src="/videos/startova-hero.mp4"
-                  autoPlay
-                  muted
+                  poster="/images/hero-poster.jpg"
+                  muted={isMuted}
                   loop
                   playsInline
-                  preload="metadata"
+                  autoPlay
+                  preload="none"
                   aria-label="StartOva website ownership preview video"
                 />
+
+                <button
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="absolute bottom-4 right-4 z-40 bg-black/60 text-white px-3 py-2 rounded-lg text-xs backdrop-blur-md hover:bg-black/80 transition"
+                >
+                  {isMuted ? '🔇 Sound Off' : '🔊 Sound On'}
+                </button>
 
                 <div
                   aria-hidden="true"
@@ -394,7 +401,7 @@ export default function HomePage() {
             </div>
           </div>
         </motion.div>
-      </motion.section>
+      </section>
 
       <motion.section
         id="what-you-get"
