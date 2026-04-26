@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
     author: {
@@ -101,10 +101,43 @@ export default async function BlogPostPage({ params }: PageProps) {
         url: 'https://startova.space/apple-touch-icon.png',
       },
     },
+    datePublished: post.date || undefined,
+    dateModified: post.date || undefined,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://startova.space/blog/${category}/${slug}`,
     },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://startova.space',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://startova.space/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: category === 'start-smart' ? 'Start Smart' : 'Build & Scale',
+        item: `https://startova.space/blog/${category}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: post.title,
+        item: `https://startova.space/blog/${category}/${slug}`,
+      },
+    ],
   };
 
   return (
@@ -112,6 +145,10 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-wrap gap-3 mb-8">

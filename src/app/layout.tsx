@@ -40,6 +40,13 @@ export const metadata: Metadata = {
   publisher: "StartOva",
   alternates: {
     canonical: "/",
+    languages: {
+      "en-CA": "https://startova.space",
+      "x-default": "https://startova.space",
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   robots: {
     index: true,
