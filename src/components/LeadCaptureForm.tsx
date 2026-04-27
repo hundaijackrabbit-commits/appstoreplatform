@@ -10,7 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, User, MessageSquare, Send } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils';
+<<<<<<< HEAD
 import type { Product } from '@/types';
+=======
+import type { Product, ProductCategory } from '@/types';
+>>>>>>> 36c1387 (Fix LeadCaptureForm type error (ProductCategory cast))
 
 interface LeadCaptureFormProps {
   product: Product;
@@ -120,7 +124,11 @@ export default function LeadCaptureForm({ product, selectedAddons, totalPrice, o
             </Label>
             <Select 
               value={formData.projectType} 
+<<<<<<< HEAD
               onValueChange={(value) => setFormData(prev => ({ ...prev, projectType: value }))}
+=======
+              onValueChange={(value) => setFormData(prev => ({ ...prev, projectType: value as ProductCategory }))}
+>>>>>>> 36c1387 (Fix LeadCaptureForm type error (ProductCategory cast))
             >
               <SelectTrigger className="bg-white/5 border-white/10 text-white">
                 <SelectValue placeholder="Select project type" />
