@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -10,11 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, User, MessageSquare, Send } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils';
-<<<<<<< HEAD
-import type { Product } from '@/types';
-=======
 import type { Product, ProductCategory } from '@/types';
->>>>>>> 36c1387 (Fix LeadCaptureForm type error (ProductCategory cast))
 
 interface LeadCaptureFormProps {
   product: Product;
@@ -23,9 +18,31 @@ interface LeadCaptureFormProps {
   onSuccess?: () => void;
 }
 
+type LeadCaptureFormData = {
+  name: string;
+  email: string;
+  projectType: ProductCategory;
+  message: string;
+};
+
+const PRODUCT_CATEGORIES = [
+  'landing-page',
+  'portfolio',
+  'blog',
+  'ecommerce',
+  'saas-tool',
+  'dashboard',
+  'api-service',
+  'mobile-app',
+] as const satisfies readonly ProductCategory[];
+
+function isProductCategory(value: string): value is ProductCategory {
+  return (PRODUCT_CATEGORIES as readonly string[]).includes(value);
+}
+
 export default function LeadCaptureForm({ product, selectedAddons, totalPrice, onSuccess }: LeadCaptureFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<LeadCaptureFormData>({
     name: '',
     email: '',
     projectType: product.category,
@@ -124,11 +141,10 @@ export default function LeadCaptureForm({ product, selectedAddons, totalPrice, o
             </Label>
             <Select 
               value={formData.projectType} 
-<<<<<<< HEAD
-              onValueChange={(value) => setFormData(prev => ({ ...prev, projectType: value }))}
-=======
-              onValueChange={(value) => setFormData(prev => ({ ...prev, projectType: value as ProductCategory }))}
->>>>>>> 36c1387 (Fix LeadCaptureForm type error (ProductCategory cast))
+              onValueChange={(value) => {
+                if (!isProductCategory(value)) return;
+                setFormData((prev) => ({ ...prev, projectType: value }));
+              }}
             >
               <SelectTrigger className="bg-white/5 border-white/10 text-white">
                 <SelectValue placeholder="Select project type" />
