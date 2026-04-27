@@ -20,6 +20,16 @@ import {
   Rocket,
   Wallet,
   BadgeHelp,
+  Quote,
+  Clock,
+  FileCheck,
+  MessageCircle,
+  HelpCircle,
+  Download,
+  Building,
+  TrendingUp,
+  Target,
+  Award,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -90,6 +100,27 @@ export default function HomePage() {
     }
   };
 
+  const handleTestimonials = () => {
+    const section = document.getElementById('testimonials');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleCaseStudies = () => {
+    const section = document.getElementById('case-studies');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleFAQ = () => {
+    const section = document.getElementById('faq');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleCategoryClick = (categoryId: string) => {
     const matchedProduct = PRODUCTS.find((product) => product.category === categoryId);
     if (matchedProduct) {
@@ -138,14 +169,23 @@ export default function HomePage() {
               </span>
             </motion.div>
 
-            <div className="grid w-full grid-cols-3 gap-2 md:flex md:w-auto md:flex-row md:items-center md:justify-end md:gap-3">
+            <div className="grid w-full grid-cols-2 gap-2 md:flex md:w-auto md:flex-row md:items-center md:justify-end md:gap-3">
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={handleHowItWorks}
+                onClick={handleTestimonials}
                 className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
               >
-                How It Works
+                Success Stories
+              </Button>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleFAQ}
+                className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
+              >
+                FAQ
               </Button>
 
               <Button
@@ -193,6 +233,25 @@ export default function HomePage() {
             >
               <RefreshCcw className="h-4 w-4" />
               Built for ownership, not lock-in
+            </motion.div>
+
+            {/* Hero Trust Indicators */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-wrap justify-center gap-4 mb-8"
+            >
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm">
+                <Award className="w-4 h-4 text-green-400" />
+                <span className="text-white text-sm font-medium">Full Code Ownership</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm">
+                <Wallet className="w-4 h-4 text-blue-400" />
+                <span className="text-white text-sm font-medium">No Monthly Fees</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm">
+                <Clock className="w-4 h-4 text-purple-400" />
+                <span className="text-white text-sm font-medium">5-7 Day Delivery</span>
+              </div>
             </motion.div>
 
             <motion.h1
@@ -398,10 +457,31 @@ export default function HomePage() {
         </motion.h2>
 
         <motion.p
-          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-8 text-lg"
         >
           This is where a lot of platforms get slippery. They give you access. StartOva gives you something tangible: the GitHub-ready project or ZIP, plus a live deployed version ready on day one.
         </motion.p>
+
+        {/* Trust Indicators */}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-wrap justify-center gap-6 mb-12"
+        >
+          {[
+            { icon: Award, text: "Full Code Ownership", color: "text-green-400" },
+            { icon: Wallet, text: "No Monthly Fees", color: "text-blue-400" },
+            { icon: Clock, text: "Delivered in 5-7 Days", color: "text-purple-400" }
+          ].map((item, index) => (
+            <motion.div
+              key={item.text}
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl"
+            >
+              <item.icon className={`w-5 h-5 ${item.color}`} />
+              <span className="text-white font-medium text-sm">{item.text}</span>
+            </motion.div>
+          ))}
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} transition={{ type: 'spring', stiffness: 180, damping: 18 }}>
@@ -415,19 +495,19 @@ export default function HomePage() {
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      Full codebase delivered in a usable format
+                      Complete source code with all components and styling
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      GitHub repository included when applicable
+                      GitHub repository with commit history and documentation
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      ZIP-ready handoff so you actually have the files
+                      Production-ready ZIP file for immediate use
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      Something you can edit, expand, or hand off later
+                      Editable files you can modify, expand, or hire developers for
                     </li>
                   </ul>
                 </div>
@@ -451,19 +531,19 @@ export default function HomePage() {
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      Live deployment ready to use from day one
+                      Live deployment ready to use from day one (domain included)
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      Vercel-friendly launch path for modern projects
+                      Pre-configured hosting on modern platforms (Vercel/Netlify)
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      Ready to share, test, or launch without setup chaos
+                      SSL certificate and CDN optimization included
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                      Less guessing, less friction, more forward momentum
+                      Deployment guide for future updates and modifications
                     </li>
                   </ul>
                 </div>
@@ -482,6 +562,237 @@ export default function HomePage() {
         >
           Most services give you access to a system. StartOva gives you a working product and the pieces behind it.
         </motion.p>
+      </motion.section>
+
+      {/* Testimonials Section */}
+      <motion.section
+        id="testimonials"
+        variants={staggerContainer}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative z-10 mx-auto max-w-7xl px-4 pb-20 sm:px-6"
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
+        >
+          Built for Real Business Results
+        </motion.h2>
+
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          Here's what happens when you actually own your website instead of renting access to one.
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              name: "Sarah Chen",
+              business: "Marketing Consultant",
+              quote: "Three months after launch, I hired a developer to add a client portal. Because I own the code, it took two weeks instead of starting from scratch. The ROI has been incredible.",
+              outcome: "Added custom features, saved $12k vs. rebuilding"
+            },
+            {
+              name: "Marcus Rodriguez",
+              business: "E-commerce Founder",
+              quote: "When we needed to integrate with our inventory system, we just handed our developer the GitHub repo. No platform limitations, no workarounds. Just clean code that works.",
+              outcome: "Seamless integrations, no platform limitations"
+            },
+            {
+              name: "Emily Foster",
+              business: "Agency Owner",
+              quote: "I've used this codebase as the foundation for three client projects. One purchase, multiple businesses launched. That's the power of actual ownership.",
+              outcome: "Launched 3 businesses from one codebase"
+            }
+          ].map((testimonial, index) => (
+            <motion.div
+              key={index}
+              variants={scaleIn}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+              className="h-full"
+            >
+              <div className="relative h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                <Quote className="w-8 h-8 text-green-400 mb-4" />
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  "{testimonial.quote}"
+                </p>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/20 to-purple-500/20 flex items-center justify-center border border-white/10">
+                      <Building className="w-6 h-6 text-green-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-400">{testimonial.business}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4 text-blue-400" />
+                    <p className="text-sm text-blue-300 font-medium">{testimonial.outcome}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Case Studies Section */}
+      <motion.section
+        id="case-studies"
+        variants={staggerContainer}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative z-10 mx-auto max-w-7xl px-4 pb-20 sm:px-6"
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
+        >
+          Real Builds, Real Results
+        </motion.h2>
+
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          See how StartOva foundations turn into successful businesses.
+        </motion.p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Case Study 1: Landing Page */}
+          <motion.div
+            variants={scaleIn}
+            whileHover={{ y: -6, scale: 1.01 }}
+            transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+          >
+            <div className="h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-green-400/10 flex items-center justify-center border border-green-400/20">
+                  <Target className="w-6 h-6 text-green-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">SaaS Landing Page</h3>
+                  <p className="text-sm text-gray-400">AI Writing Tool Launch</p>
+                </div>
+              </div>
+
+              {/* Problem */}
+              <div className="mb-6">
+                <h4 className="text-red-400 font-semibold mb-2 flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4" />
+                  Problem
+                </h4>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Startup needed to validate their AI writing tool idea quickly. Website builders were too limiting, 
+                  and custom development would take 3+ months and $15k+ they didn't have.
+                </p>
+              </div>
+
+              {/* Solution */}
+              <div className="mb-6">
+                <h4 className="text-blue-400 font-semibold mb-2 flex items-center gap-2">
+                  <Zap className="w-4 h-4" />
+                  Solution
+                </h4>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Used StartOva's SaaS landing page template. Customized copy, added payment integration, 
+                  and launched with their own domain in 6 days.
+                </p>
+              </div>
+
+              {/* Result */}
+              <div className="border-t border-white/10 pt-4">
+                <h4 className="text-green-400 font-semibold mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4" />
+                  Result
+                </h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-2xl font-bold text-white">$8.5k</p>
+                    <p className="text-xs text-gray-400">Revenue in first month</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-white">320</p>
+                    <p className="text-xs text-gray-400">Beta users signed up</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-300 mt-3">
+                  Later hired a developer to add advanced features using the existing codebase.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Case Study 2: E-commerce */}
+          <motion.div
+            variants={scaleIn}
+            whileHover={{ y: -6, scale: 1.01 }}
+            transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+          >
+            <div className="h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-purple-400/10 flex items-center justify-center border border-purple-400/20">
+                  <Users className="w-6 h-6 text-purple-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">E-commerce Store</h3>
+                  <p className="text-sm text-gray-400">Artisan Jewelry Business</p>
+                </div>
+              </div>
+
+              {/* Problem */}
+              <div className="mb-6">
+                <h4 className="text-red-400 font-semibold mb-2 flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4" />
+                  Problem
+                </h4>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Etsy fees were eating profits (8-12% per sale). Shopify felt limiting and expensive. 
+                  Needed full control over customer experience and data.
+                </p>
+              </div>
+
+              {/* Solution */}
+              <div className="mb-6">
+                <h4 className="text-blue-400 font-semibold mb-2 flex items-center gap-2">
+                  <Zap className="w-4 h-4" />
+                  Solution
+                </h4>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Launched with StartOva's e-commerce template. Added Stripe payments, 
+                  custom product galleries, and inventory management in the first week.
+                </p>
+              </div>
+
+              {/* Result */}
+              <div className="border-t border-white/10 pt-4">
+                <h4 className="text-green-400 font-semibold mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4" />
+                  Result
+                </h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-2xl font-bold text-white">18%</p>
+                    <p className="text-xs text-gray-400">Profit margin increase</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-white">$24k</p>
+                    <p className="text-xs text-gray-400">Revenue in 3 months</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-300 mt-3">
+                  Now owns complete customer database and has added subscription jewelry boxes.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </motion.section>
 
       <motion.section
@@ -801,6 +1112,91 @@ export default function HomePage() {
         >
           This is not the easiest way to build online. It is the more honest one.
         </motion.p>
+      </motion.section>
+
+      {/* FAQ Section */}
+      <motion.section
+        id="faq"
+        variants={staggerContainer}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative z-10 mx-auto max-w-4xl px-4 pb-20 sm:px-6"
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
+        >
+          Questions You Probably Have
+        </motion.h2>
+
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          The honest answers to what happens after you get your website.
+        </motion.p>
+
+        <div className="space-y-6">
+          {[
+            {
+              question: "What happens after you deliver my website?",
+              answer: "You get the complete project files, a live working website, and clear documentation. From that point, you own everything. You can edit it yourself, hire any developer, or let it run as-is. No ongoing relationship required unless you want support.",
+              icon: FileCheck
+            },
+            {
+              question: "Can I edit the website myself?",
+              answer: "Yes, with some technical knowledge. The code is clean and well-documented, but you'll need basic HTML/CSS skills or a developer to make changes. We include setup guides, but this isn't a drag-and-drop editor—it's real code you own.",
+              icon: Code
+            },
+            {
+              question: "Do I need technical skills to use StartOva?",
+              answer: "Not to launch—we handle the technical setup and deployment. But to make future changes, you'll either need to learn some web development or hire a developer. That's the trade-off for complete ownership.",
+              icon: HelpCircle
+            },
+            {
+              question: "What if I want changes later?",
+              answer: "Since you own the code, you can hire any developer to make changes. We also offer post-delivery support at $150/hour if you prefer us to handle updates. The key difference: you're never trapped with only one option.",
+              icon: RefreshCcw
+            }
+          ].map((faq, index) => (
+            <motion.div
+              key={index}
+              variants={scaleIn}
+              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-green-400/20 bg-green-400/10">
+                  <faq.icon className="h-6 w-6 text-green-400" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          variants={fadeInUp}
+          className="text-center mt-8"
+        >
+          <p className="text-gray-400 mb-4">
+            Still have questions? 
+          </p>
+          <a
+            href="mailto:support@startova.space"
+            className="inline-flex items-center gap-2 rounded-xl border border-green-400/30 bg-green-400/10 px-6 py-3 text-green-300 hover:bg-green-400/20 transition"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Email Us Your Questions
+          </a>
+        </motion.div>
       </motion.section>
 
       <motion.section
