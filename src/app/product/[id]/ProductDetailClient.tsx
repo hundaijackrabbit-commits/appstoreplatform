@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { getProductById, calculatePrice } from '@/data/products';
 import { formatCurrency } from '@/lib/utils';
 import { scaleIn } from '@/lib/utils';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
 import {
   ArrowLeft,
   Clock,
@@ -17,6 +18,12 @@ import {
   Zap,
   ShieldCheck,
   Sparkles,
+  Download,
+  GitBranch,
+  Globe,
+  FileCode,
+  Package,
+  Calendar,
 } from 'lucide-react';
 import type { Product } from '@/types';
 
@@ -27,6 +34,7 @@ export default function ProductDetailClient() {
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isOrdering, setIsOrdering] = useState(false);
+  const [checkoutMode, setCheckoutMode] = useState<'stripe' | 'lead'>('stripe');
 
   useEffect(() => {
     if (params.id) {
@@ -83,6 +91,10 @@ export default function ProductDetailClient() {
     } finally {
       setIsOrdering(false);
     }
+  };
+
+  const handleLeadSuccess = () => {
+    router.push('/success/lead-capture');
   };
 
   if (!product) {
@@ -178,6 +190,125 @@ export default function ProductDetailClient() {
               </div>
             </div>
 
+            {/* Deliverables Section */}
+            <motion.div variants={scaleIn} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
+              <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                <Package className="w-5 h-5 text-green-400" />
+                What You Get
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <FileCode className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-medium">Complete Source Code</h4>
+                      <p className="text-gray-300 text-sm mt-1">Full project files, no locked files or restrictions</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <GitBranch className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-medium">GitHub Repository</h4>
+                      <p className="text-gray-300 text-sm mt-1">Professional Git history and ready for deployment</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <Download className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-medium">ZIP Download</h4>
+                      <p className="text-gray-300 text-sm mt-1">Instant download link for immediate access</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <Globe className="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-medium">Live Deployment</h4>
+                      <p className="text-gray-300 text-sm mt-1">Deployed and ready to show clients or users</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <Code className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-medium">Documentation</h4>
+                      <p className="text-gray-300 text-sm mt-1">Setup guide and customization instructions</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <ShieldCheck className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-medium">No Platform Lock-in</h4>
+                      <p className="text-gray-300 text-sm mt-1">Host anywhere, modify freely, truly yours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Timeline Section */}
+            <motion.div variants={scaleIn} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
+              <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-blue-400" />
+                Project Timeline
+              </h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-green-400/20 border border-green-400/30 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-white font-medium">Order Review</h4>
+                      <span className="text-green-400 text-sm font-medium">0-4 hours</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">We review your requirements and confirm project scope</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-purple-400/20 border border-purple-400/30 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-3 h-3 rounded-full bg-purple-400"></div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-white font-medium">Development</h4>
+                      <span className="text-purple-400 text-sm font-medium">{product.buildTime.display}</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">Custom build using {product.techStack.join(', ')} with your selected features</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-400/20 border border-blue-400/30 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-3 h-3 rounded-full bg-blue-400"></div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-white font-medium">Deployment & Delivery</h4>
+                      <span className="text-blue-400 text-sm font-medium">Within 24 hours</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">Live deployment, GitHub repo, and download link delivered to your email</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-green-400/10 to-blue-400/10 border border-green-400/20">
+                <p className="text-green-200 text-sm">
+                  <strong>Total Timeline:</strong> Most projects are completed and delivered within {
+                    product.buildTime.max + 28
+                  } hours of order confirmation.
+                </p>
+              </div>
+            </motion.div>
+
             <motion.div variants={scaleIn} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_18px_60px_rgba(0,0,0,0.22)]">
               <div className="flex items-center mb-3">
                 <Zap className="w-6 h-6 text-green-400 mr-2" />
@@ -196,7 +327,38 @@ export default function ProductDetailClient() {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-6"
           >
-            <Card className="sticky top-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_18px_60px_rgba(0,0,0,0.30)] overflow-hidden">
+            {/* Mode Toggle */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-[0_18px_60px_rgba(0,0,0,0.20)]">
+              <div className="flex items-center gap-2 mb-3">
+                <h4 className="text-sm font-medium text-white">Choose Your Path</h4>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setCheckoutMode('stripe')}
+                  className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                    checkoutMode === 'stripe'
+                      ? 'bg-green-400/20 text-green-300 border border-green-400/30'
+                      : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
+                  }`}
+                >
+                  💳 Pay Now
+                </button>
+                <button
+                  onClick={() => setCheckoutMode('lead')}
+                  className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                    checkoutMode === 'lead'
+                      ? 'bg-blue-400/20 text-blue-300 border border-blue-400/30'
+                      : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
+                  }`}
+                >
+                  📧 Get Quote
+                </button>
+              </div>
+            </div>
+
+            {/* Conditional Content Based on Mode */}
+            {checkoutMode === 'stripe' ? (
+              <Card className="sticky top-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_18px_60px_rgba(0,0,0,0.30)] overflow-hidden">
               <div className="px-6 pt-6 pb-4 border-b border-white/10">
                 <div className="flex items-center justify-between mb-2 gap-3">
                   <h3 className="text-xl font-semibold text-white">Checkout Summary</h3>
@@ -298,14 +460,16 @@ export default function ProductDetailClient() {
 
                 <div className="pt-2">
                   <Button
-                    className="w-full h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-semibold shadow-[0_8px_24px_rgba(34,197,94,0.28)] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+                    className="w-full h-14 rounded-xl bg-gradient-to-r from-green-500 to-emerald-400 text-black font-bold shadow-[0_8px_24px_rgba(34,197,94,0.28)] hover:scale-[1.02] transition-all flex items-center justify-center gap-2 text-lg"
                     onClick={handleOrder}
                     disabled={isOrdering}
                   >
-                    <span>Order Now</span>
-                    <span className="text-black/80 text-sm font-medium">
-                      {formatCurrency(totalPrice)}
-                    </span>
+                    <span>{isOrdering ? 'Processing...' : 'Start Project'}</span>
+                    {!isOrdering && (
+                      <span className="text-black/80 text-base font-bold">
+                        {formatCurrency(totalPrice)}
+                      </span>
+                    )}
                   </Button>
                 </div>
 
@@ -320,6 +484,16 @@ export default function ProductDetailClient() {
                 </div>
               </CardContent>
             </Card>
+            ) : (
+              <div className="sticky top-6">
+                <LeadCaptureForm 
+                  product={product} 
+                  selectedAddons={selectedAddons}
+                  totalPrice={totalPrice}
+                  onSuccess={handleLeadSuccess}
+                />
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
