@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { getProductById, calculatePrice } from '@/data/products';
 
+// Note: This will automatically use test mode if STRIPE_SECRET_KEY starts with sk_test_
+// For production, use live keys starting with sk_live_
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
