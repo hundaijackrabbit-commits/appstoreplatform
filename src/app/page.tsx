@@ -141,15 +141,9 @@ export default function HomePage() {
       
 
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-16 left-16 w-40 h-40 bg-green-500/15 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute top-24 right-24 w-56 h-56 bg-purple-500/15 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: '1.8s' }}
-        />
-        <div
-          className="absolute bottom-16 left-1/3 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: '3.2s' }}
-        />
+        <div className="absolute top-16 left-16 w-40 h-40 bg-green-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-24 right-24 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-16 left-1/3 w-72 h-72 bg-blue-500/8 rounded-full blur-3xl" />
       </div>
 
       <motion.nav
@@ -174,7 +168,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleTestimonials}
-                className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
+                className="h-9 w-full px-2 text-xs text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
               >
                 Success Stories
               </Button>
@@ -183,7 +177,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleFAQ}
-                className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
+                className="h-9 w-full px-2 text-xs text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
               >
                 FAQ
               </Button>
@@ -192,7 +186,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleOpenBlog}
-                className="h-9 w-full px-2 text-[11px] text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
+                className="h-9 w-full px-2 text-xs text-white/90 transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:text-white md:h-11 md:w-auto md:px-5 md:text-sm border border-white/10 bg-white/5"
               >
                 <span className="flex items-center justify-center gap-2">
                   <BookOpen className="w-4 h-4 shrink-0" />
@@ -255,9 +249,9 @@ export default function HomePage() {
             </motion.div>
 
             <motion.h1
-              className="text-balance text-[2.65rem] font-bold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
+              className="text-balance text-[2.2rem] font-bold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
             >
-              Own Your Website. Own Your Code.
+              Own Your Website.
               <br />
               <motion.span
                 initial={{ opacity: 0, y: 18, scale: 0.97 }}
@@ -265,21 +259,20 @@ export default function HomePage() {
                 transition={{ delay: 0.55, duration: 0.7, ease: 'easeOut' }}
                 className="mt-2 inline-block bg-gradient-to-r from-green-300 via-emerald-400 to-green-500 bg-clip-text text-transparent"
               >
-                Launch in Days, Not Months.
+                Keep It Forever.
               </motion.span>
             </motion.h1>
 
             <motion.p
-              className="mx-auto mt-6 max-w-[34rem] overflow-hidden text-pretty text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
+              className="mx-auto mt-6 max-w-[34rem] text-pretty text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl lg:mx-0"
             >
-              Most website builders feel easy until you realize you do not actually own what you built.
-              You are renting space on someone else’s platform.
+              Stop renting your website. Get real code, real files, and real ownership.
             </motion.p>
 
             <motion.p
-              className="mx-auto mt-4 max-w-[34rem] overflow-hidden text-pretty text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
+              className="mx-auto mt-4 max-w-[34rem] text-pretty text-sm leading-relaxed text-gray-400 md:text-base lg:mx-0"
             >
-              StartOva gives you something different: a real website or app, the full codebase, and a live deployed version. No lock-in. No subscriptions. No platform controlling your business.
+              Real websites. Real code. Real ownership. Launch in days without monthly fees or platform lock-in.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mx-auto mt-6 grid w-full max-w-sm grid-cols-1 gap-2 sm:max-w-none sm:grid-cols-3 lg:mx-0 lg:justify-start">
@@ -302,7 +295,7 @@ export default function HomePage() {
                   onClick={handleBrowseProducts}
                 >
                   <span className="flex items-center justify-center gap-2">
-                    <span className="whitespace-nowrap">Launch Your Business This Week</span>
+                    <span className="whitespace-nowrap">Start Your Website</span>
                     <ArrowRight className="relative top-[1px] h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Button>
@@ -312,10 +305,10 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={handleComparison}
+                  onClick={handleWhatYouGet}
                   className="h-14 w-full rounded-xl border-white/15 bg-white/5 px-6 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:w-auto sm:min-w-[210px] sm:px-7 sm:text-base"
                 >
-                  <span className="whitespace-nowrap">Why Not Wix or Shopify?</span>
+                  <span className="whitespace-nowrap">See What You Get</span>
                 </Button>
               </motion.div>
             </motion.div>
@@ -328,27 +321,15 @@ export default function HomePage() {
             className="relative mx-auto w-full max-w-[min(100%,42rem)] min-w-0"
           >
             <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-green-400/20 via-transparent to-purple-400/20 blur-3xl" />
-            <motion.div
-              animate={{ rotate: [0, 1.5, 0], y: [0, -8, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-              className="pointer-events-none absolute left-1 top-10 z-20 hidden rounded-2xl border border-green-300/20 bg-[#0b1416]/70 px-4 py-2 text-xs text-green-100 shadow-2xl backdrop-blur-xl md:block"
-            >
+            <div className="pointer-events-none absolute left-1 top-10 z-20 hidden rounded-2xl border border-green-300/20 bg-[#0b1416]/70 px-4 py-2 text-xs text-green-100 shadow-2xl backdrop-blur-xl md:block">
               Your code
-            </motion.div>
-            <motion.div
-              animate={{ rotate: [0, -1.5, 0], y: [0, 10, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-              className="pointer-events-none absolute right-2 top-32 z-20 hidden rounded-2xl border border-purple-300/20 bg-[#151126]/70 px-4 py-2 text-xs text-purple-100 shadow-2xl backdrop-blur-xl md:block"
-            >
+            </div>
+            <div className="pointer-events-none absolute right-2 top-32 z-20 hidden rounded-2xl border border-purple-300/20 bg-[#151126]/70 px-4 py-2 text-xs text-purple-100 shadow-2xl backdrop-blur-xl md:block">
               Your brand
-            </motion.div>
-            <motion.div
-              animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
-              transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-              className="pointer-events-none absolute bottom-8 left-8 z-20 hidden rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2 text-xs text-white/75 shadow-2xl backdrop-blur-xl md:block"
-            >
+            </div>
+            <div className="pointer-events-none absolute bottom-8 left-8 z-20 hidden rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2 text-xs text-white/75 shadow-2xl backdrop-blur-xl md:block">
               Your data
-            </motion.div>
+            </div>
 
             <motion.div
               whileHover={{ y: -6, rotate: -0.2 }}
@@ -431,12 +412,7 @@ export default function HomePage() {
                   className="rounded-2xl border border-green-400/15 bg-[#0e2a22]/70 px-4 py-3 text-sm font-medium text-green-100/90 shadow-[0_12px_30px_rgba(34,197,94,0.06)]"
                 >
                   <span className="flex items-center gap-2">
-                    <motion.span
-                      animate={{ scale: [1, 1.18, 1] }}
-                      transition={{ duration: 2.4, repeat: Infinity, delay: index * 0.35, ease: 'easeInOut' }}
-                    >
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-green-400" />
-                    </motion.span>
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-green-400" />
                     {item}
                   </span>
                 </motion.div>
@@ -446,6 +422,50 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* Pain Point Section - Renting vs Owning */}
+      <motion.section
+        className="relative z-10 mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 md:px-6"
+        variants={staggerContainer}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      >
+        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
+          <div className="text-center">
+            <motion.p variants={fadeInUp} className="text-sm uppercase tracking-[0.18em] text-red-300 mb-3">
+              The Problem With Website Builders
+            </motion.p>
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight max-w-4xl mx-auto">
+              You're paying monthly to rent something you'll never own
+            </motion.h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <motion.div variants={scaleIn} className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6">
+                <h3 className="text-lg font-semibold text-red-300 mb-3">Renting (Most Platforms)</h3>
+                <ul className="text-gray-400 space-y-2 text-sm text-left">
+                  <li>• Monthly fees forever</li>
+                  <li>• Platform controls your site</li>
+                  <li>• Limited customization</li>
+                  <li>• Lose everything if you stop paying</li>
+                  <li>• Can't move to another host</li>
+                </ul>
+              </motion.div>
+              
+              <motion.div variants={scaleIn} className="rounded-2xl border border-green-500/20 bg-green-500/5 p-6">
+                <h3 className="text-lg font-semibold text-green-300 mb-3">Owning (StartOva)</h3>
+                <ul className="text-gray-300 space-y-2 text-sm text-left">
+                  <li>• Pay once, own forever</li>
+                  <li>• You control everything</li>
+                  <li>• Complete source code access</li>
+                  <li>• Host anywhere you want</li>
+                  <li>• Edit with any developer</li>
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
       <motion.section
         id="what-you-get"
         className="relative z-10 mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 md:pt-20"
@@ -453,13 +473,13 @@ export default function HomePage() {
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          You Do Not Just Get a Website. You Get a Real Business Asset.
+          What You Actually Get
         </motion.h2>
 
         <motion.p
           className="text-center text-gray-400 max-w-3xl mx-auto mb-8 text-lg"
         >
-          This is where a lot of platforms get slippery. They give you access. StartOva gives you something tangible: the GitHub-ready project or ZIP, plus a live deployed version ready on day one.
+          Real deliverables you can use, edit, and own. No access credentials that disappear when you stop paying.
         </motion.p>
 
         {/* Trust Indicators */}
@@ -1019,13 +1039,13 @@ export default function HomePage() {
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          Why StartOva Costs Less Than Traditional Agencies
+          Affordable Without Being Cheap
         </motion.h2>
 
         <motion.p
           className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
         >
-          It's not about cutting corners. It's about removing barriers to entrepreneurship.
+          Focused builds, reusable systems, and clear scope keep costs low without sacrificing quality.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -1166,11 +1186,9 @@ export default function HomePage() {
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
             >
               <Card className="relative h-full group cursor-pointer overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_16px_50px_rgba(0,0,0,0.25)] hover:border-green-400/30 hover:shadow-[0_18px_60px_rgba(34,197,94,0.16)] transition-all duration-300">
-                <motion.div
+                <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-300/70 to-transparent"
-                  animate={{ opacity: [0.35, 1, 0.35] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: 'easeInOut' }}
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-300/40 to-transparent"
                 />
                 
                 {/* Best For Badge */}
@@ -1524,7 +1542,7 @@ export default function HomePage() {
             onClick={handleBrowseProducts}
           >
             <span className="flex items-center justify-center gap-2 whitespace-nowrap">
-              <span>Start Your Build</span>
+              <span>Start Your Website</span>
               <ArrowRight className="relative top-[1px] h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
             </span>
           </Button>
@@ -1533,7 +1551,7 @@ export default function HomePage() {
             variant="outline"
             size="lg"
             onClick={handleWhatYouGet}
-            className="h-14 min-w-[170px] rounded-xl border-white/15 bg-white/5 px-8 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:text-base"
+            className="h-14 w-full rounded-xl border-white/15 bg-white/5 px-8 text-sm font-semibold leading-none text-white hover:bg-white/10 sm:w-auto sm:min-w-[170px] sm:text-base"
           >
             <span className="whitespace-nowrap">See What You Get</span>
           </Button>
