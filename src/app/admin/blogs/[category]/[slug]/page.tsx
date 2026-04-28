@@ -44,7 +44,7 @@ export default async function AdminEditBlogPage({ params, searchParams }: PagePr
           </div>
         ) : null}
 
-        <form action={savePost} encType="multipart/form-data" className="space-y-6">
+        <form action={savePost} className="space-y-6">
           <input type="hidden" name="category" value={category} />
           <input type="hidden" name="slug" value={slug} />
           <input type="hidden" name="currentHeroImage" value={heroImage} />

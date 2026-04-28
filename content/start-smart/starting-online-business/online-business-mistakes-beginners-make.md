@@ -1,11 +1,14 @@
 ---
-title: "17 Online Business Mistakes Beginners Make (And How to Avoid Them)"
-slug: "online-business-mistakes-beginners-make"
-category: "start-smart"
-cluster: "starting-online-business"
+title: 17 Online Business Mistakes Beginners Make (And How to Avoid Them)
+slug: online-business-mistakes-beginners-make
+category: start-smart
+cluster: starting-online-business
 published: true
 wordCount: 2428
-excerpt: "Starting an online business feels like navigating a minefield blindfolded."
+excerpt: Starting an online business feels like navigating a minefield blindfolded.
+heroImage: >-
+  /blog-hero-images/start-smart/online-business-mistakes-beginners-make-hero-1777366863864.png
+heroImageAlt: 17 Online Business Mistakes Beginners Make (And How to Avoid Them)
 ---
 
 ## Introduction

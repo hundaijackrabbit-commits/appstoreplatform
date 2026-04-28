@@ -1,7 +1,8 @@
 'use server';
 
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
+import { Buffer } from 'buffer';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { savePostEdits, updatePostPublishedStatus } from '@/lib/blog-admin';
@@ -16,7 +17,7 @@ const ALLOWED_HERO_IMAGE_TYPES = new Map([
 ]);
 
 function safeFileName(value: string) {
-  return value
+  return String(value || '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
@@ -34,13 +35,32 @@ function editPath(category: BlogCategory, slug: string, message?: string, type: 
   return `/admin/blogs/${category}/${slug}${query ? `?${query}` : ''}`;
 }
 
+function isUploadFile(value: FormDataEntryValue | null): value is File {
+  return Boolean(
+    value &&
+      typeof value === 'object' &&
+      'size' in value &&
+      'type' in value &&
+      'arrayBuffer' in value &&
+      typeof (value as File).arrayBuffer === 'function'
+  );
+}
+
+function getErrorMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return String(error);
+}
+
 async function saveHeroImageUpload(category: BlogCategory, slug: string, file: File | null) {
   if (!file || file.size === 0) return null;
 
   const extension = ALLOWED_HERO_IMAGE_TYPES.get(file.type);
   if (!extension) {
     return {
-      error: 'Hero image must be a JPG, PNG, WebP, or AVIF file.',
+      error: `Hero image must be a JPG, PNG, WebP, or AVIF file. Your file type was: ${file.type || 'unknown'}.`,
       path: null,
     };
   }
@@ -53,24 +73,36 @@ async function saveHeroImageUpload(category: BlogCategory, slug: string, file: F
   }
 
   try {
-    const uploadDir = path.join(process.cwd(), 'public', 'blog-hero-images', category);
-    fs.mkdirSync(uploadDir, { recursive: true });
-
+    const safeCategory = safeFileName(category) || 'general';
     const cleanSlug = safeFileName(slug) || 'blog-post';
+    const uploadDir = path.join(process.cwd(), 'public', 'blog-hero-images', safeCategory);
+
+    await fs.mkdir(uploadDir, { recursive: true });
+
     const fileName = `${cleanSlug}-hero-${Date.now()}.${extension}`;
     const fullPath = path.join(uploadDir, fileName);
     const arrayBuffer = await file.arrayBuffer();
 
-    fs.writeFileSync(fullPath, Buffer.from(arrayBuffer));
+    if (!arrayBuffer.byteLength) {
+      return {
+        error: 'The selected image appears to be empty. Please choose a different image.',
+        path: null,
+      };
+    }
+
+    await fs.writeFile(fullPath, Buffer.from(arrayBuffer));
+    await fs.access(fullPath);
 
     return {
       error: null,
-      path: `/blog-hero-images/${category}/${fileName}`,
+      path: `/blog-hero-images/${safeCategory}/${fileName}`,
     };
   } catch (error) {
+    const message = getErrorMessage(error);
     console.error('Failed to save hero image upload:', error);
+
     return {
-      error: 'The image upload failed on the server. Please try a smaller image or restart the dev server.',
+      error: `The image upload failed while writing the file. Details: ${message}`,
       path: null,
     };
   }
@@ -109,7 +141,7 @@ export async function savePost(formData: FormData) {
   const heroImageAlt = (formData.get('heroImageAlt') as string) || title;
   const removeHeroImage = formData.get('removeHeroImage') === 'true';
   const uploadedHeroImage = formData.get('heroImage');
-  const heroImageUpload = uploadedHeroImage instanceof File ? uploadedHeroImage : null;
+  const heroImageUpload = isUploadFile(uploadedHeroImage) ? uploadedHeroImage : null;
 
   if (!category || !slug) {
     redirect('/admin/blogs?error=Missing%20blog%20post%20category%20or%20slug.');
