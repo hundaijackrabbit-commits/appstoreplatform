@@ -6,10 +6,20 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { name, email, projectType, message, productId, selectedAddons, totalPrice } = body;
 
+    // Handle different types of leads
+    const isBlogSubscription = projectType === 'blog-subscription';
+    
     // Basic validation
-    if (!name || !email || !productId) {
+    if (!email) {
       return NextResponse.json(
-        { success: false, error: 'Name, email, and product are required' },
+        { success: false, error: 'Email is required' },
+        { status: 400 }
+      );
+    }
+
+    if (!isBlogSubscription && (!name || !productId)) {
+      return NextResponse.json(
+        { success: false, error: 'Name and product are required for project requests' },
         { status: 400 }
       );
     }
@@ -23,12 +33,15 @@ export async function POST(req: Request) {
       );
     }
 
-    const product = getProductById(productId);
-    if (!product) {
-      return NextResponse.json(
-        { success: false, error: 'Invalid product' },
-        { status: 400 }
-      );
+    let product = null;
+    if (productId && !isBlogSubscription) {
+      product = getProductById(productId);
+      if (!product) {
+        return NextResponse.json(
+          { success: false, error: 'Invalid product' },
+          { status: 400 }
+        );
+      }
     }
 
     // In a real app, you would:
@@ -37,32 +50,48 @@ export async function POST(req: Request) {
     // 3. Notify team of new lead
     
     // For now, just log the lead (in production, save to database)
-    console.log('New lead captured:', {
-      name,
-      email,
-      projectType,
-      message,
-      productId: product.id,
-      productName: product.name,
-      selectedAddons,
-      totalPrice,
-      timestamp: new Date().toISOString(),
-    });
+    if (isBlogSubscription) {
+      console.log('New blog subscription:', {
+        email,
+        projectType,
+        message,
+        timestamp: new Date().toISOString(),
+      });
 
-    // Simulate sending confirmation email
-    await sendConfirmationEmail({
-      name,
-      email,
-      productName: product.name,
-      totalPrice,
-    });
+      // Simulate sending subscription confirmation email
+      await sendBlogSubscriptionEmail({ email });
+    } else {
+      console.log('New lead captured:', {
+        name,
+        email,
+        projectType,
+        message,
+        productId: product?.id,
+        productName: product?.name,
+        selectedAddons,
+        totalPrice,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Simulate sending confirmation email
+      await sendConfirmationEmail({
+        name,
+        email,
+        productName: product?.name || '',
+        totalPrice: totalPrice || 0,
+      });
+    }
 
     // Generate a simple lead ID for tracking
     const leadId = `lead_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
+    const responseMessage = isBlogSubscription 
+      ? 'Thank you for subscribing! You\'ll receive our next guide soon.'
+      : 'Thank you for your interest! We\'ll be in touch within 4 hours.';
+
     return NextResponse.json({
       success: true,
-      message: 'Thank you for your interest! We\'ll be in touch within 4 hours.',
+      message: responseMessage,
       leadId,
     });
   } catch (error: any) {
@@ -112,4 +141,30 @@ The StartOva Team
   //   template: 'lead-confirmation',
   //   data: { name, productName, totalPrice }
   // });
+}
+
+// Blog subscription confirmation email
+async function sendBlogSubscriptionEmail({ email }: { email: string }) {
+  console.log(`Sending blog subscription confirmation to ${email}:`);
+  console.log(`
+Subject: Welcome to StartOva's Website Ownership Guide Series
+
+Hi there!
+
+Thank you for subscribing to our website ownership guide series. You're now part of a community of 2,000+ business owners learning to build and own their digital presence.
+
+What to expect:
+✓ Weekly actionable guides delivered to your inbox
+✓ No-fluff content focused on practical business outcomes  
+✓ Tips on avoiding platform lock-in and building real digital assets
+
+Your next guide will arrive within a week. Each one builds on the previous, so you'll develop a complete understanding of website ownership step by step.
+
+Questions? Reply to this email — we read every message.
+
+Best regards,
+The StartOva Team
+
+P.S. Ready to skip the theory and get your owned website built? Check out our professional website builds at https://startova.space/#featured-products
+  `);
 }

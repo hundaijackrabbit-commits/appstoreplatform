@@ -1,0 +1,43 @@
+
+> startova@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.17.0.4:3000
+✓ Ready in 413ms
+Warning: Custom Cache-Control headers detected for the following routes:
+  - /_next/static/:path*
+
+Setting a custom Cache-Control header can break Next.js development behavior.
+
+BlogContentRenderer rendering with: {
+  category: 'start-smart',
+  slug: 'online-business-mistakes-beginners-make'
+}
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 1611ms (next.js: 908ms, generate-params: 677ms, application-code: 703ms)
+BlogContentRenderer rendering with: {
+  category: 'start-smart',
+  slug: 'online-business-mistakes-beginners-make'
+}
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 271ms (next.js: 25ms, generate-params: 20ms, application-code: 246ms)
+BlogContentRenderer rendering with: {
+  category: 'start-smart',
+  slug: 'online-business-mistakes-beginners-make'
+}
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 352ms (next.js: 23ms, generate-params: 18ms, application-code: 330ms)
+BlogContentRenderer rendering with: {
+  category: 'start-smart',
+  slug: 'online-business-mistakes-beginners-make'
+}
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 309ms (next.js: 21ms, generate-params: 17ms, application-code: 288ms)
+✓ Compiled in 155ms
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 495ms (next.js: 75ms, generate-params: 18ms, application-code: 421ms)
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 407ms (next.js: 9ms, generate-params: 62µs, application-code: 398ms)
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 377ms (next.js: 3ms, generate-params: 35µs, application-code: 374ms)
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 337ms (next.js: 7ms, generate-params: 43µs, application-code: 330ms)
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 210ms (next.js: 8ms, generate-params: 81µs, application-code: 202ms)
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 106ms (next.js: 4ms, generate-params: 79µs, application-code: 101ms)
+✓ Compiled in 69ms
+✓ Compiled in 174ms
+ GET /blog/start-smart/online-business-mistakes-beginners-make 200 in 521ms (next.js: 21ms, generate-params: 17ms, application-code: 499ms)
