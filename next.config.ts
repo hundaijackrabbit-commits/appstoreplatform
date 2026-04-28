@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: {
     serverActions: {
-      bodySizeLimit: '8mb',
+      bodySizeLimit: '25mb',
     },
   },
   images: {
@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: '/images/:path*', headers: longTermCacheHeaders },
+      { source: '/blog-hero-images/:path*', headers: longTermCacheHeaders },
       { source: '/generated/:path*', headers: longTermCacheHeaders },
       { source: '/previews/:path*', headers: longTermCacheHeaders },
       { source: '/lottie/:path*', headers: longTermCacheHeaders },

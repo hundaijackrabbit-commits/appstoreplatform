@@ -5,10 +5,16 @@ import type { BlogCategory } from '@/lib/blog';
 
 type PageProps = {
   params: Promise<{ category: string; slug: string }>;
+  searchParams?: Promise<{ error?: string; success?: string }>;
 };
 
-export default async function AdminEditBlogPage({ params }: PageProps) {
+export const runtime = 'nodejs';
+
+export default async function AdminEditBlogPage({ params, searchParams }: PageProps) {
   const { category, slug } = await params;
+  const status = searchParams ? await searchParams : {};
+  const errorMessage = status.error ? decodeURIComponent(status.error) : '';
+  const successMessage = status.success ? decodeURIComponent(status.success) : '';
   const post = readPostForEditing(category as BlogCategory, slug);
 
   if (!post) {
@@ -23,10 +29,22 @@ export default async function AdminEditBlogPage({ params }: PageProps) {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-3">Edit Blog Post</h1>
         <p className="mb-8 text-gray-400">
-          Upload a 16:9 hero image for best results. Recommended size: 1600 × 900 px. JPG, PNG, WebP, or AVIF under 4 MB.
+          Upload a 16:9 hero image for best results. Recommended size: 1600 × 900 px. JPG, PNG, WebP, or AVIF under 12 MB.
         </p>
 
-        <form action={savePost} className="space-y-6">
+        {errorMessage ? (
+          <div className="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+            {errorMessage}
+          </div>
+        ) : null}
+
+        {successMessage ? (
+          <div className="mb-6 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-200">
+            {successMessage}
+          </div>
+        ) : null}
+
+        <form action={savePost} encType="multipart/form-data" className="space-y-6">
           <input type="hidden" name="category" value={category} />
           <input type="hidden" name="slug" value={slug} />
           <input type="hidden" name="currentHeroImage" value={heroImage} />
