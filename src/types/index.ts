@@ -6,6 +6,9 @@ export interface Product {
   category: ProductCategory;
   buildTime: BuildTime;
   features: string[];
+  keyFeatures: string[];
+  bestFor: string;
+  whatYouGet: string[];
   addons: Addon[];
   previewImage: string;
   techStack: string[];
