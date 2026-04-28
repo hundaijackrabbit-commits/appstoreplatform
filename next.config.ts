@@ -8,6 +8,7 @@ const longTermCacheHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  turbopack: {},
   compress: true,
   poweredByHeader: false,
   experimental: {
@@ -21,7 +22,6 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      { source: '/_next/static/:path*', headers: longTermCacheHeaders },
       { source: '/images/:path*', headers: longTermCacheHeaders },
       { source: '/generated/:path*', headers: longTermCacheHeaders },
       { source: '/previews/:path*', headers: longTermCacheHeaders },
