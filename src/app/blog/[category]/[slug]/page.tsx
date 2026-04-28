@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Home, BookOpen, FolderOpen, Link2, Rocket } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import BlogContentRenderer from '@/components/blog/BlogContentRenderer';
 import {
   CATEGORIES,
   type BlogCategory,
@@ -12,6 +11,7 @@ import {
   getRelatedPosts,
   getCrossCategoryPosts,
 } from '@/lib/blog';
+import { processBlogContent } from '@/lib/blog-content-processor';
 
 export const revalidate = 3600;
 
@@ -213,52 +213,12 @@ export default async function BlogPostPage({ params }: PageProps) {
             </p>
           ) : null}
 
-          <div className="blog-prose">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {post.content}
-            </ReactMarkdown>
-          </div>
+          <BlogContentRenderer 
+            content={processBlogContent(post.content)}
+            category={category}
+            slug={slug}
+          />
         </article>
-
-        <section className="mt-8 rounded-3xl border border-green-400/20 bg-green-400/10 p-6">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium text-green-200">
-                <Rocket className="h-4 w-4" />
-                Turn this guide into action
-              </div>
-              <h2 className="text-2xl font-semibold text-white">Want an owned website instead of another rental platform?</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-300">
-                StartOva delivers the project files, GitHub-ready code, and a live deployed version so your online business has a real asset behind it.
-              </p>
-            </div>
-            <Link
-              href="/#featured-products"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-green-400 px-5 py-3 font-semibold text-black hover:bg-green-300 transition"
-            >
-              See owned website builds
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </section>
-
-        <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
-          <div className="mb-4 flex items-center gap-2 text-sm font-medium text-white">
-            <Link2 className="h-4 w-4 text-[--color-primary]" />
-            Explore connected paths
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/blog/start-smart" className="rounded-xl border border-white/10 bg-black/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 transition">
-              Website ownership basics
-            </Link>
-            <Link href="/blog/build-and-scale" className="rounded-xl border border-white/10 bg-black/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 transition">
-              Business growth guides
-            </Link>
-            <Link href="/blog" className="rounded-xl border border-white/10 bg-black/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 transition">
-              Full blog hub
-            </Link>
-          </div>
-        </section>
 
         {crossCategoryPosts.length > 0 ? (
           <section className="mt-12">
