@@ -12,6 +12,10 @@ export type BlogSlide = {
   kind: string;
   title?: string;
   subtitle?: string;
+  body?: string;
+  url?: string;
+  person?: string;
+  details?: string[];
   stat?: string;
   statCaption?: string;
   citation?: string;
