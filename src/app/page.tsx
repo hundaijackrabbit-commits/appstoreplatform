@@ -802,11 +802,11 @@ export default function HomePage() {
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          Why Not Just Use Wix or Shopify?
+          StartOva vs Traditional Agencies vs Website Builders
         </motion.h2>
 
         <motion.p
-          className="text-center text-gray-400 max-w-4xl mx-auto mb-10 text-lg leading-relaxed"
+          className="text-center text-gray-400 max-w-4xl mx-auto mb-12 text-lg leading-relaxed"
         >
           Let’s be honest. Wix and Shopify can feel great at the beginning.
           Then one day you want to move things, customize more deeply, or stop paying forever.
@@ -816,19 +816,36 @@ export default function HomePage() {
         <motion.div
           className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
         >
-          <table className="w-full text-left min-w-[720px]">
+          <table className="w-full text-left min-w-[900px]">
             <thead className="bg-white/5 border-b border-white/10">
               <tr>
                 <th className="p-4 text-white">Feature</th>
-                <th className="p-4 text-white">StartOva</th>
-                <th className="p-4 text-white">Wix / Shopify</th>
+                <th className="p-4 text-white">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 bg-green-400 rounded-full"></span>
+                    StartOva
+                  </div>
+                </th>
+                <th className="p-4 text-white">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 bg-blue-400 rounded-full"></span>
+                    Traditional Agency
+                  </div>
+                </th>
+                <th className="p-4 text-white">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 bg-purple-400 rounded-full"></span>
+                    Website Builder
+                  </div>
+                </th>
               </tr>
             </thead>
             <tbody className="text-gray-300">
               <tr className="border-b border-white/10">
-                <td className="p-4">Ownership</td>
-                <td className="p-4">You get the real project files</td>
-                <td className="p-4">You are still inside their platform</td>
+                <td className="p-4 font-medium">Ownership</td>
+                <td className="p-4 text-green-300">Complete code ownership</td>
+                <td className="p-4 text-blue-300">You own what you pay for</td>
+                <td className="p-4 text-red-300">Platform owns everything</td>
               </tr>
               <tr className="border-b border-white/10">
                 <td className="p-4">Monthly fees</td>
@@ -865,27 +882,214 @@ export default function HomePage() {
         id="pricing-anchor"
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
       >
-        <motion.div
-          className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 text-center shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
         >
-          <div className="flex items-center justify-center mb-4">
-            <Wallet className="w-6 h-6 text-green-400 mr-2" />
-            <span className="text-lg font-semibold text-white">What Does It Actually Cost?</span>
+          Clear Pricing, Complete Ownership
+        </motion.h2>
+
+        <motion.p
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          No hidden costs, no recurring fees, no platform lock-in. Pay once, own forever.
+        </motion.p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* What's Included Section */}
+          <motion.div
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <CheckCircle2 className="w-6 h-6 text-green-400" />
+              <h3 className="text-xl font-semibold text-white">What's Always Included</h3>
+            </div>
+
+            <ul className="space-y-3 text-gray-300">
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>Complete source code and project files</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>Live website deployed and ready to use</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>Clear documentation and setup instructions</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>Mobile-responsive design for all devices</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>Basic hosting setup guide</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                <span>Email support during build process</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* What Costs Extra Section */}
+          <motion.div
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <Award className="w-6 h-6 text-purple-400" />
+              <h3 className="text-xl font-semibold text-white">Optional Add-ons</h3>
+            </div>
+
+            <ul className="space-y-3 text-gray-300 mb-4">
+              <li className="flex items-start gap-3">
+                <Award className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                <span>Premium design packages (from $15)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Award className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                <span>Advanced features like CMS, analytics (from $20)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Award className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                <span>Custom integrations and APIs (from $30)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Award className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                <span>Future updates and modifications ($150/hour)</span>
+              </li>
+            </ul>
+
+            <div className="p-4 rounded-xl border border-purple-400/20 bg-purple-400/10">
+              <p className="text-purple-200 text-sm">
+                <strong>Important:</strong> You're never locked in. Since you own the code, 
+                any developer can help you make changes.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Delivery Timeline Section */}
+        <motion.div
+          className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Clock className="w-6 h-6 text-blue-400" />
+            <h3 className="text-xl font-semibold text-white">Delivery Timeline</h3>
           </div>
 
-          <p className="text-gray-300 text-lg leading-relaxed mb-4">
-            Here is the part a lot of people do not calculate.
-            A website builder can look cheap at first. Twenty bucks here. Thirty there. Maybe more once you add what you actually need.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="rounded-xl border border-blue-400/20 bg-blue-400/10 p-4 mb-3">
+                <h4 className="text-blue-300 font-semibold mb-2">Simple Projects</h4>
+                <p className="text-white text-2xl font-bold">24-72 hours</p>
+                <p className="text-gray-400 text-sm">Landing pages, portfolios</p>
+              </div>
+            </div>
 
-          <p className="text-gray-400 leading-relaxed mb-4">
-            Then a year goes by and you have paid hundreds for something you still do not fully own.
-            And the meter keeps running.
-          </p>
+            <div className="text-center">
+              <div className="rounded-xl border border-green-400/20 bg-green-400/10 p-4 mb-3">
+                <h4 className="text-green-300 font-semibold mb-2">Medium Projects</h4>
+                <p className="text-white text-2xl font-bold">3-7 days</p>
+                <p className="text-gray-400 text-sm">Blogs, SaaS dashboards</p>
+              </div>
+            </div>
 
-          <p className="text-gray-300 leading-relaxed">
-            With StartOva, the value is not just the build. It is the fact that you get something real.
-            The files. The project. The live version. Something you paid for and can actually keep.
+            <div className="text-center">
+              <div className="rounded-xl border border-orange-400/20 bg-orange-400/10 p-4 mb-3">
+                <h4 className="text-orange-300 font-semibold mb-2">Complex Projects</h4>
+                <p className="text-white text-2xl font-bold">1-3 weeks</p>
+                <p className="text-gray-400 text-sm">E-commerce, custom platforms</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 rounded-xl border border-gray-400/20 bg-gray-400/10">
+            <p className="text-gray-300 text-center">
+              <strong>No coding knowledge required.</strong> We handle everything technical and provide clear instructions for managing your site afterward.
+            </p>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        id="why-startova-costs-less"
+        className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
+      >
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white tracking-tight"
+        >
+          Why StartOva Costs Less Than Traditional Agencies
+        </motion.h2>
+
+        <motion.p
+          className="text-center text-gray-400 max-w-3xl mx-auto mb-12 text-lg"
+        >
+          It's not about cutting corners. It's about removing barriers to entrepreneurship.
+        </motion.p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <motion.div
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Rocket className="w-6 h-6 text-green-400" />
+              <h3 className="text-xl font-semibold text-white">Template-First Efficiency</h3>
+            </div>
+            <p className="text-gray-300 leading-relaxed">
+              We start with proven templates and patterns instead of building everything from scratch. 
+              This means faster delivery without sacrificing quality—you get the benefit of our experience 
+              built into every foundation.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Target className="w-6 h-6 text-blue-400" />
+              <h3 className="text-xl font-semibold text-white">Focused, Not Full-Service</h3>
+            </div>
+            <p className="text-gray-300 leading-relaxed">
+              Traditional agencies handle everything: strategy, design, development, hosting, maintenance. 
+              We focus on one thing: delivering clean, working code that you can own and control. 
+              No consulting overhead, no long discovery phases.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <TrendingUp className="w-6 h-6 text-purple-400" />
+              <h3 className="text-xl font-semibold text-white">Volume & Automation</h3>
+            </div>
+            <p className="text-gray-300 leading-relaxed">
+              By streamlining our process and building lots of similar projects, we can pass savings 
+              to customers. Automated deployment, tested workflows, and refined systems keep our 
+              costs down—and yours too.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="max-w-4xl mx-auto rounded-2xl border border-green-400/20 bg-green-400/10 backdrop-blur-xl p-8 shadow-[0_18px_60px_rgba(34,197,94,0.15)]"
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Building className="w-8 h-8 text-green-300" />
+            <h3 className="text-2xl font-bold text-white">Our Core Belief</h3>
+          </div>
+          
+          <p className="text-green-100 text-lg leading-relaxed text-center mb-4">
+            Everyone should have the capability to be an independent entrepreneur.
+          </p>
+          
+          <p className="text-green-200/90 leading-relaxed text-center">
+            Traditional web development creates barriers: high upfront costs, complex contracts, 
+            ongoing dependencies. StartOva exists to remove these barriers. We believe that if you have 
+            a business idea and the drive to make it happen, website costs shouldn't be what stops you. 
+            Our goal is to get powerful digital tools into as many hands as possible, 
+            at prices that make entrepreneurship accessible.
           </p>
         </motion.div>
       </motion.section>
@@ -968,8 +1172,16 @@ export default function HomePage() {
                   animate={{ opacity: [0.35, 1, 0.35] }}
                   transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: 'easeInOut' }}
                 />
-                <CardHeader className="pb-4">
-                  <div className="flex justify-between items-start gap-4 mb-2">
+                
+                {/* Best For Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 text-blue-200 text-xs font-medium px-3 py-1 rounded-full backdrop-blur-sm">
+                    Best for: {product.bestFor}
+                  </span>
+                </div>
+
+                <CardHeader className="pb-4 pt-16">
+                  <div className="flex justify-between items-start gap-4 mb-3">
                     <CardTitle className="text-white text-xl leading-tight group-hover:text-green-300 transition-colors">
                       {product.name}
                     </CardTitle>
@@ -978,9 +1190,32 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  <CardDescription className="text-sm text-gray-400 leading-relaxed min-h-[72px]">
+                  <CardDescription className="text-sm text-gray-400 leading-relaxed mb-4">
                     {product.description}
                   </CardDescription>
+
+                  {/* Key Features */}
+                  <div className="space-y-2">
+                    <h4 className="text-white font-semibold text-sm">Key Features:</h4>
+                    <ul className="space-y-1">
+                      {product.keyFeatures.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-2 text-sm text-gray-300">
+                          <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Build Time */}
+                  <div className="mt-4 p-3 rounded-lg border border-gray-600/30 bg-gray-600/20">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-orange-300" />
+                      <span className="text-orange-200 font-medium text-sm">
+                        Delivery: {product.buildTime.display}
+                      </span>
+                    </div>
+                  </div>
                 </CardHeader>
 
                 <CardFooter className="pt-6">

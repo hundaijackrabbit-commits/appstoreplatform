@@ -14,6 +14,21 @@ export const PRODUCTS: Product[] = [
       'Contact Form',
       'SEO Optimized'
     ],
+    keyFeatures: [
+      'Launch-ready within 48 hours',
+      'Mobile-first responsive design',
+      'Built-in lead capture forms'
+    ],
+    bestFor: 'Entrepreneurs launching their first product or service',
+    whatYouGet: [
+      'Complete source code and project files',
+      'Live website deployed and ready',
+      'Setup documentation and instructions',
+      'Mobile-optimized design for all devices',
+      'SEO-ready structure and meta tags',
+      'Contact forms with email integration',
+      'Hosting setup guide (works with Vercel, Netlify, etc.)'
+    ],
     previewImage: '/previews/placeholder.svg',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     addons: [
@@ -36,6 +51,22 @@ export const PRODUCTS: Product[] = [
       'About Section', 
       'Contact Integration',
       'Mobile Optimized'
+    ],
+    keyFeatures: [
+      'Professional project showcase',
+      'Smooth animations & interactions',
+      'Easy content management'
+    ],
+    bestFor: 'Freelancers, designers, and creative professionals',
+    whatYouGet: [
+      'Complete portfolio website with project gallery',
+      'Professional about and contact sections',
+      'Smooth animations and micro-interactions',
+      'Easy-to-update project showcase system',
+      'Mobile-responsive design for all devices',
+      'SEO optimization for better discovery',
+      'Complete source code and deployment guide',
+      'Documentation for adding new projects'
     ],
     previewImage: '/previews/placeholder.svg',
     techStack: ['Next.js', 'TypeScript', 'Framer Motion'],
@@ -60,6 +91,23 @@ export const PRODUCTS: Product[] = [
       'Data Tables',
       'API Integration Ready'
     ],
+    keyFeatures: [
+      'Production-ready authentication',
+      'Real-time data visualization',
+      'Scalable architecture'
+    ],
+    bestFor: 'SaaS founders and tech entrepreneurs',
+    whatYouGet: [
+      'Complete dashboard with user authentication system',
+      'Data visualization charts and analytics',
+      'User management and role-based permissions',
+      'API integration templates and documentation',
+      'Database schema and migration files',
+      'Responsive admin interface for all devices',
+      'Complete source code with clear documentation',
+      'Deployment guides for production hosting',
+      'Email templates for user notifications'
+    ],
     previewImage: '/previews/placeholder.svg',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     addons: [
@@ -82,6 +130,24 @@ export const PRODUCTS: Product[] = [
       'Shopping Cart',
       'Payment Processing',
       'Order Management'
+    ],
+    keyFeatures: [
+      'Ready-to-sell product catalog',
+      'Secure payment processing',
+      'Complete order management'
+    ],
+    bestFor: 'Small business owners starting online sales',
+    whatYouGet: [
+      'Complete e-commerce website with product catalog',
+      'Secure Stripe payment integration',
+      'Shopping cart and checkout system',
+      'Order management and customer notifications',
+      'Mobile-responsive design for all devices',
+      'Admin panel for managing products and orders',
+      'Email templates for order confirmations',
+      'Complete source code and documentation',
+      'Hosting and deployment guides',
+      'Basic inventory tracking system'
     ],
     previewImage: '/previews/placeholder.svg',
     techStack: ['Next.js', 'TypeScript', 'Stripe'],
@@ -106,6 +172,24 @@ export const PRODUCTS: Product[] = [
       'Social Sharing',
       'Mobile Responsive'
     ],
+    keyFeatures: [
+      'Easy content management',
+      'SEO-optimized for discovery',
+      'Social sharing built-in'
+    ],
+    bestFor: 'Content creators and thought leaders',
+    whatYouGet: [
+      'Complete blog platform with CMS',
+      'SEO-optimized structure and meta tags',
+      'Social sharing buttons and integration',
+      'Mobile-responsive design for all devices',
+      'Easy-to-use content management system',
+      'Author profiles and bio sections',
+      'Tag and category organization',
+      'Complete source code and documentation',
+      'Hosting setup and deployment guides',
+      'RSS feed generation'
+    ],
     previewImage: '/previews/placeholder.svg',
     techStack: ['Next.js', 'TypeScript', 'MDX'],
     addons: [
@@ -128,6 +212,24 @@ export const PRODUCTS: Product[] = [
       'Authentication & Authorization',
       'Rate Limiting',
       'API Documentation'
+    ],
+    keyFeatures: [
+      'Production-ready REST API',
+      'Built-in security & rate limiting',
+      'Auto-generated documentation'
+    ],
+    bestFor: 'Developers building backend services',
+    whatYouGet: [
+      'Complete REST API with authentication',
+      'Rate limiting and security middleware',
+      'Auto-generated API documentation',
+      'Database models and migration setup',
+      'Error handling and logging systems',
+      'Testing framework and sample tests',
+      'Complete source code with documentation',
+      'Docker configuration for deployment',
+      'Production hosting guidelines',
+      'API client examples and SDKs'
     ],
     previewImage: '/previews/placeholder.svg',
     techStack: ['Next.js', 'TypeScript', 'OpenAPI'],
