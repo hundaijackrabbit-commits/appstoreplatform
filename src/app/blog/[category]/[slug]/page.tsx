@@ -49,6 +49,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const heroImageUrl = post.heroImage ? `https://startova.space${post.heroImage}` : undefined;
+
   return {
     title: post.title,
     description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
@@ -60,11 +62,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
       url: `https://startova.space/blog/${category}/${slug}`,
       type: 'article',
+      ...(heroImageUrl ? { images: [{ url: heroImageUrl, width: 1600, height: 900, alt: post.heroImageAlt || post.title }] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
+      ...(heroImageUrl ? { images: [heroImageUrl] } : {}),
     },
   };
 }
@@ -103,6 +107,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
     datePublished: post.date || undefined,
     dateModified: post.date || undefined,
+    image: post.heroImage ? `https://startova.space${post.heroImage}` : undefined,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://startova.space/blog/${category}/${slug}`,
@@ -211,6 +216,16 @@ export default async function BlogPostPage({ params }: PageProps) {
             <p className="text-lg text-gray-400 leading-8 mb-10">
               {post.excerpt}
             </p>
+          ) : null}
+
+          {post.heroImage ? (
+            <figure className="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-black/20">
+              <img
+                src={post.heroImage}
+                alt={post.heroImageAlt || post.title}
+                className="aspect-video w-full object-cover"
+              />
+            </figure>
           ) : null}
 
           <BlogContentRenderer 
