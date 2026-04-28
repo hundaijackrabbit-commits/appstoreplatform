@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Home, BookOpen, FolderOpen, Link2, Rocket } from 'lucide-react';
 import BlogContentRenderer from '@/components/blog/BlogContentRenderer';
+import BlogSlideDeck from '@/components/blog/BlogSlideDeck';
+import { getBlogSlideDeck } from '@/data/blogSlideDecks';
 import {
   CATEGORIES,
   type BlogCategory,
@@ -87,6 +89,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(category, slug, 4);
   const crossCategoryPosts = getCrossCategoryPosts(category, 3);
+  const slideDeck = getBlogSlideDeck(category, slug);
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -227,6 +230,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               />
             </figure>
           ) : null}
+
+          {slideDeck ? <BlogSlideDeck deck={slideDeck} /> : null}
 
           <BlogContentRenderer 
             content={processBlogContent(post.content)}
