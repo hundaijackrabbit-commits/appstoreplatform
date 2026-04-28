@@ -1545,18 +1545,6 @@ export default function HomePage() {
           StartOva helps entrepreneurs and small business owners own their websites, source code, and digital business assets. Unlike hosted website builders and subscription store platforms, StartOva focuses on real project handoff, GitHub-ready delivery, ZIP access, and live deployment so users can launch with more control and less long-term platform dependency.
         </div>
       </section>
-
-      <footer className="relative z-10 max-w-7xl mx-auto px-6 pb-12 pt-4">
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-6 py-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-          <p className="text-sm uppercase tracking-[0.18em] text-gray-400 mb-2">Support</p>
-          <a
-            href="mailto:support@startova.space"
-            className="text-lg md:text-xl font-semibold text-green-400 hover:text-green-300 transition-colors"
-          >
-            support@startova.space
-          </a>
-        </div>
-      </footer>
     </div>
   );
 }
