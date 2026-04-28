@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -36,7 +37,7 @@ import { useState } from 'react';
 
 export default function HomePage() {
   const router = useRouter();
-  const [isMuted, setIsMuted] = useState(true);
+
 
   const categories = [
     {
@@ -151,7 +152,7 @@ export default function HomePage() {
         animate={{ opacity: 1, y: 0 }}
         className="relative z-10 px-3 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6"
       >
-        <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-white/5 px-3 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:px-4 sm:py-4 md:px-5">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-white/5 px-3 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-sm sm:px-4 sm:py-4 md:px-5">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <motion.div
               whileHover={{ scale: 1.03 }}
@@ -279,7 +280,7 @@ export default function HomePage() {
               {['No monthly fees', 'Full ownership', 'Real handoff'].map((item) => (
                 <span
                   key={item}
-                  className="inline-flex min-w-0 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-medium text-white/80 backdrop-blur-xl"
+                  className="inline-flex min-w-0 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-medium text-white/80 backdrop-blur-sm"
                 >
                   <CheckCircle2 className="h-4 w-4 text-green-400" />
                   {item}
@@ -321,19 +322,19 @@ export default function HomePage() {
             className="relative mx-auto w-full max-w-[min(100%,42rem)] min-w-0"
           >
             <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-green-400/20 via-transparent to-purple-400/20 blur-3xl" />
-            <div className="pointer-events-none absolute left-1 top-10 z-20 hidden rounded-2xl border border-green-300/20 bg-[#0b1416]/70 px-4 py-2 text-xs text-green-100 shadow-2xl backdrop-blur-xl md:block">
+            <div className="pointer-events-none absolute left-1 top-10 z-20 hidden rounded-2xl border border-green-300/20 bg-[#0b1416]/70 px-4 py-2 text-xs text-green-100 shadow-2xl backdrop-blur-sm md:block">
               Your code
             </div>
-            <div className="pointer-events-none absolute right-2 top-32 z-20 hidden rounded-2xl border border-purple-300/20 bg-[#151126]/70 px-4 py-2 text-xs text-purple-100 shadow-2xl backdrop-blur-xl md:block">
+            <div className="pointer-events-none absolute right-2 top-32 z-20 hidden rounded-2xl border border-purple-300/20 bg-[#151126]/70 px-4 py-2 text-xs text-purple-100 shadow-2xl backdrop-blur-sm md:block">
               Your brand
             </div>
-            <div className="pointer-events-none absolute bottom-8 left-8 z-20 hidden rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2 text-xs text-white/75 shadow-2xl backdrop-blur-xl md:block">
+            <div className="pointer-events-none absolute bottom-8 left-8 z-20 hidden rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2 text-xs text-white/75 shadow-2xl backdrop-blur-sm md:block">
               Your data
             </div>
 
             <motion.div
               whileHover={{ y: -6, rotate: -0.2 }}
-              transition={{ type: 'spring', stiffness: 120, damping: 16 }}
+              
               className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0d1120] shadow-[0_24px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:rounded-[2rem]"
             >
               <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_42%,rgba(250,204,21,0.10),transparent_30%),radial-gradient(circle_at_74%_40%,rgba(34,197,94,0.10),transparent_36%),radial-gradient(circle_at_90%_12%,rgba(168,85,247,0.18),transparent_40%)]" />
@@ -350,25 +351,15 @@ export default function HomePage() {
               </div>
 
               <div className="relative overflow-hidden bg-black">
-                <video
-                  id="heroVideo"
+                <Image
+                  src="/images/hero-poster.jpg"
+                  alt="StartOva website ownership dashboard preview"
+                  width={578}
+                  height={883}
+                  priority
                   className="aspect-[9/16] w-full max-h-[720px] object-cover md:aspect-[16/10] md:max-h-none"
-                  src="/videos/startova-hero.mp4"
-                  poster="/images/hero-poster.jpg"
-                  muted={isMuted}
-                  loop
-                  playsInline
-                  autoPlay
-                  preload="none"
-                  aria-label="StartOva website ownership preview video"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
-
-                <button
-                  onClick={() => setIsMuted(!isMuted)}
-                  className="absolute bottom-4 right-4 z-40 bg-black/60 text-white px-3 py-2 rounded-lg text-xs backdrop-blur-md hover:bg-black/80 transition"
-                >
-                  {isMuted ? '🔇 Sound Off' : '🔊 Sound On'}
-                </button>
 
                 <div
                   aria-hidden="true"
@@ -382,8 +373,8 @@ export default function HomePage() {
 
         <motion.div
           whileHover={{ y: -3 }}
-          transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#101724]/88 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:p-5 md:p-6"
+          
+          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#101724]/88 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:p-5 md:p-6"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_8%_30%,rgba(34,197,94,0.14),transparent_26%),radial-gradient(circle_at_90%_15%,rgba(168,85,247,0.12),transparent_30%)]" />
           <div className="relative grid gap-5 lg:grid-cols-[1fr_1.2fr] lg:items-center">
@@ -408,7 +399,7 @@ export default function HomePage() {
                 <motion.div
                   key={item}
                   whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ type: 'spring', stiffness: 240, damping: 18 }}
+                  
                   className="rounded-2xl border border-green-400/15 bg-[#0e2a22]/70 px-4 py-3 text-sm font-medium text-green-100/90 shadow-[0_12px_30px_rgba(34,197,94,0.06)]"
                 >
                   <span className="flex items-center gap-2">
@@ -430,7 +421,7 @@ export default function HomePage() {
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
+        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
           <div className="text-center">
             <motion.p variants={fadeInUp} className="text-sm uppercase tracking-[0.18em] text-red-300 mb-3">
               The Problem With Website Builders
@@ -495,7 +486,7 @@ export default function HomePage() {
             <motion.div
               key={item.text}
               whileHover={{ scale: 1.05, y: -2 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"
             >
               <item.icon className={`w-5 h-5 ${item.color}`} />
               <span className="text-white font-medium text-sm">{item.text}</span>
@@ -504,7 +495,7 @@ export default function HomePage() {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} transition={{ type: 'spring', stiffness: 180, damping: 18 }}>
+          <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} >
             <div className="group relative h-full overflow-hidden rounded-3xl border border-[#b7d3fb] bg-[#DCEAFF] p-6 shadow-[0_18px_55px_rgba(4,18,38,0.22)] transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_20px_65px_rgba(16,185,129,0.18)]">
               <div className="relative grid gap-5 sm:grid-cols-[1fr_140px] sm:items-center">
                 <div className="order-2 sm:order-1">
@@ -540,7 +531,7 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} transition={{ type: 'spring', stiffness: 180, damping: 18 }}>
+          <motion.div variants={scaleIn} whileHover={{ y: -6, scale: 1.01 }} >
             <div className="group relative h-full overflow-hidden rounded-3xl border border-white/90 bg-[#FFFFFF] p-6 shadow-[0_18px_55px_rgba(4,18,38,0.22)] transition-all duration-300 hover:border-emerald-400/45 hover:shadow-[0_20px_65px_rgba(16,185,129,0.16)]">
               <div className="relative grid gap-5 sm:grid-cols-[1fr_140px] sm:items-center">
                 <div className="order-2 sm:order-1">
@@ -632,10 +623,10 @@ export default function HomePage() {
               key={index}
               variants={scaleIn}
               whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+              
               className="h-full"
             >
-              <div className="relative h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+              <div className="relative h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
                 <Quote className="w-8 h-8 text-green-400 mb-4" />
                 <p className="text-gray-300 leading-relaxed mb-6">
                   "{testimonial.quote}"
@@ -689,9 +680,9 @@ export default function HomePage() {
           <motion.div
             variants={scaleIn}
             whileHover={{ y: -6, scale: 1.01 }}
-            transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+            
           >
-            <div className="h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+            <div className="h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-2xl bg-green-400/10 flex items-center justify-center border border-green-400/20">
                   <Target className="w-6 h-6 text-green-400" />
@@ -753,9 +744,9 @@ export default function HomePage() {
           <motion.div
             variants={scaleIn}
             whileHover={{ y: -6, scale: 1.01 }}
-            transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+            
           >
-            <div className="h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+            <div className="h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-2xl bg-purple-400/10 flex items-center justify-center border border-purple-400/20">
                   <Users className="w-6 h-6 text-purple-400" />
@@ -834,7 +825,7 @@ export default function HomePage() {
         </motion.p>
 
         <motion.div
-          className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+          className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
         >
           <table className="w-full text-left min-w-[900px]">
             <thead className="bg-white/5 border-b border-white/10">
@@ -917,7 +908,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* What's Included Section */}
           <motion.div
-            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
           >
             <div className="flex items-center gap-3 mb-6">
               <CheckCircle2 className="w-6 h-6 text-green-400" />
@@ -954,7 +945,7 @@ export default function HomePage() {
 
           {/* What Costs Extra Section */}
           <motion.div
-            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
           >
             <div className="flex items-center gap-3 mb-6">
               <Award className="w-6 h-6 text-purple-400" />
@@ -991,7 +982,7 @@ export default function HomePage() {
 
         {/* Delivery Timeline Section */}
         <motion.div
-          className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+          className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <Clock className="w-6 h-6 text-blue-400" />
@@ -1050,7 +1041,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <motion.div
-            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
           >
             <div className="flex items-center gap-3 mb-4">
               <Rocket className="w-6 h-6 text-green-400" />
@@ -1064,7 +1055,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
           >
             <div className="flex items-center gap-3 mb-4">
               <Target className="w-6 h-6 text-blue-400" />
@@ -1078,7 +1069,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
           >
             <div className="flex items-center gap-3 mb-4">
               <TrendingUp className="w-6 h-6 text-purple-400" />
@@ -1093,7 +1084,7 @@ export default function HomePage() {
         </div>
 
         <motion.div
-          className="max-w-4xl mx-auto rounded-2xl border border-green-400/20 bg-green-400/10 backdrop-blur-xl p-8 shadow-[0_18px_60px_rgba(34,197,94,0.15)]"
+          className="max-w-4xl mx-auto rounded-2xl border border-green-400/20 bg-green-400/10 backdrop-blur-sm p-8 shadow-[0_18px_60px_rgba(34,197,94,0.15)]"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <Building className="w-8 h-8 text-green-300" />
@@ -1137,10 +1128,10 @@ export default function HomePage() {
               key={category.id}
               whileHover={{ y: -8, scale: 1.025 }}
               whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+              
             >
               <Card
-                className="h-full cursor-pointer border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.22)] hover:border-green-400/30 hover:shadow-[0_16px_50px_rgba(34,197,94,0.12)] group transition-all duration-300 hover:-translate-y-1"
+                className="h-full cursor-pointer border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_12px_40px_rgba(0,0,0,0.22)] hover:border-green-400/30 hover:shadow-[0_16px_50px_rgba(34,197,94,0.12)] group transition-all duration-300 hover:-translate-y-1"
                 onClick={() => handleCategoryClick(category.id)}
               >
                 <CardHeader className="text-center">
@@ -1182,10 +1173,10 @@ export default function HomePage() {
           {PRODUCTS.slice(0, 6).map((product, index) => (
             <motion.div
               key={product.id}
-              whileHover={{ y: -10, scale: 1.018 }}
-              transition={{ type: 'spring', stiffness: 180, damping: 18 }}
+              
+              
             >
-              <Card className="relative h-full group cursor-pointer overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_16px_50px_rgba(0,0,0,0.25)] hover:border-green-400/30 hover:shadow-[0_18px_60px_rgba(34,197,94,0.16)] transition-all duration-300">
+              <Card className="relative h-full group cursor-pointer overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_16px_50px_rgba(0,0,0,0.25)] hover:border-green-400/30 hover:shadow-[0_18px_60px_rgba(34,197,94,0.16)] transition-all duration-300">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-300/40 to-transparent"
@@ -1291,9 +1282,9 @@ export default function HomePage() {
             <motion.div
               key={index}
               whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 190, damping: 18 }}
+              
             >
-              <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] text-center hover:border-purple-400/30 hover:bg-white/[0.07] transition-colors">
+              <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] text-center hover:border-purple-400/30 hover:bg-white/[0.07] transition-colors">
                 <div className="flex justify-center mb-4">
                   <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
                     <motion.div
@@ -1330,7 +1321,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={scaleIn}>
-            <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+            <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
               <div className="flex items-center gap-3 mb-4">
                 <BadgeHelp className="w-6 h-6 text-purple-300" />
                 <h3 className="text-xl font-semibold text-white">Probably Not for You If</h3>
@@ -1345,7 +1336,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div variants={scaleIn}>
-            <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+            <div className="h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
               <div className="flex items-center gap-3 mb-4">
                 <CheckCircle2 className="w-6 h-6 text-green-400" />
                 <h3 className="text-xl font-semibold text-white">Probably for You If</h3>
@@ -1416,7 +1407,7 @@ export default function HomePage() {
             <motion.div
               key={index}
               variants={scaleIn}
-              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
+              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-green-400/20 bg-green-400/10">
@@ -1457,7 +1448,7 @@ export default function HomePage() {
         className="relative z-10 max-w-7xl mx-auto px-6 pb-20"
       >
         <motion.div
-          className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]"
+          className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]"
         >
           <p className="text-sm uppercase tracking-[0.18em] text-green-300 mb-3">
             Learn Before You Build
@@ -1492,7 +1483,7 @@ export default function HomePage() {
       </motion.section>
 
       <section id="seo-link-paths" className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
+        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
           <p className="text-sm uppercase tracking-[0.18em] text-green-300 mb-3">High-intent StartOva guides</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Build knowledge before you build the site</h2>
           <p className="text-gray-400 max-w-3xl mb-6 text-lg leading-relaxed">
@@ -1559,7 +1550,7 @@ export default function HomePage() {
       </motion.section>
 
       <section className="relative z-10 max-w-4xl mx-auto px-6 pb-12">
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 text-sm text-gray-500 leading-relaxed shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 text-sm text-gray-500 leading-relaxed shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
           StartOva helps entrepreneurs and small business owners own their websites, source code, and digital business assets. Unlike hosted website builders and subscription store platforms, StartOva focuses on real project handoff, GitHub-ready delivery, ZIP access, and live deployment so users can launch with more control and less long-term platform dependency.
         </div>
       </section>
