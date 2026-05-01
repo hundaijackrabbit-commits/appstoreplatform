@@ -116,7 +116,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        <Script id="clarity" strategy="afterInteractive">
+        <Script id="clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -128,7 +128,7 @@ export default function RootLayout({
 
         <Script
           src="https://tools.luckyorange.com/core/lo.js?site-id=69225886"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         <Script id="startova-structured-data" type="application/ld+json" strategy="afterInteractive">
