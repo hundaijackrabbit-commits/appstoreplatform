@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Home, BookOpen, FolderOpen, Link2, Rocket } from 'lucide-react';
 import BlogContentRenderer from '@/components/blog/BlogContentRenderer';
+import BlogSlideDeck from '@/components/blog/BlogSlideDeck';
+import { getBlogSlideDeck } from '@/data/blogSlideDecks';
 import {
   CATEGORIES,
   type BlogCategory,
@@ -49,6 +51,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const heroImageUrl = post.heroImage ? `https://startova.space${post.heroImage}` : undefined;
+
   return {
     title: post.title,
     description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
@@ -60,11 +64,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
       url: `https://startova.space/blog/${category}/${slug}`,
       type: 'article',
+      ...(heroImageUrl ? { images: [{ url: heroImageUrl, width: 1600, height: 900, alt: post.heroImageAlt || post.title }] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt || `Read ${post.title} on the StartOva blog.`,
+      ...(heroImageUrl ? { images: [heroImageUrl] } : {}),
     },
   };
 }
@@ -83,6 +89,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(category, slug, 4);
   const crossCategoryPosts = getCrossCategoryPosts(category, 3);
+  const slideDeck = getBlogSlideDeck(category, slug);
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -103,6 +110,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
     datePublished: post.date || undefined,
     dateModified: post.date || undefined,
+    image: post.heroImage ? `https://startova.space${post.heroImage}` : undefined,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://startova.space/blog/${category}/${slug}`,
@@ -212,6 +220,18 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.excerpt}
             </p>
           ) : null}
+
+          {post.heroImage ? (
+            <figure className="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-black/20">
+              <img
+                src={post.heroImage}
+                alt={post.heroImageAlt || post.title}
+                className="aspect-video w-full object-cover"
+              />
+            </figure>
+          ) : null}
+
+          {slideDeck ? <BlogSlideDeck deck={slideDeck} /> : null}
 
           <BlogContentRenderer 
             content={processBlogContent(post.content)}

@@ -145,7 +145,15 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                   href={`/blog/${category}/${post.slug}`}
                   className="block"
                 >
-                  <article className="blog-card h-full">
+                  <article className="blog-card h-full overflow-hidden p-0">
+                    {post.heroImage ? (
+                      <img
+                        src={post.heroImage}
+                        alt={post.heroImageAlt || post.title}
+                        className="aspect-video w-full object-cover"
+                      />
+                    ) : null}
+                    <div className="p-5">
                     {post.cluster ? (
                       <p className="text-xs uppercase tracking-[0.15em] text-[--color-muted] mb-3">
                         {post.cluster.replace(/-/g, ' ')}
@@ -163,6 +171,7 @@ export default async function BlogCategoryPage({ params }: PageProps) {
                     <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-[--color-primary]">
                       Read article
                       <ArrowRight className="w-4 h-4" />
+                    </div>
                     </div>
                   </article>
                 </Link>

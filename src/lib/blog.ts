@@ -14,6 +14,8 @@ export type BlogPostMeta = {
   excerpt?: string;
   date?: string;
   published?: boolean;
+  heroImage?: string;
+  heroImageAlt?: string;
   wordCount: number;
   status: BlogStatus;
 };
@@ -118,6 +120,8 @@ function buildMetaFromFile(filePath: string, category: BlogCategory): BlogPostMe
     excerpt,
     date: (data.date as string) || '',
     published,
+    heroImage: (data.heroImage as string) || '',
+    heroImageAlt: (data.heroImageAlt as string) || title,
     wordCount,
     status: getStatus(published, wordCount),
   };
@@ -186,6 +190,8 @@ export function getPostByCategoryAndSlug(
       excerpt: (data.excerpt as string) || '',
       date: (data.date as string) || '',
       published,
+      heroImage: (data.heroImage as string) || '',
+      heroImageAlt: (data.heroImageAlt as string) || ((data.title as string) || formatTitleFromSlug(slugFromFile)),
       wordCount,
       status: getStatus(published, wordCount),
       content,

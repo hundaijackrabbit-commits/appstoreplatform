@@ -156,8 +156,16 @@ export default function BlogHubPage() {
                 <Link
                   key={`${post.category}-${post.slug}`}
                   href={`/blog/${post.category}/${post.slug}`}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition"
+                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
                 >
+                  {post.heroImage ? (
+                    <img
+                      src={post.heroImage}
+                      alt={post.heroImageAlt || post.title}
+                      className="aspect-video w-full object-cover"
+                    />
+                  ) : null}
+                  <div className="p-5">
                   <p className="text-xs uppercase tracking-[0.15em] text-[--color-muted] mb-2">
                     {post.category === 'start-smart' ? 'Start Smart' : 'Build & Scale'}
                     {post.cluster ? ` / ${post.cluster.replace(/-/g, ' ')}` : ''}
@@ -168,6 +176,7 @@ export default function BlogHubPage() {
                   <p className="text-sm text-gray-400 leading-6">
                     {post.excerpt || 'Read this StartOva guide.'}
                   </p>
+                  </div>
                 </Link>
               ))}
             </div>

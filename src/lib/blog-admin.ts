@@ -84,6 +84,8 @@ export function savePostEdits(
     excerpt?: string;
     published: boolean;
     content: string;
+    heroImage?: string;
+    heroImageAlt?: string;
   }
 ) {
   const filePath = findPostFilePath(category, slug);
@@ -95,6 +97,8 @@ export function savePostEdits(
   parsed.data.title = updates.title;
   parsed.data.excerpt = updates.excerpt || '';
   parsed.data.published = updates.published;
+  parsed.data.heroImage = updates.heroImage || '';
+  parsed.data.heroImageAlt = updates.heroImageAlt || updates.title;
 
   fs.writeFileSync(filePath, matter.stringify(updates.content, parsed.data), 'utf8');
   return true;
