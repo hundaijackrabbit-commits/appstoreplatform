@@ -113,6 +113,7 @@ export default function ProductDetailClient() {
   }
 
   const addonsTotal = totalPrice - product.basePrice;
+  const foundingNote = 'Founding client pricing may be available for selected projects.';
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#0a0a14]">
