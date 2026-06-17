@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { PRODUCTS } from '@/data/products';
-import { formatCurrency } from '@/lib/utils';
 import {
   ArrowRight,
   Award,
@@ -192,13 +191,15 @@ export default function HomePage() {
       product: landingProduct,
       intro: 'For launches, offers, personal brands, and simple businesses.',
       items: ['1 page', 'mobile responsive design', 'branded customization', 'contact or inquiry section', 'live deployment', 'source code and file handoff'],
+      priceLabel: 'Starting at $299',
       cta: 'Get Started',
     },
     {
       title: 'Business Website',
       product: businessProduct,
       intro: 'For businesses that need a stronger and more complete online presence.',
-      items: ['professional page structure', 'branded design customization', 'contact section', 'mobile optimization', 'live deployment', 'source code and file handoff'],
+      items: ['up to 5 pages', 'branded design customization', 'contact form', 'mobile optimization', 'live deployment', 'source code and file handoff'],
+      priceLabel: 'Starting at $799',
       cta: 'Get Started',
       featured: true,
     },
@@ -207,6 +208,7 @@ export default function HomePage() {
       product: storeProduct,
       intro: 'For advanced sites with more functionality or custom requirements.',
       items: ['larger project scope', 'more advanced features', 'conversion-focused structure', 'custom review before build', 'deployment and handoff'],
+      priceLabel: 'Starting at $1,499+',
       cta: 'Request a Quote',
     },
   ];
@@ -366,7 +368,7 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm leading-6 text-white/50">Need more than the essentials? Extra pages, copy help, logo support, integrations, and ongoing edits can be scoped separately.</p>
+            <p className="mt-6 text-sm leading-6 text-white/50">Need more than the essentials? Extra pages, copywriting assistance, logo or branding support, integrations, maintenance, and rush delivery can be scoped separately.</p>
           </div>
           <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-white/45">Your handoff</p>
@@ -429,6 +431,9 @@ export default function HomePage() {
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300">Pricing</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Simple pricing</h2>
               <p className="mt-4 text-lg text-white/65">Choose the website type that fits your goals, scope, and stage.</p>
+              <p className="mt-3 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-medium text-emerald-200">
+                Founding client discounts may be available for selected projects while StartOva expands its portfolio.
+              </p>
             </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {pricingPlans.map((plan) => (
@@ -437,7 +442,7 @@ export default function HomePage() {
                     {plan.featured ? <p className="mb-2 text-sm font-semibold text-emerald-300">Most flexible</p> : null}
                     <CardTitle className="text-2xl">{plan.title}</CardTitle>
                     <CardDescription className="text-white/60">{plan.intro}</CardDescription>
-                    <p className="pt-4 text-3xl font-bold text-white">{plan.product ? `Starting at ${formatCurrency(plan.product.basePrice)}` : 'Custom pricing'}</p>
+                    <p className="pt-4 text-3xl font-bold text-white">{plan.priceLabel}</p>
                   </CardHeader>
                   <CardFooter className="mt-auto flex flex-col items-stretch gap-5">
                     <div className="grid gap-3 text-sm text-white/70">
@@ -448,7 +453,12 @@ export default function HomePage() {
                 </Card>
               ))}
             </div>
-            <p className="mt-6 text-sm text-white/50">Optional add-ons available: extra pages, copywriting help, branding support, integrations, ongoing edits, and rush delivery.</p>
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+              <p className="font-semibold text-white">Optional add-ons</p>
+              <p className="mt-2 text-sm leading-6 text-white/55">
+                Extra pages, copywriting assistance, branding support, third-party integrations, ongoing edits, maintenance, and rush delivery can be scoped separately.
+              </p>
+            </div>
           </div>
         </section>
 
