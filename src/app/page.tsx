@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import StartovaLottie from '@/components/StartovaLottie';
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -309,8 +310,11 @@ export default function HomePage() {
 
             <div className="relative">
               <div className="absolute inset-0 rounded-[2rem] bg-emerald-400/12 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#101522] p-3 shadow-2xl">
-                <Image src="/images/startova-hero.webp" alt="StartOva delivery package showing a live website, source code, files, and handoff notes" width={1100} height={860} priority className="h-auto w-full rounded-[1.35rem]" />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#101522] p-4 shadow-2xl sm:p-6">
+                <StartovaLottie
+                  src="/lottie/startova-hero-project.lottie"
+                  className="mx-auto aspect-[1.25/1] w-full max-w-[620px]"
+                />
               </div>
             </div>
           </div>
